@@ -1,6 +1,17 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, ExternalLink, Github, Zap, Cpu, Shield, Smartphone, Code2, CheckCircle2 } from "lucide-react";
+import {
+    ArrowLeft,
+    ArrowRight,
+    ExternalLink,
+    Github,
+    Zap,
+    Cpu,
+    Shield,
+    Smartphone,
+    Code2,
+    CheckCircle2,
+} from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "../../components/ui/Button";
@@ -16,39 +27,61 @@ export default function ProjectContent({ params }: { params: { id: string } }) {
         category: "FinTech",
         year: "2023",
         role: "Lead Frontend Engineer",
-        description: "A high-performance, real-time trading dashboard for a next-gen crypto exchange.",
+        description:
+            "A high-performance, real-time trading dashboard for a next-gen crypto exchange.",
         liveLink: "#",
         githubLink: "#",
-        challenge: "The client needed a dashboard that could handle thousands of real-time data points per second without lagging, while maintaining a premium, futuristic aesthetic. The existing solution was sluggish and difficult to scale.",
-        solution: "We utilized Next.js for server-side rendering and WebSockets for real-time data. Framer Motion was used for smooth transitions, and a custom WebGL layer was implemented for the complex charting requirements. The result is a buttery-smooth experience that keeps traders ahead of the market.",
+        challenge:
+            "The client needed a dashboard that could handle thousands of real-time data points per second without lagging, while maintaining a premium, futuristic aesthetic. The existing solution was sluggish and difficult to scale.",
+        solution:
+            "We utilized Next.js for server-side rendering and WebSockets for real-time data. Framer Motion was used for smooth transitions, and a custom WebGL layer was implemented for the complex charting requirements. The result is a buttery-smooth experience that keeps traders ahead of the market.",
         stack: ["React", "Next.js", "TypeScript", "D3.js", "WebSockets", "Tailwind CSS"],
         stats: [
             { label: "Latency", value: "< 50ms" },
             { label: "Daily Users", value: "50k+" },
             { label: "Uptime", value: "99.99%" },
-            { label: "Trades/Sec", value: "2000+" }
+            { label: "Trades/Sec", value: "2000+" },
         ],
         features: [
-            { icon: <Zap className="w-6 h-6" />, title: "Real-time Engine", desc: "WebSocket integration for sub-millisecond data updates." },
-            { icon: <Cpu className="w-6 h-6" />, title: "WebGL Charting", desc: "Custom GPU-accelerated charts for rendering millions of points." },
-            { icon: <Shield className="w-6 h-6" />, title: "Institutional Security", desc: "Bank-grade encryption and authentication protocols." },
-            { icon: <Smartphone className="w-6 h-6" />, title: "Mobile First", desc: "Fully responsive design that works perfectly on any device." }
+            {
+                icon: <Zap className="w-6 h-6" />,
+                title: "Real-time Engine",
+                desc: "WebSocket integration for sub-millisecond data updates.",
+            },
+            {
+                icon: <Cpu className="w-6 h-6" />,
+                title: "WebGL Charting",
+                desc: "Custom GPU-accelerated charts for rendering millions of points.",
+            },
+            {
+                icon: <Shield className="w-6 h-6" />,
+                title: "Institutional Security",
+                desc: "Bank-grade encryption and authentication protocols.",
+            },
+            {
+                icon: <Smartphone className="w-6 h-6" />,
+                title: "Mobile First",
+                desc: "Fully responsive design that works perfectly on any device.",
+            },
         ],
         images: [
             "bg-gradient-to-br from-purple-900/20 to-blue-900/20",
             "bg-gradient-to-bl from-emerald-900/20 to-teal-900/20",
-            "bg-gradient-to-tr from-orange-900/20 to-red-900/20"
-        ]
+            "bg-gradient-to-tr from-orange-900/20 to-red-900/20",
+        ],
     };
 
     return (
         <main className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-accent-foreground">
-
             {/* Hero Section */}
             <section className="pt-40 pb-20 px-6">
                 <div className="max-w-5xl mx-auto">
                     <Link href="/portfolio" className="inline-block mb-12">
-                        <Button variant="ghost" size="sm" className="text-white/60 hover:text-white pl-0">
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            className="text-white/60 hover:text-white pl-0"
+                        >
                             <ArrowLeft className="w-4 h-4 mr-2" />
                             Back to Portfolio
                         </Button>
@@ -61,15 +94,27 @@ export default function ProjectContent({ params }: { params: { id: string } }) {
                         className="text-center mb-16"
                     >
                         <div className="flex items-center justify-center gap-3 mb-6">
-                            <Text size="xs" className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/60 uppercase tracking-wider">
+                            <Text
+                                size="xs"
+                                className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/60 uppercase tracking-wider"
+                            >
                                 {project.category}
                             </Text>
-                            <Text size="xs" variant="muted" className="font-mono">{project.year}</Text>
+                            <Text size="xs" variant="muted" className="font-mono">
+                                {project.year}
+                            </Text>
                         </div>
-                        <Heading level={1} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-8">
+                        <Heading
+                            level={1}
+                            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-8"
+                        >
                             {project.title}
                         </Heading>
-                        <Text size="lg" variant="muted" className="text-xl leading-relaxed max-w-2xl mx-auto">
+                        <Text
+                            size="lg"
+                            variant="muted"
+                            className="text-xl leading-relaxed max-w-2xl mx-auto"
+                        >
                             {project.description}
                         </Text>
                     </motion.div>
@@ -98,8 +143,16 @@ export default function ProjectContent({ params }: { params: { id: string } }) {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 className="text-center"
                             >
-                                <div className="text-3xl md:text-4xl font-bold text-white mb-1">{stat.value}</div>
-                                <Text size="xs" variant="muted" className="uppercase tracking-wider">{stat.label}</Text>
+                                <div className="text-3xl md:text-4xl font-bold text-white mb-1">
+                                    {stat.value}
+                                </div>
+                                <Text
+                                    size="xs"
+                                    variant="muted"
+                                    className="uppercase tracking-wider"
+                                >
+                                    {stat.label}
+                                </Text>
                             </motion.div>
                         ))}
                     </div>
@@ -113,7 +166,9 @@ export default function ProjectContent({ params }: { params: { id: string } }) {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                             >
-                                <Heading level={3} className="text-2xl font-bold mb-4">The Challenge</Heading>
+                                <Heading level={3} className="text-2xl font-bold mb-4">
+                                    The Challenge
+                                </Heading>
                                 <Text className="text-white/70 text-lg leading-relaxed">
                                     {project.challenge}
                                 </Text>
@@ -124,7 +179,9 @@ export default function ProjectContent({ params }: { params: { id: string } }) {
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.1 }}
                             >
-                                <Heading level={3} className="text-2xl font-bold mb-4">The Solution</Heading>
+                                <Heading level={3} className="text-2xl font-bold mb-4">
+                                    The Solution
+                                </Heading>
                                 <Text className="text-white/70 text-lg leading-relaxed">
                                     {project.solution}
                                 </Text>
@@ -141,17 +198,37 @@ export default function ProjectContent({ params }: { params: { id: string } }) {
                             >
                                 <div className="space-y-6">
                                     <div>
-                                        <Text size="xs" variant="muted" className="uppercase tracking-wider mb-2">Role</Text>
-                                        <Text size="lg" className="font-medium">{project.role}</Text>
+                                        <Text
+                                            size="xs"
+                                            variant="muted"
+                                            className="uppercase tracking-wider mb-2"
+                                        >
+                                            Role
+                                        </Text>
+                                        <Text size="lg" className="font-medium">
+                                            {project.role}
+                                        </Text>
                                     </div>
                                     <div>
-                                        <Text size="xs" variant="muted" className="uppercase tracking-wider mb-2">Links</Text>
+                                        <Text
+                                            size="xs"
+                                            variant="muted"
+                                            className="uppercase tracking-wider mb-2"
+                                        >
+                                            Links
+                                        </Text>
                                         <div className="flex flex-col gap-3">
-                                            <Link href={project.liveLink} className="flex items-center text-white hover:text-white/80 transition-colors">
+                                            <Link
+                                                href={project.liveLink}
+                                                className="flex items-center text-white hover:text-white/80 transition-colors"
+                                            >
                                                 <ExternalLink className="w-4 h-4 mr-2" />
                                                 Live Demo
                                             </Link>
-                                            <Link href={project.githubLink} className="flex items-center text-white hover:text-white/80 transition-colors">
+                                            <Link
+                                                href={project.githubLink}
+                                                className="flex items-center text-white hover:text-white/80 transition-colors"
+                                            >
                                                 <Github className="w-4 h-4 mr-2" />
                                                 Source Code
                                             </Link>
@@ -166,10 +243,19 @@ export default function ProjectContent({ params }: { params: { id: string } }) {
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.1 }}
                             >
-                                <Text size="xs" variant="muted" className="uppercase tracking-wider mb-4">Tech Stack</Text>
+                                <Text
+                                    size="xs"
+                                    variant="muted"
+                                    className="uppercase tracking-wider mb-4"
+                                >
+                                    Tech Stack
+                                </Text>
                                 <div className="flex flex-wrap gap-2">
                                     {project.stack.map((tech) => (
-                                        <span key={tech} className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs text-white/80">
+                                        <span
+                                            key={tech}
+                                            className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs text-white/80"
+                                        >
                                             {tech}
                                         </span>
                                     ))}
@@ -180,7 +266,9 @@ export default function ProjectContent({ params }: { params: { id: string } }) {
 
                     {/* Key Features */}
                     <div className="mb-20">
-                        <Heading level={3} className="text-2xl font-bold mb-8 text-center">Key Features</Heading>
+                        <Heading level={3} className="text-2xl font-bold mb-8 text-center">
+                            Key Features
+                        </Heading>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {project.features.map((feature, index) => (
                                 <motion.div
@@ -195,8 +283,12 @@ export default function ProjectContent({ params }: { params: { id: string } }) {
                                         {feature.icon}
                                     </div>
                                     <div>
-                                        <Heading level={4} className="text-lg font-bold mb-2">{feature.title}</Heading>
-                                        <Text size="sm" variant="muted">{feature.desc}</Text>
+                                        <Heading level={4} className="text-lg font-bold mb-2">
+                                            {feature.title}
+                                        </Heading>
+                                        <Text size="sm" variant="muted">
+                                            {feature.desc}
+                                        </Text>
                                     </div>
                                 </motion.div>
                             ))}
@@ -217,15 +309,28 @@ export default function ProjectContent({ params }: { params: { id: string } }) {
                             <div>
                                 <div className="flex items-center gap-2 text-accent mb-4">
                                     <Code2 className="w-5 h-5" />
-                                    <Text size="sm" variant="mono" className="font-bold">UNDER THE HOOD</Text>
+                                    <Text size="sm" variant="mono" className="font-bold">
+                                        UNDER THE HOOD
+                                    </Text>
                                 </div>
-                                <Heading level={3} className="text-3xl font-bold mb-6">Custom WebSocket Engine</Heading>
+                                <Heading level={3} className="text-3xl font-bold mb-6">
+                                    Custom WebSocket Engine
+                                </Heading>
                                 <Text className="text-white/70 mb-6 leading-relaxed">
-                                    To achieve sub-50ms latency, we bypassed standard polling and implemented a custom WebSocket engine that handles data deduplication and throttling on the client side.
+                                    To achieve sub-50ms latency, we bypassed standard polling and
+                                    implemented a custom WebSocket engine that handles data
+                                    deduplication and throttling on the client side.
                                 </Text>
                                 <ul className="space-y-3">
-                                    {["Binary message format for reduced payload", "Client-side delta compression", "Automatic reconnection strategies"].map((item, i) => (
-                                        <li key={i} className="flex items-center gap-3 text-sm text-white/80">
+                                    {[
+                                        "Binary message format for reduced payload",
+                                        "Client-side delta compression",
+                                        "Automatic reconnection strategies",
+                                    ].map((item, i) => (
+                                        <li
+                                            key={i}
+                                            className="flex items-center gap-3 text-sm text-white/80"
+                                        >
                                             <CheckCircle2 className="w-4 h-4 text-accent" />
                                             {item}
                                         </li>
@@ -260,7 +365,9 @@ class DataStream {
 
                     {/* Gallery */}
                     <div className="space-y-12 mb-20">
-                        <Heading level={3} className="text-2xl font-bold mb-8">Project Gallery</Heading>
+                        <Heading level={3} className="text-2xl font-bold mb-8">
+                            Project Gallery
+                        </Heading>
                         {project.images.slice(1).map((imgClass, index) => (
                             <motion.div
                                 key={index}
@@ -286,28 +393,41 @@ class DataStream {
                         className="mb-20 text-center max-w-3xl mx-auto"
                     >
                         <div className="text-6xl text-white/10 font-serif mb-6">"</div>
-                        <Heading level={3} className="text-2xl md:text-3xl font-medium italic leading-relaxed mb-8">
-                            This dashboard completely transformed how our traders operate. The speed and reliability are unmatched in the industry.
+                        <Heading
+                            level={3}
+                            className="text-2xl md:text-3xl font-medium italic leading-relaxed mb-8"
+                        >
+                            This dashboard completely transformed how our traders operate. The speed
+                            and reliability are unmatched in the industry.
                         </Heading>
                         <div>
                             <Text className="font-bold text-white">Alex Morgan</Text>
-                            <Text size="sm" variant="muted">Head of Trading, Neon Exchange</Text>
+                            <Text size="sm" variant="muted">
+                                Head of Trading, Neon Exchange
+                            </Text>
                         </div>
                     </motion.div>
 
                     {/* Next Project */}
                     <div className="pt-20 border-t border-white/10 flex justify-between items-center">
                         <div>
-                            <Text size="sm" variant="muted" className="mb-2">Next Project</Text>
-                            <Heading level={2} className="text-3xl md:text-4xl font-bold">AI Image Generator</Heading>
+                            <Text size="sm" variant="muted" className="mb-2">
+                                Next Project
+                            </Text>
+                            <Heading level={2} className="text-3xl md:text-4xl font-bold">
+                                AI Image Generator
+                            </Heading>
                         </div>
                         <Link href="/portfolio/next">
-                            <Button variant="secondary" size="icon" className="w-16 h-16 rounded-full">
+                            <Button
+                                variant="secondary"
+                                size="icon"
+                                className="w-16 h-16 rounded-full"
+                            >
                                 <ArrowRight className="w-6 h-6" />
                             </Button>
                         </Link>
                     </div>
-
                 </div>
             </section>
 

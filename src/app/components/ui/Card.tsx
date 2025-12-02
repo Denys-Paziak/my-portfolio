@@ -35,13 +35,11 @@ export function CardTitle({ className, ...props }: React.HTMLAttributes<HTMLHead
     );
 }
 
-export function CardDescription({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
-    return (
-        <p
-            className={cn("text-sm text-muted-foreground", className)}
-            {...props}
-        />
-    );
+export function CardDescription({
+    className,
+    ...props
+}: React.HTMLAttributes<HTMLParagraphElement>) {
+    return <p className={cn("text-sm text-muted-foreground", className)} {...props} />;
 }
 
 export function CardContent({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
@@ -49,21 +47,24 @@ export function CardContent({ className, ...props }: React.HTMLAttributes<HTMLDi
 }
 
 export function CardFooter({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-    return (
-        <div
-            className={cn("flex items-center p-6 pt-0", className)}
-            {...props}
-        />
-    );
+    return <div className={cn("flex items-center p-6 pt-0", className)} {...props} />;
 }
 
-export function CardImage({ src, alt, className, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) {
+export function CardImage({
+    src,
+    alt,
+    className,
+    ...props
+}: React.ImgHTMLAttributes<HTMLImageElement>) {
     return (
         <div className="relative w-full aspect-video overflow-hidden bg-muted">
             <img
                 src={src}
                 alt={alt}
-                className={cn("object-cover w-full h-full transition-transform duration-500 group-hover:scale-105", className)}
+                className={cn(
+                    "object-cover w-full h-full transition-transform duration-500 group-hover:scale-105",
+                    className
+                )}
                 {...props}
             />
         </div>

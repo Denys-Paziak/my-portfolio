@@ -15,14 +15,13 @@ export const Separator = forwardRef<HTMLDivElement, SeparatorProps>(
             orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]",
 
             // Variants
-            variant === "technical" && "bg-transparent border-t border-dashed border-[var(--glass-border)]",
+            variant === "technical" &&
+                "bg-transparent border-t border-dashed border-[var(--glass-border)]",
 
             className
         );
 
-        return (
-            <div ref={ref} className={styles} {...props} />
-        );
+        return <div ref={ref} className={styles} {...props} />;
     }
 );
 

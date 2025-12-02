@@ -31,16 +31,16 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                 "hover:bg-[var(--accent)] hover:shadow-[0_0_20px_rgba(153,255,51,0.3)]",
                 // Icon Animation
                 "[&_svg]:transition-transform [&_svg]:duration-300",
-                "hover:[&_svg]:translate-x-1"
+                "hover:[&_svg]:translate-x-1",
             ],
             variant === "secondary" && [
                 "bg-white/[0.03] text-muted-foreground border border-white/[0.08]",
                 "hover:text-foreground hover:border-white/[0.2] hover:bg-white/[0.08]",
-                "hover:scale-[1.01]"
+                "hover:scale-[1.01]",
             ],
             variant === "ghost" && [
                 "bg-transparent text-muted-foreground",
-                "hover:text-foreground hover:bg-white/[0.05]"
+                "hover:text-foreground hover:bg-white/[0.05]",
             ],
             className
         );
@@ -54,11 +54,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         }
 
         return (
-            <button
-                ref={ref}
-                className={styles}
-                {...props}
-            >
+            <button ref={ref} className={styles} {...props}>
                 {children}
             </button>
         );

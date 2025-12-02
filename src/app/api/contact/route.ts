@@ -7,22 +7,16 @@ export async function POST(request: NextRequest) {
 
         // Валідація
         if (!name || !email || !message) {
-            return NextResponse.json(
-                { error: "All fields are required" },
-                { status: 400 }
-            );
+            return NextResponse.json({ error: "All fields are required" }, { status: 400 });
         }
 
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            return NextResponse.json(
-                { error: "Invalid email address" },
-                { status: 400 }
-            );
+            return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
         }
 
         // Тут можна додати інтеграцію з email сервісом (Resend, SendGrid, тощо)
         // Або зберегти в базу даних
-        
+
         // Приклад з console.log для тестування
         console.log("Contact form submission:", { name, email, message });
 
@@ -35,10 +29,6 @@ export async function POST(request: NextRequest) {
         );
     } catch (error) {
         console.error("Contact form error:", error);
-        return NextResponse.json(
-            { error: "Internal server error" },
-            { status: 500 }
-        );
+        return NextResponse.json({ error: "Internal server error" }, { status: 500 });
     }
 }
-

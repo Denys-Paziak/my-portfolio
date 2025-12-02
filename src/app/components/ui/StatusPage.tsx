@@ -28,13 +28,13 @@ export function StatusPage({ type, title, description, action, className }: Stat
             defaultDesc: "Something went wrong on our end. Please try again later.",
             color: "text-red-500",
         },
-        "success": {
+        success: {
             icon: CheckCircle,
             defaultTitle: "Success!",
             defaultDesc: "Your action has been completed successfully.",
             color: "text-green-500",
         },
-        "offline": {
+        offline: {
             icon: WifiOff,
             defaultTitle: "You are offline",
             defaultDesc: "Please check your internet connection.",
@@ -45,8 +45,18 @@ export function StatusPage({ type, title, description, action, className }: Stat
     const { icon: Icon, defaultTitle, defaultDesc, color } = config[type];
 
     return (
-        <div className={cn("min-h-[60vh] flex flex-col items-center justify-center text-center p-6", className)}>
-            <div className={cn("w-24 h-24 rounded-full bg-white/5 flex items-center justify-center mb-8 animate-fade-in", color)}>
+        <div
+            className={cn(
+                "min-h-[60vh] flex flex-col items-center justify-center text-center p-6",
+                className
+            )}
+        >
+            <div
+                className={cn(
+                    "w-24 h-24 rounded-full bg-white/5 flex items-center justify-center mb-8 animate-fade-in",
+                    color
+                )}
+            >
                 <Icon className="w-12 h-12" />
             </div>
             <Heading level={1} className="mb-4 animate-fade-in delay-100">

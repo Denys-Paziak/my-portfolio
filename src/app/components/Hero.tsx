@@ -8,14 +8,18 @@ import { Text } from "./ui/Text";
 import { ArrowRight } from "lucide-react";
 
 // Grid Cell Component for performance
-const GridCell = ({ active, type }: { active: boolean; type?: "square" | "plus" | "corner" | "filled" }) => {
+const GridCell = ({
+    active,
+    type,
+}: {
+    active: boolean;
+    type?: "square" | "plus" | "corner" | "filled";
+}) => {
     return (
         <div className="relative w-full h-full border-[0.5px] border-white/[0.1] flex items-center justify-center">
             {active && (
                 <div className="w-full h-full">
-                    {type === "filled" && (
-                        <div className="w-full h-full bg-white/[0.07]" />
-                    )}
+                    {type === "filled" && <div className="w-full h-full bg-white/[0.07]" />}
                     {type === "square" && (
                         <div className="w-full h-full bg-white/[0.1] border border-white/[0.2]" />
                     )}
@@ -43,7 +47,7 @@ export function Hero() {
             const isMobile = window.innerWidth < 768;
             const cellSize = isMobile ? 80 : 60; // Більші клітинки на мобілках
             const maxCells = isMobile ? 200 : 1000; // Обмеження кількості клітинок
-            
+
             const cols = Math.ceil(window.innerWidth / cellSize);
             const rows = Math.ceil(window.innerHeight / cellSize);
             const totalCells = Math.min(cols * rows, maxCells);
@@ -69,7 +73,7 @@ export function Hero() {
         };
 
         generateGrid();
-        
+
         // Debounce resize для оптимізації
         let resizeTimeout: NodeJS.Timeout;
         const handleResize = () => {
@@ -77,9 +81,9 @@ export function Hero() {
             resizeTimeout = setTimeout(generateGrid, 250);
         };
 
-        window.addEventListener('resize', handleResize);
+        window.addEventListener("resize", handleResize);
         return () => {
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener("resize", handleResize);
             clearTimeout(resizeTimeout);
         };
     }, []);
@@ -98,7 +102,8 @@ export function Hero() {
                         gridAutoRows: "60px",
                         justifyContent: "center",
                         maskImage: "radial-gradient(circle at center, black, transparent 90%)",
-                        WebkitMaskImage: "radial-gradient(circle at center, black, transparent 90%)",
+                        WebkitMaskImage:
+                            "radial-gradient(circle at center, black, transparent 90%)",
                     }}
                 >
                     {cells.map((cell) => (
@@ -108,7 +113,8 @@ export function Hero() {
             </div>
 
             {/* --- Film Grain Overlay --- */}
-            <div className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none mix-blend-overlay"
+            <div
+                className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none mix-blend-overlay"
                 style={{ backgroundImage: "url('/noise.png')" }}
             />
 
@@ -125,8 +131,10 @@ export function Hero() {
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                             className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-white"
                         >
-                            I&apos;m a Backend Engineer<br />
-                            passionate about <span className="text-accent inline-block">Scalability</span>
+                            I&apos;m a Backend Engineer
+                            <br />
+                            passionate about{" "}
+                            <span className="text-accent inline-block">Scalability</span>
                         </motion.h1>
                     </div>
 
@@ -138,7 +146,9 @@ export function Hero() {
                         className="mt-8 max-w-2xl mx-auto"
                     >
                         <Text size="lg" className="text-zinc-400 leading-relaxed font-normal">
-                            I build <span className="text-zinc-200 font-medium">digital fortresses</span> that are scalable, efficient, and secure.
+                            I build{" "}
+                            <span className="text-zinc-200 font-medium">digital fortresses</span>{" "}
+                            that are scalable, efficient, and secure.
                         </Text>
                     </motion.div>
 
@@ -149,18 +159,12 @@ export function Hero() {
                         transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                         className="mt-10 flex flex-wrap items-center justify-center gap-4"
                     >
-                        <Button
-                            variant="primary"
-                            size="lg"
-                        >
+                        <Button variant="primary" size="lg">
                             Let&apos;s Talk
                             <ArrowRight className="ml-2 w-5 h-5" />
                         </Button>
 
-                        <Button
-                            variant="secondary"
-                            size="lg"
-                        >
+                        <Button variant="secondary" size="lg">
                             View Work
                         </Button>
                     </motion.div>

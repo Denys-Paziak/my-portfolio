@@ -34,16 +34,19 @@ export const ScrambleReveal = ({
             let pos = 0;
 
             intervalRef.current = setInterval(() => {
-                const scrambled = text.split("").map((char, index) => {
-                    if (pos / CYCLES_PER_LETTER > index) {
-                        return char;
-                    }
+                const scrambled = text
+                    .split("")
+                    .map((char, index) => {
+                        if (pos / CYCLES_PER_LETTER > index) {
+                            return char;
+                        }
 
-                    const randomChar = CHARS[Math.floor(Math.random() * CHARS.length)];
-                    const randomChar2 = CHARS[Math.floor(Math.random() * CHARS.length)];
+                        const randomChar = CHARS[Math.floor(Math.random() * CHARS.length)];
+                        const randomChar2 = CHARS[Math.floor(Math.random() * CHARS.length)];
 
-                    return Math.random() > 0.5 ? randomChar : randomChar2;
-                }).join("");
+                        return Math.random() > 0.5 ? randomChar : randomChar2;
+                    })
+                    .join("");
 
                 setDisplayText(scrambled);
                 pos++;
@@ -65,9 +68,5 @@ export const ScrambleReveal = ({
         };
     }, [text, delay, scrambleSpeed, onComplete]);
 
-    return (
-        <span className={className}>
-            {displayText}
-        </span>
-    );
+    return <span className={className}>{displayText}</span>;
 };

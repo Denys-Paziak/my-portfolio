@@ -20,7 +20,10 @@ export function Header() {
         <header className="sticky top-0 left-0 right-0 z-50 border-b border-white/[0.08] bg-background/60 backdrop-blur-md">
             <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between w-full">
                 {/* Logo */}
-                <Link href="/" className="text-2xl font-extrabold tracking-tight text-foreground hover:text-accent transition-colors z-50">
+                <Link
+                    href="/"
+                    className="text-2xl font-extrabold tracking-tight text-foreground hover:text-accent transition-colors z-50"
+                >
                     DP<span className="text-accent">.</span>
                 </Link>
 
@@ -39,10 +42,7 @@ export function Header() {
 
                 <div className="hidden md:flex items-center gap-4">
                     <Link href="/contact">
-                        <Button
-                            variant="primary"
-                            size="sm"
-                        >
+                        <Button variant="primary" size="sm">
                             Contact Me
                             <ArrowRight className="ml-2 w-4 h-4" aria-hidden="true" />
                         </Button>

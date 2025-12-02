@@ -3,11 +3,7 @@ import { cn } from "@/lib/utils";
 
 const List = React.forwardRef<HTMLUListElement, React.HTMLAttributes<HTMLUListElement>>(
     ({ className, ...props }, ref) => (
-        <ul
-            ref={ref}
-            className={cn("flex flex-col space-y-1", className)}
-            {...props}
-        />
+        <ul ref={ref} className={cn("flex flex-col space-y-1", className)} {...props} />
     )
 );
 List.displayName = "List";
@@ -33,9 +29,7 @@ const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(
                         {icon}
                     </div>
                 )}
-                <div className="truncate text-sm text-foreground">
-                    {children}
-                </div>
+                <div className="truncate text-sm text-foreground">{children}</div>
             </div>
             {action && (
                 <div className="flex-shrink-0 ml-4 opacity-0 group-hover:opacity-100 transition-opacity">

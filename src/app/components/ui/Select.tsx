@@ -18,7 +18,13 @@ interface SelectProps {
     className?: string;
 }
 
-export function Select({ options, value, onChange, placeholder = "Select an option", className }: SelectProps) {
+export function Select({
+    options,
+    value,
+    onChange,
+    placeholder = "Select an option",
+    className,
+}: SelectProps) {
     const [isOpen, setIsOpen] = React.useState(false);
     const containerRef = React.useRef<HTMLDivElement>(null);
 
@@ -52,7 +58,12 @@ export function Select({ options, value, onChange, placeholder = "Select an opti
                 <span className={cn("truncate", !selectedOption && "text-muted-foreground")}>
                     {selectedOption ? selectedOption.label : placeholder}
                 </span>
-                <ChevronDown className={cn("h-4 w-4 opacity-50 transition-transform duration-200", isOpen && "rotate-180")} />
+                <ChevronDown
+                    className={cn(
+                        "h-4 w-4 opacity-50 transition-transform duration-200",
+                        isOpen && "rotate-180"
+                    )}
+                />
             </button>
 
             <AnimatePresence>

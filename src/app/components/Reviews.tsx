@@ -57,7 +57,7 @@ const reviews = [
     },
 ];
 
-function ReviewCard({ review, index }: { review: typeof reviews[0], index: number }) {
+function ReviewCard({ review, index }: { review: (typeof reviews)[0]; index: number }) {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
@@ -74,13 +74,13 @@ function ReviewCard({ review, index }: { review: typeof reviews[0], index: numbe
                 opacity: 1,
                 y: 0,
                 rotate: review.rotate,
-                transition: { duration: 0.6, delay: index * 0.1 }
+                transition: { duration: 0.6, delay: index * 0.1 },
             }}
             viewport={{ once: true, margin: "-50px" }}
             whileHover={{
                 scale: 1.02,
                 rotate: "0deg",
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
             }}
             onMouseMove={handleMouseMove}
             className={cn(
@@ -104,11 +104,16 @@ function ReviewCard({ review, index }: { review: typeof reviews[0], index: numbe
 
             {/* Quote Icon */}
             <div className="mb-6 relative z-10">
-                <Text as="span" className="text-4xl leading-none text-white/10 font-serif">"</Text>
+                <Text as="span" className="text-4xl leading-none text-white/10 font-serif">
+                    "
+                </Text>
             </div>
 
             {/* Text */}
-            <Text size="lg" className="text-white/80 font-light leading-relaxed mb-8 flex-1 relative z-10">
+            <Text
+                size="lg"
+                className="text-white/80 font-light leading-relaxed mb-8 flex-1 relative z-10"
+            >
                 {review.text}
             </Text>
 
@@ -118,8 +123,12 @@ function ReviewCard({ review, index }: { review: typeof reviews[0], index: numbe
                     {review.author.charAt(0)}
                 </div>
                 <div>
-                    <Text size="base" className="text-white font-medium">{review.author}</Text>
-                    <Text size="sm" variant="muted">{review.role}</Text>
+                    <Text size="base" className="text-white font-medium">
+                        {review.author}
+                    </Text>
+                    <Text size="sm" variant="muted">
+                        {review.role}
+                    </Text>
                 </div>
             </div>
         </motion.div>
@@ -157,17 +166,17 @@ export function Reviews() {
         if (trackRef.current) {
             observer.observe(trackRef.current);
         }
-        window.addEventListener('resize', handleResize);
+        window.addEventListener("resize", handleResize);
 
         return () => {
             observer.disconnect();
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener("resize", handleResize);
         };
     }, [isDesktop]);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start start", "end end"]
+        offset: ["start start", "end end"],
     });
 
     // Start scrolling immediately upon entering the section
@@ -175,15 +184,20 @@ export function Reviews() {
     const x = useTransform(effectiveProgress, [0, 1], [0, -scrollRange]);
 
     return (
-        <section ref={containerRef} className={cn("relative bg-background w-full", isDesktop ? "h-[400vh]" : "h-auto py-20")}>
-
+        <section
+            ref={containerRef}
+            className={cn(
+                "relative bg-background w-full",
+                isDesktop ? "h-[400vh]" : "h-auto py-20"
+            )}
+        >
             {/* Animated Background Blobs */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 <motion.div
                     animate={{
                         x: [0, 100, 0],
                         y: [0, -50, 0],
-                        opacity: [0.3, 0.5, 0.3]
+                        opacity: [0.3, 0.5, 0.3],
                     }}
                     transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
                     className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[120px]"
@@ -192,15 +206,21 @@ export function Reviews() {
                     animate={{
                         x: [0, -100, 0],
                         y: [0, 50, 0],
-                        opacity: [0.2, 0.4, 0.2]
+                        opacity: [0.2, 0.4, 0.2],
                     }}
                     transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
                     className="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px]"
                 />
             </div>
 
-            <div className={cn("w-full", isDesktop ? "sticky top-0 h-screen flex flex-col justify-center overflow-hidden" : "relative px-6")}>
-
+            <div
+                className={cn(
+                    "w-full",
+                    isDesktop
+                        ? "sticky top-0 h-screen flex flex-col justify-center overflow-hidden"
+                        : "relative px-6"
+                )}
+            >
                 <div className="max-w-7xl mx-auto mb-12 md:mb-16 w-full">
                     <SectionHeader
                         badgeText="Testimonials"
@@ -231,7 +251,6 @@ export function Reviews() {
                         ))}
                     </div>
                 )}
-
             </div>
         </section>
     );

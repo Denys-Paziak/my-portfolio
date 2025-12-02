@@ -9,12 +9,12 @@ interface PageHeaderProps {
     align?: "center" | "left";
 }
 
-export function PageHeader({ 
-    badgeText, 
-    title, 
-    subtitle, 
-    description, 
-    align = "center" 
+export function PageHeader({
+    badgeText,
+    title,
+    subtitle,
+    description,
+    align = "center",
 }: PageHeaderProps) {
     return (
         <section className="pt-32 pb-20">
@@ -30,4 +30,3 @@ export function PageHeader({
         </section>
     );
 }
-

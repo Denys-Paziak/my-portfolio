@@ -25,14 +25,14 @@ export const authors: Record<string, Author> = {
             twitter: "https://twitter.com/denispazak",
             linkedin: "https://linkedin.com/in/denispazak",
             github: "https://github.com/denispazak",
-            website: "https://denispazak.com"
+            website: "https://denispazak.com",
         },
         expertise: [
             "Web Development",
             "React & Next.js",
             "Python & FastAPI",
             "System Architecture",
-            "AI/ML Integration"
-        ]
-    }
+            "AI/ML Integration",
+        ],
+    },
 };

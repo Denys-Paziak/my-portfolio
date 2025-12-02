@@ -15,8 +15,23 @@ import { Skeleton } from "../components/ui/Skeleton";
 import { useToast } from "../components/ui/Toast";
 import { Select } from "../components/ui/Select";
 import { Checkbox } from "../components/ui/Checkbox";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/ui/Table";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardImage, CardTitle } from "../components/ui/Card";
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "../components/ui/Table";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardImage,
+    CardTitle,
+} from "../components/ui/Card";
 import { List, ListItem } from "../components/ui/List";
 import { Avatar, AvatarGroup } from "../components/ui/Avatar";
 import { Rating } from "../components/ui/Rating";
@@ -26,12 +41,43 @@ import { Carousel, CarouselItem } from "../components/ui/Carousel";
 import { StatusPage } from "../components/ui/StatusPage";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from "../components/ui/Sidebar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/Tabs";
-import { DropdownMenu, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from "../components/ui/DropdownMenu";
 import {
-    ArrowRight, Mail, Send, Terminal, Check, ChevronDown, Menu, X,
-    Github, Twitter, Linkedin, Code2, Cpu, Globe, Zap, ArrowUpRight,
-    Plus, Minus, Search, User, Bell, Settings, FileText, Image as ImageIcon, Music,
-    Home, LayoutGrid, Users, LogOut, Filter
+    DropdownMenu,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+} from "../components/ui/DropdownMenu";
+import {
+    ArrowRight,
+    Mail,
+    Send,
+    Terminal,
+    Check,
+    ChevronDown,
+    Menu,
+    X,
+    Github,
+    Twitter,
+    Linkedin,
+    Code2,
+    Cpu,
+    Globe,
+    Zap,
+    ArrowUpRight,
+    Plus,
+    Minus,
+    Search,
+    User,
+    Bell,
+    Settings,
+    FileText,
+    Image as ImageIcon,
+    Music,
+    Home,
+    LayoutGrid,
+    Users,
+    LogOut,
+    Filter,
 } from "lucide-react";
 
 export default function DesignSystem() {
@@ -40,7 +86,6 @@ export default function DesignSystem() {
 
     return (
         <main className="min-h-screen bg-background text-foreground p-12 md:p-24 space-y-24">
-
             {/* Header */}
             <div className="space-y-4">
                 <h1 className="text-5xl font-bold tracking-tight">Design System</h1>
@@ -58,20 +103,26 @@ export default function DesignSystem() {
 
                 {/* Colors */}
                 <div className="space-y-4">
-                    <Text variant="mono" className="text-accent">Colors</Text>
+                    <Text variant="mono" className="text-accent">
+                        Colors
+                    </Text>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                         <div className="space-y-3">
                             <div className="h-24 rounded-lg bg-background border border-[var(--glass-border)]" />
                             <div className="space-y-1">
                                 <p className="font-medium">Background</p>
-                                <p className="text-xs text-muted-foreground font-mono">--background</p>
+                                <p className="text-xs text-muted-foreground font-mono">
+                                    --background
+                                </p>
                             </div>
                         </div>
                         <div className="space-y-3">
                             <div className="h-24 rounded-lg bg-foreground" />
                             <div className="space-y-1">
                                 <p className="font-medium">Foreground</p>
-                                <p className="text-xs text-muted-foreground font-mono">--foreground</p>
+                                <p className="text-xs text-muted-foreground font-mono">
+                                    --foreground
+                                </p>
                             </div>
                         </div>
                         <div className="space-y-3">
@@ -96,11 +147,15 @@ export default function DesignSystem() {
                 {/* Spacing & Radius */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="space-y-4">
-                        <Text variant="mono" className="text-accent">Spacing Scale</Text>
+                        <Text variant="mono" className="text-accent">
+                            Spacing Scale
+                        </Text>
                         <div className="space-y-2">
                             {[4, 8, 16, 24, 32, 48, 64].map((space) => (
                                 <div key={space} className="flex items-center gap-4">
-                                    <span className="w-12 text-xs font-mono text-muted-foreground">{space}px</span>
+                                    <span className="w-12 text-xs font-mono text-muted-foreground">
+                                        {space}px
+                                    </span>
                                     <div
                                         className="h-4 bg-accent/20 rounded-sm border border-accent/10"
                                         style={{ width: space }}
@@ -110,12 +165,26 @@ export default function DesignSystem() {
                         </div>
                     </div>
                     <div className="space-y-4">
-                        <Text variant="mono" className="text-accent">Border Radius</Text>
+                        <Text variant="mono" className="text-accent">
+                            Border Radius
+                        </Text>
                         <div className="flex flex-wrap gap-4">
-                            {['rounded-sm', 'rounded-md', 'rounded-lg', 'rounded-xl', 'rounded-2xl', 'rounded-3xl', 'rounded-full'].map((radius) => (
+                            {[
+                                "rounded-sm",
+                                "rounded-md",
+                                "rounded-lg",
+                                "rounded-xl",
+                                "rounded-2xl",
+                                "rounded-3xl",
+                                "rounded-full",
+                            ].map((radius) => (
                                 <div key={radius} className="flex flex-col items-center gap-2">
-                                    <div className={`w-16 h-16 border border-[var(--glass-border)] bg-white/5 ${radius}`} />
-                                    <span className="text-xs font-mono text-muted-foreground">{radius.replace('rounded-', '')}</span>
+                                    <div
+                                        className={`w-16 h-16 border border-[var(--glass-border)] bg-white/5 ${radius}`}
+                                    />
+                                    <span className="text-xs font-mono text-muted-foreground">
+                                        {radius.replace("rounded-", "")}
+                                    </span>
                                 </div>
                             ))}
                         </div>
@@ -126,7 +195,9 @@ export default function DesignSystem() {
 
                 {/* Shadows & Effects */}
                 <div className="space-y-4">
-                    <Text variant="mono" className="text-accent">Effects (Glass & Shadows)</Text>
+                    <Text variant="mono" className="text-accent">
+                        Effects (Glass & Shadows)
+                    </Text>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div className="h-32 rounded-xl bg-background border border-[var(--glass-border)] flex items-center justify-center">
                             <span className="text-sm text-muted-foreground">No Effect</span>
@@ -144,10 +215,15 @@ export default function DesignSystem() {
 
                 {/* Grid System */}
                 <div className="space-y-4">
-                    <Text variant="mono" className="text-accent">Grid System (12 Column)</Text>
+                    <Text variant="mono" className="text-accent">
+                        Grid System (12 Column)
+                    </Text>
                     <div className="grid grid-cols-12 gap-4 p-4 border border-dashed border-[var(--glass-border)] rounded-lg bg-accent/5">
                         {Array.from({ length: 12 }).map((_, i) => (
-                            <div key={i} className="h-12 bg-accent/10 border border-accent/20 rounded flex items-center justify-center text-xs text-accent font-mono">
+                            <div
+                                key={i}
+                                className="h-12 bg-accent/10 border border-accent/20 rounded flex items-center justify-center text-xs text-accent font-mono"
+                            >
                                 {i + 1}
                             </div>
                         ))}
@@ -173,14 +249,38 @@ export default function DesignSystem() {
 
                 {/* Icons */}
                 <div className="space-y-4">
-                    <Text variant="mono" className="text-accent">Iconography (Lucide React)</Text>
+                    <Text variant="mono" className="text-accent">
+                        Iconography (Lucide React)
+                    </Text>
                     <div className="flex flex-wrap gap-6 p-6 border border-[var(--glass-border)] rounded-xl bg-card">
                         {[
-                            ArrowRight, Mail, Send, Terminal, Check, ChevronDown, Menu, X,
-                            Github, Twitter, Linkedin, Code2, Cpu, Globe, Zap, ArrowUpRight,
-                            Plus, Minus, Search, User, Bell, Settings
+                            ArrowRight,
+                            Mail,
+                            Send,
+                            Terminal,
+                            Check,
+                            ChevronDown,
+                            Menu,
+                            X,
+                            Github,
+                            Twitter,
+                            Linkedin,
+                            Code2,
+                            Cpu,
+                            Globe,
+                            Zap,
+                            ArrowUpRight,
+                            Plus,
+                            Minus,
+                            Search,
+                            User,
+                            Bell,
+                            Settings,
                         ].map((Icon, i) => (
-                            <div key={i} className="p-3 rounded-lg bg-white/5 border border-[var(--glass-border)] text-muted-foreground hover:text-foreground hover:bg-white/10 transition-colors">
+                            <div
+                                key={i}
+                                className="p-3 rounded-lg bg-white/5 border border-[var(--glass-border)] text-muted-foreground hover:text-foreground hover:bg-white/10 transition-colors"
+                            >
                                 <Icon className="w-6 h-6" />
                             </div>
                         ))}
@@ -190,7 +290,11 @@ export default function DesignSystem() {
 
             {/* Typography */}
             <section className="space-y-12">
-                <Heading level={2} variant="mono" className="text-muted-foreground border-b border-[var(--glass-border)] pb-4">
+                <Heading
+                    level={2}
+                    variant="mono"
+                    className="text-muted-foreground border-b border-[var(--glass-border)] pb-4"
+                >
                     02. Typography
                 </Heading>
 
@@ -198,28 +302,40 @@ export default function DesignSystem() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="space-y-4">
                         <div className="flex items-center justify-between">
-                            <Text variant="mono" className="text-accent">Primary Font</Text>
-                            <span className="text-xs text-muted-foreground font-mono">Geist Sans</span>
+                            <Text variant="mono" className="text-accent">
+                                Primary Font
+                            </Text>
+                            <span className="text-xs text-muted-foreground font-mono">
+                                Geist Sans
+                            </span>
                         </div>
                         <div className="p-6 border border-[var(--glass-border)] rounded-xl bg-white/5">
                             <p className="text-4xl font-sans mb-4">Aa</p>
                             <p className="text-lg text-muted-foreground">
-                                ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
-                                abcdefghijklmnopqrstuvwxyz<br />
+                                ABCDEFGHIJKLMNOPQRSTUVWXYZ
+                                <br />
+                                abcdefghijklmnopqrstuvwxyz
+                                <br />
                                 1234567890
                             </p>
                         </div>
                     </div>
                     <div className="space-y-4">
                         <div className="flex items-center justify-between">
-                            <Text variant="mono" className="text-accent">Mono Font</Text>
-                            <span className="text-xs text-muted-foreground font-mono">Geist Mono</span>
+                            <Text variant="mono" className="text-accent">
+                                Mono Font
+                            </Text>
+                            <span className="text-xs text-muted-foreground font-mono">
+                                Geist Mono
+                            </span>
                         </div>
                         <div className="p-6 border border-[var(--glass-border)] rounded-xl bg-white/5">
                             <p className="text-4xl font-mono mb-4">Aa</p>
                             <p className="text-lg font-mono text-muted-foreground">
-                                ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
-                                abcdefghijklmnopqrstuvwxyz<br />
+                                ABCDEFGHIJKLMNOPQRSTUVWXYZ
+                                <br />
+                                abcdefghijklmnopqrstuvwxyz
+                                <br />
                                 1234567890
                             </p>
                         </div>
@@ -230,39 +346,75 @@ export default function DesignSystem() {
 
                 {/* Scale */}
                 <div className="space-y-8">
-                    <Text variant="mono" className="text-accent">Type Scale</Text>
+                    <Text variant="mono" className="text-accent">
+                        Type Scale
+                    </Text>
                     <div className="space-y-6">
                         <div className="grid grid-cols-12 items-baseline gap-4">
-                            <div className="col-span-2 text-xs text-muted-foreground font-mono">H1 / 5xl</div>
-                            <div className="col-span-10"><Heading level={1}>The quick brown fox</Heading></div>
+                            <div className="col-span-2 text-xs text-muted-foreground font-mono">
+                                H1 / 5xl
+                            </div>
+                            <div className="col-span-10">
+                                <Heading level={1}>The quick brown fox</Heading>
+                            </div>
                         </div>
                         <div className="grid grid-cols-12 items-baseline gap-4">
-                            <div className="col-span-2 text-xs text-muted-foreground font-mono">H2 / 4xl</div>
-                            <div className="col-span-10"><Heading level={2}>The quick brown fox</Heading></div>
+                            <div className="col-span-2 text-xs text-muted-foreground font-mono">
+                                H2 / 4xl
+                            </div>
+                            <div className="col-span-10">
+                                <Heading level={2}>The quick brown fox</Heading>
+                            </div>
                         </div>
                         <div className="grid grid-cols-12 items-baseline gap-4">
-                            <div className="col-span-2 text-xs text-muted-foreground font-mono">H3 / 3xl</div>
-                            <div className="col-span-10"><Heading level={3}>The quick brown fox</Heading></div>
+                            <div className="col-span-2 text-xs text-muted-foreground font-mono">
+                                H3 / 3xl
+                            </div>
+                            <div className="col-span-10">
+                                <Heading level={3}>The quick brown fox</Heading>
+                            </div>
                         </div>
                         <div className="grid grid-cols-12 items-baseline gap-4">
-                            <div className="col-span-2 text-xs text-muted-foreground font-mono">H4 / 2xl</div>
-                            <div className="col-span-10"><Heading level={4}>The quick brown fox</Heading></div>
+                            <div className="col-span-2 text-xs text-muted-foreground font-mono">
+                                H4 / 2xl
+                            </div>
+                            <div className="col-span-10">
+                                <Heading level={4}>The quick brown fox</Heading>
+                            </div>
                         </div>
                         <div className="grid grid-cols-12 items-baseline gap-4">
-                            <div className="col-span-2 text-xs text-muted-foreground font-mono">Body Lg</div>
-                            <div className="col-span-10"><Text size="lg">The quick brown fox jumps over the lazy dog.</Text></div>
+                            <div className="col-span-2 text-xs text-muted-foreground font-mono">
+                                Body Lg
+                            </div>
+                            <div className="col-span-10">
+                                <Text size="lg">The quick brown fox jumps over the lazy dog.</Text>
+                            </div>
                         </div>
                         <div className="grid grid-cols-12 items-baseline gap-4">
-                            <div className="col-span-2 text-xs text-muted-foreground font-mono">Body</div>
-                            <div className="col-span-10"><Text>The quick brown fox jumps over the lazy dog.</Text></div>
+                            <div className="col-span-2 text-xs text-muted-foreground font-mono">
+                                Body
+                            </div>
+                            <div className="col-span-10">
+                                <Text>The quick brown fox jumps over the lazy dog.</Text>
+                            </div>
                         </div>
                         <div className="grid grid-cols-12 items-baseline gap-4">
-                            <div className="col-span-2 text-xs text-muted-foreground font-mono">Small</div>
-                            <div className="col-span-10"><Text size="sm">The quick brown fox jumps over the lazy dog.</Text></div>
+                            <div className="col-span-2 text-xs text-muted-foreground font-mono">
+                                Small
+                            </div>
+                            <div className="col-span-10">
+                                <Text size="sm">The quick brown fox jumps over the lazy dog.</Text>
+                            </div>
                         </div>
                         <div className="grid grid-cols-12 items-baseline gap-4">
-                            <div className="col-span-2 text-xs text-muted-foreground font-mono">Tiny</div>
-                            <div className="col-span-10"><p className="text-[10px] text-muted-foreground uppercase tracking-wider">The quick brown fox</p></div>
+                            <div className="col-span-2 text-xs text-muted-foreground font-mono">
+                                Tiny
+                            </div>
+                            <div className="col-span-10">
+                                <p className="text-[10px] text-muted-foreground uppercase tracking-wider">
+                                    The quick brown fox
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -272,56 +424,82 @@ export default function DesignSystem() {
                 {/* Weights & Spacing */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="space-y-4">
-                        <Text variant="mono" className="text-accent">Weights</Text>
+                        <Text variant="mono" className="text-accent">
+                            Weights
+                        </Text>
                         <div className="space-y-4">
                             <div className="flex justify-between items-center border-b border-white/5 pb-2">
                                 <span className="font-thin text-2xl">Aa</span>
-                                <span className="text-xs text-muted-foreground font-mono">Thin (100)</span>
+                                <span className="text-xs text-muted-foreground font-mono">
+                                    Thin (100)
+                                </span>
                             </div>
                             <div className="flex justify-between items-center border-b border-white/5 pb-2">
                                 <span className="font-light text-2xl">Aa</span>
-                                <span className="text-xs text-muted-foreground font-mono">Light (300)</span>
+                                <span className="text-xs text-muted-foreground font-mono">
+                                    Light (300)
+                                </span>
                             </div>
                             <div className="flex justify-between items-center border-b border-white/5 pb-2">
                                 <span className="font-normal text-2xl">Aa</span>
-                                <span className="text-xs text-muted-foreground font-mono">Regular (400)</span>
+                                <span className="text-xs text-muted-foreground font-mono">
+                                    Regular (400)
+                                </span>
                             </div>
                             <div className="flex justify-between items-center border-b border-white/5 pb-2">
                                 <span className="font-medium text-2xl">Aa</span>
-                                <span className="text-xs text-muted-foreground font-mono">Medium (500)</span>
+                                <span className="text-xs text-muted-foreground font-mono">
+                                    Medium (500)
+                                </span>
                             </div>
                             <div className="flex justify-between items-center border-b border-white/5 pb-2">
                                 <span className="font-semibold text-2xl">Aa</span>
-                                <span className="text-xs text-muted-foreground font-mono">Semibold (600)</span>
+                                <span className="text-xs text-muted-foreground font-mono">
+                                    Semibold (600)
+                                </span>
                             </div>
                             <div className="flex justify-between items-center border-b border-white/5 pb-2">
                                 <span className="font-bold text-2xl">Aa</span>
-                                <span className="text-xs text-muted-foreground font-mono">Bold (700)</span>
+                                <span className="text-xs text-muted-foreground font-mono">
+                                    Bold (700)
+                                </span>
                             </div>
                         </div>
                     </div>
                     <div className="space-y-4">
-                        <Text variant="mono" className="text-accent">Letter Spacing</Text>
+                        <Text variant="mono" className="text-accent">
+                            Letter Spacing
+                        </Text>
                         <div className="space-y-4">
                             <div className="space-y-1">
                                 <p className="text-xl tracking-tighter">Tracking Tighter</p>
-                                <p className="text-xs text-muted-foreground font-mono">tracking-tighter (-0.05em)</p>
+                                <p className="text-xs text-muted-foreground font-mono">
+                                    tracking-tighter (-0.05em)
+                                </p>
                             </div>
                             <div className="space-y-1">
                                 <p className="text-xl tracking-tight">Tracking Tight</p>
-                                <p className="text-xs text-muted-foreground font-mono">tracking-tight (-0.025em)</p>
+                                <p className="text-xs text-muted-foreground font-mono">
+                                    tracking-tight (-0.025em)
+                                </p>
                             </div>
                             <div className="space-y-1">
                                 <p className="text-xl tracking-normal">Tracking Normal</p>
-                                <p className="text-xs text-muted-foreground font-mono">tracking-normal (0)</p>
+                                <p className="text-xs text-muted-foreground font-mono">
+                                    tracking-normal (0)
+                                </p>
                             </div>
                             <div className="space-y-1">
                                 <p className="text-xl tracking-wide">Tracking Wide</p>
-                                <p className="text-xs text-muted-foreground font-mono">tracking-wide (0.025em)</p>
+                                <p className="text-xs text-muted-foreground font-mono">
+                                    tracking-wide (0.025em)
+                                </p>
                             </div>
                             <div className="space-y-1">
                                 <p className="text-xl tracking-widest uppercase">Tracking Widest</p>
-                                <p className="text-xs text-muted-foreground font-mono">tracking-widest (0.1em)</p>
+                                <p className="text-xs text-muted-foreground font-mono">
+                                    tracking-widest (0.1em)
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -332,34 +510,40 @@ export default function DesignSystem() {
                 {/* UI Rules & Highlights */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="space-y-4">
-                        <Text variant="mono" className="text-accent">UI Text Rules</Text>
+                        <Text variant="mono" className="text-accent">
+                            UI Text Rules
+                        </Text>
                         <div className="space-y-4">
                             <div className="flex items-center gap-4">
                                 <div className="px-4 py-2 bg-accent text-accent-foreground font-semibold text-sm rounded">
                                     Button Text
                                 </div>
-                                <span className="text-xs text-muted-foreground font-mono">Semibold / Sm</span>
+                                <span className="text-xs text-muted-foreground font-mono">
+                                    Semibold / Sm
+                                </span>
                             </div>
                             <div className="flex items-center gap-4">
-                                <div className="text-red-500 text-sm">
-                                    Error message text
-                                </div>
-                                <span className="text-xs text-muted-foreground font-mono">Text-Red-500 / Sm</span>
+                                <div className="text-red-500 text-sm">Error message text</div>
+                                <span className="text-xs text-muted-foreground font-mono">
+                                    Text-Red-500 / Sm
+                                </span>
                             </div>
                             <div className="flex items-center gap-4">
                                 <div className="text-muted-foreground text-xs uppercase tracking-wider font-mono">
                                     Label / Caption
                                 </div>
-                                <span className="text-xs text-muted-foreground font-mono">Mono / Uppercase / Wider</span>
+                                <span className="text-xs text-muted-foreground font-mono">
+                                    Mono / Uppercase / Wider
+                                </span>
                             </div>
                         </div>
                     </div>
                     <div className="space-y-4">
-                        <Text variant="mono" className="text-accent">Highlights & Accents</Text>
+                        <Text variant="mono" className="text-accent">
+                            Highlights & Accents
+                        </Text>
                         <div className="space-y-4">
-                            <p className="text-2xl font-bold text-accent">
-                                Accent Color Text
-                            </p>
+                            <p className="text-2xl font-bold text-accent">Accent Color Text</p>
                             <p className="text-2xl font-bold bg-gradient-to-r from-white to-white/50 bg-clip-text text-transparent">
                                 Gradient Text (White)
                             </p>
@@ -380,9 +564,15 @@ export default function DesignSystem() {
                     <div className="space-y-4">
                         <p className="text-sm text-muted-foreground font-mono">Primary</p>
                         <div className="flex flex-col gap-4 items-start">
-                            <Button variant="primary" size="sm">Small Button</Button>
-                            <Button variant="primary" size="md">Medium Button</Button>
-                            <Button variant="primary" size="lg">Large Button</Button>
+                            <Button variant="primary" size="sm">
+                                Small Button
+                            </Button>
+                            <Button variant="primary" size="md">
+                                Medium Button
+                            </Button>
+                            <Button variant="primary" size="lg">
+                                Large Button
+                            </Button>
                             <Button variant="primary">
                                 With Icon
                                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -392,9 +582,15 @@ export default function DesignSystem() {
                     <div className="space-y-4">
                         <p className="text-sm text-muted-foreground font-mono">Secondary</p>
                         <div className="flex flex-col gap-4 items-start">
-                            <Button variant="secondary" size="sm">Small Button</Button>
-                            <Button variant="secondary" size="md">Medium Button</Button>
-                            <Button variant="secondary" size="lg">Large Button</Button>
+                            <Button variant="secondary" size="sm">
+                                Small Button
+                            </Button>
+                            <Button variant="secondary" size="md">
+                                Medium Button
+                            </Button>
+                            <Button variant="secondary" size="lg">
+                                Large Button
+                            </Button>
                             <Button variant="secondary">
                                 With Icon
                                 <Mail className="w-4 h-4 ml-2" />
@@ -404,9 +600,15 @@ export default function DesignSystem() {
                     <div className="space-y-4">
                         <p className="text-sm text-muted-foreground font-mono">Ghost</p>
                         <div className="flex flex-col gap-4 items-start">
-                            <Button variant="ghost" size="sm">Small Button</Button>
-                            <Button variant="ghost" size="md">Medium Button</Button>
-                            <Button variant="ghost" size="lg">Large Button</Button>
+                            <Button variant="ghost" size="sm">
+                                Small Button
+                            </Button>
+                            <Button variant="ghost" size="md">
+                                Medium Button
+                            </Button>
+                            <Button variant="ghost" size="lg">
+                                Large Button
+                            </Button>
                             <Button variant="ghost">
                                 With Icon
                                 <Terminal className="w-4 h-4 ml-2" />
@@ -418,7 +620,11 @@ export default function DesignSystem() {
 
             {/* Forms */}
             <section className="space-y-8">
-                <Heading level={2} variant="mono" className="text-muted-foreground border-b border-[var(--glass-border)] pb-4">
+                <Heading
+                    level={2}
+                    variant="mono"
+                    className="text-muted-foreground border-b border-[var(--glass-border)] pb-4"
+                >
                     04. Forms
                 </Heading>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl">
@@ -456,11 +662,15 @@ export default function DesignSystem() {
                         <div className="flex flex-col gap-4">
                             <div className="flex items-center gap-2">
                                 <Checkbox id="terms" />
-                                <label htmlFor="terms" className="text-sm text-muted-foreground">Accept terms and conditions</label>
+                                <label htmlFor="terms" className="text-sm text-muted-foreground">
+                                    Accept terms and conditions
+                                </label>
                             </div>
                             <div className="flex items-center gap-2">
                                 <Checkbox id="checked" checked readOnly />
-                                <label htmlFor="checked" className="text-sm text-muted-foreground">Checked state</label>
+                                <label htmlFor="checked" className="text-sm text-muted-foreground">
+                                    Checked state
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -469,11 +679,14 @@ export default function DesignSystem() {
 
             {/* Content Elements */}
             <section className="space-y-8">
-                <Heading level={2} variant="mono" className="text-muted-foreground border-b border-[var(--glass-border)] pb-4">
+                <Heading
+                    level={2}
+                    variant="mono"
+                    className="text-muted-foreground border-b border-[var(--glass-border)] pb-4"
+                >
                     05. Content Elements
                 </Heading>
                 <div className="space-y-12">
-
                     {/* Cards */}
                     <div className="space-y-4">
                         <Text variant="mono">Cards</Text>
@@ -481,17 +694,27 @@ export default function DesignSystem() {
                             <Card>
                                 <CardHeader>
                                     <CardTitle>Simple Card</CardTitle>
-                                    <CardDescription>This is a basic card with header.</CardDescription>
+                                    <CardDescription>
+                                        This is a basic card with header.
+                                    </CardDescription>
                                 </CardHeader>
                                 <CardContent>
-                                    <p className="text-sm text-muted-foreground">Card content goes here. It can be text, images, or anything else.</p>
+                                    <p className="text-sm text-muted-foreground">
+                                        Card content goes here. It can be text, images, or anything
+                                        else.
+                                    </p>
                                 </CardContent>
                                 <CardFooter>
-                                    <Button size="sm" variant="secondary">Action</Button>
+                                    <Button size="sm" variant="secondary">
+                                        Action
+                                    </Button>
                                 </CardFooter>
                             </Card>
                             <Card className="p-0">
-                                <CardImage src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" alt="Abstract" />
+                                <CardImage
+                                    src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
+                                    alt="Abstract"
+                                />
                                 <CardHeader>
                                     <CardTitle>Media Card</CardTitle>
                                     <CardDescription>Card with an image header.</CardDescription>
@@ -505,13 +728,34 @@ export default function DesignSystem() {
                         <Text variant="mono">Lists</Text>
                         <div className="bg-card border border-[var(--glass-border)] rounded-xl p-4">
                             <List>
-                                <ListItem icon={<FileText className="w-4 h-4" />} action={<Button size="sm" variant="ghost" className="h-8 w-8 p-0"><ChevronDown className="w-4 h-4" /></Button>}>
+                                <ListItem
+                                    icon={<FileText className="w-4 h-4" />}
+                                    action={
+                                        <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
+                                            <ChevronDown className="w-4 h-4" />
+                                        </Button>
+                                    }
+                                >
                                     Documentation.pdf
                                 </ListItem>
-                                <ListItem icon={<ImageIcon className="w-4 h-4" />} action={<Button size="sm" variant="ghost" className="h-8 w-8 p-0"><ChevronDown className="w-4 h-4" /></Button>}>
+                                <ListItem
+                                    icon={<ImageIcon className="w-4 h-4" />}
+                                    action={
+                                        <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
+                                            <ChevronDown className="w-4 h-4" />
+                                        </Button>
+                                    }
+                                >
                                     Project_Screenshot.png
                                 </ListItem>
-                                <ListItem icon={<Music className="w-4 h-4" />} action={<Button size="sm" variant="ghost" className="h-8 w-8 p-0"><ChevronDown className="w-4 h-4" /></Button>}>
+                                <ListItem
+                                    icon={<Music className="w-4 h-4" />}
+                                    action={
+                                        <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
+                                            <ChevronDown className="w-4 h-4" />
+                                        </Button>
+                                    }
+                                >
                                     Background_Music.mp3
                                 </ListItem>
                             </List>
@@ -585,15 +829,22 @@ export default function DesignSystem() {
                 </h2>
                 <div className="flex flex-wrap gap-4">
                     <Badge>Default Badge</Badge>
-                    <Badge className="bg-accent/10 text-accent border-accent/20">Accent Badge</Badge>
-                    <Badge className="border border-foreground/20 bg-transparent text-foreground">Outline Badge</Badge>
+                    <Badge className="bg-accent/10 text-accent border-accent/20">
+                        Accent Badge
+                    </Badge>
+                    <Badge className="border border-foreground/20 bg-transparent text-foreground">
+                        Outline Badge
+                    </Badge>
                 </div>
-
             </section>
 
             {/* Layout */}
             <section className="space-y-8">
-                <Heading level={2} variant="mono" className="text-muted-foreground border-b border-[var(--glass-border)] pb-4">
+                <Heading
+                    level={2}
+                    variant="mono"
+                    className="text-muted-foreground border-b border-[var(--glass-border)] pb-4"
+                >
                     06. Layout
                 </Heading>
                 <Stack gap={8}>
@@ -628,11 +879,14 @@ export default function DesignSystem() {
 
             {/* Navigation */}
             <section className="space-y-8">
-                <Heading level={2} variant="mono" className="text-muted-foreground border-b border-[var(--glass-border)] pb-4">
+                <Heading
+                    level={2}
+                    variant="mono"
+                    className="text-muted-foreground border-b border-[var(--glass-border)] pb-4"
+                >
                     07. Navigation
                 </Heading>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-
                     {/* Sidebar & Menus */}
                     <div className="space-y-8">
                         <div className="space-y-4">
@@ -647,10 +901,18 @@ export default function DesignSystem() {
                                     </SidebarHeader>
                                     <SidebarContent>
                                         <List>
-                                            <ListItem icon={<Home className="w-4 h-4" />}>Dashboard</ListItem>
-                                            <ListItem icon={<LayoutGrid className="w-4 h-4" />}>Projects</ListItem>
-                                            <ListItem icon={<Users className="w-4 h-4" />}>Team</ListItem>
-                                            <ListItem icon={<Settings className="w-4 h-4" />}>Settings</ListItem>
+                                            <ListItem icon={<Home className="w-4 h-4" />}>
+                                                Dashboard
+                                            </ListItem>
+                                            <ListItem icon={<LayoutGrid className="w-4 h-4" />}>
+                                                Projects
+                                            </ListItem>
+                                            <ListItem icon={<Users className="w-4 h-4" />}>
+                                                Team
+                                            </ListItem>
+                                            <ListItem icon={<Settings className="w-4 h-4" />}>
+                                                Settings
+                                            </ListItem>
                                         </List>
                                     </SidebarContent>
                                     <SidebarFooter>
@@ -679,9 +941,19 @@ export default function DesignSystem() {
                             <div className="p-6 border border-[var(--glass-border)] rounded-xl">
                                 <Tabs className="w-full">
                                     <TabsList className="grid w-full grid-cols-3 mb-4">
-                                        <TabsTrigger value="account" activeValue="account" className="data-[state=active]:bg-accent">Account</TabsTrigger>
-                                        <TabsTrigger value="password" activeValue="account">Password</TabsTrigger>
-                                        <TabsTrigger value="settings" activeValue="account">Settings</TabsTrigger>
+                                        <TabsTrigger
+                                            value="account"
+                                            activeValue="account"
+                                            className="data-[state=active]:bg-accent"
+                                        >
+                                            Account
+                                        </TabsTrigger>
+                                        <TabsTrigger value="password" activeValue="account">
+                                            Password
+                                        </TabsTrigger>
+                                        <TabsTrigger value="settings" activeValue="account">
+                                            Settings
+                                        </TabsTrigger>
                                     </TabsList>
                                     <div className="p-4 bg-white/5 rounded-lg border border-[var(--glass-border)]">
                                         <Text>Account settings content area.</Text>
@@ -698,25 +970,42 @@ export default function DesignSystem() {
                                     icon={<Search className="w-5 h-5" />}
                                 />
                                 <div className="flex gap-2">
-                                    <DropdownMenu trigger={
-                                        <Button variant="secondary" size="sm">
-                                            <Filter className="w-4 h-4 mr-2" />
-                                            Filter Status
-                                        </Button>
-                                    }>
+                                    <DropdownMenu
+                                        trigger={
+                                            <Button variant="secondary" size="sm">
+                                                <Filter className="w-4 h-4 mr-2" />
+                                                Filter Status
+                                            </Button>
+                                        }
+                                    >
                                         <DropdownMenuLabel>Status</DropdownMenuLabel>
                                         <DropdownMenuSeparator />
-                                        <DropdownMenuItem><div className="w-2 h-2 rounded-full bg-green-500 mr-2" />Active</DropdownMenuItem>
-                                        <DropdownMenuItem><div className="w-2 h-2 rounded-full bg-yellow-500 mr-2" />Pending</DropdownMenuItem>
-                                        <DropdownMenuItem><div className="w-2 h-2 rounded-full bg-red-500 mr-2" />Archived</DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            <div className="w-2 h-2 rounded-full bg-green-500 mr-2" />
+                                            Active
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            <div className="w-2 h-2 rounded-full bg-yellow-500 mr-2" />
+                                            Pending
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            <div className="w-2 h-2 rounded-full bg-red-500 mr-2" />
+                                            Archived
+                                        </DropdownMenuItem>
                                     </DropdownMenu>
 
-                                    <DropdownMenu trigger={
-                                        <Button variant="ghost" size="sm" className="border border-[var(--glass-border)]">
-                                            Sort by: Date
-                                            <ChevronDown className="w-4 h-4 ml-2" />
-                                        </Button>
-                                    }>
+                                    <DropdownMenu
+                                        trigger={
+                                            <Button
+                                                variant="ghost"
+                                                size="sm"
+                                                className="border border-[var(--glass-border)]"
+                                            >
+                                                Sort by: Date
+                                                <ChevronDown className="w-4 h-4 ml-2" />
+                                            </Button>
+                                        }
+                                    >
                                         <DropdownMenuItem>Date Created</DropdownMenuItem>
                                         <DropdownMenuItem>Last Modified</DropdownMenuItem>
                                         <DropdownMenuItem>Alphabetical</DropdownMenuItem>
@@ -728,23 +1017,43 @@ export default function DesignSystem() {
                         <div className="space-y-4">
                             <Text variant="mono">Profile Menu</Text>
                             <div className="flex justify-start">
-                                <DropdownMenu align="start" trigger={
-                                    <div className="flex items-center gap-3 cursor-pointer p-2 hover:bg-white/5 rounded-lg transition-colors">
-                                        <Avatar src="https://github.com/shadcn.png" fallback="CN" />
-                                        <div className="text-left">
-                                            <p className="text-sm font-medium">Denis Pazak</p>
-                                            <p className="text-xs text-muted-foreground">admin@mysite.com</p>
+                                <DropdownMenu
+                                    align="start"
+                                    trigger={
+                                        <div className="flex items-center gap-3 cursor-pointer p-2 hover:bg-white/5 rounded-lg transition-colors">
+                                            <Avatar
+                                                src="https://github.com/shadcn.png"
+                                                fallback="CN"
+                                            />
+                                            <div className="text-left">
+                                                <p className="text-sm font-medium">Denis Pazak</p>
+                                                <p className="text-xs text-muted-foreground">
+                                                    admin@mysite.com
+                                                </p>
+                                            </div>
+                                            <ChevronDown className="w-4 h-4 text-muted-foreground ml-2" />
                                         </div>
-                                        <ChevronDown className="w-4 h-4 text-muted-foreground ml-2" />
-                                    </div>
-                                }>
+                                    }
+                                >
                                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                                     <DropdownMenuSeparator />
-                                    <DropdownMenuItem><User className="w-4 h-4 mr-2" />Profile</DropdownMenuItem>
-                                    <DropdownMenuItem><Settings className="w-4 h-4 mr-2" />Settings</DropdownMenuItem>
-                                    <DropdownMenuItem><Bell className="w-4 h-4 mr-2" />Notifications</DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                        <User className="w-4 h-4 mr-2" />
+                                        Profile
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                        <Settings className="w-4 h-4 mr-2" />
+                                        Settings
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                        <Bell className="w-4 h-4 mr-2" />
+                                        Notifications
+                                    </DropdownMenuItem>
                                     <DropdownMenuSeparator />
-                                    <DropdownMenuItem className="text-red-500 hover:text-red-400"><LogOut className="w-4 h-4 mr-2" />Log out</DropdownMenuItem>
+                                    <DropdownMenuItem className="text-red-500 hover:text-red-400">
+                                        <LogOut className="w-4 h-4 mr-2" />
+                                        Log out
+                                    </DropdownMenuItem>
                                 </DropdownMenu>
                             </div>
                         </div>
@@ -754,11 +1063,14 @@ export default function DesignSystem() {
 
             {/* Interactive & Feedback */}
             <section className="space-y-8">
-                <Heading level={2} variant="mono" className="text-muted-foreground border-b border-[var(--glass-border)] pb-4">
+                <Heading
+                    level={2}
+                    variant="mono"
+                    className="text-muted-foreground border-b border-[var(--glass-border)] pb-4"
+                >
                     08. Interactive & Feedback
                 </Heading>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-
                     {/* Carousel */}
                     <div className="space-y-4 md:col-span-2">
                         <Text variant="mono">Carousel</Text>
@@ -806,10 +1118,12 @@ export default function DesignSystem() {
                                     Yes. It adheres to the WAI-ARIA design pattern.
                                 </AccordionItem>
                                 <AccordionItem value="item-2" trigger="Is it styled?">
-                                    Yes. It comes with default styles that matches the other components&apos; aesthetic.
+                                    Yes. It comes with default styles that matches the other
+                                    components&apos; aesthetic.
                                 </AccordionItem>
                                 <AccordionItem value="item-3" trigger="Is it animated?">
-                                    Yes. It&apos;s animated by default, but you can disable it if you prefer.
+                                    Yes. It&apos;s animated by default, but you can disable it if
+                                    you prefer.
                                 </AccordionItem>
                             </Accordion>
                         </div>
@@ -833,22 +1147,26 @@ export default function DesignSystem() {
                             <div className="flex gap-4 flex-wrap">
                                 <Button
                                     variant="secondary"
-                                    onClick={() => toast({
-                                        title: "Success!",
-                                        message: "Your changes have been saved.",
-                                        type: "success",
-                                    })}
+                                    onClick={() =>
+                                        toast({
+                                            title: "Success!",
+                                            message: "Your changes have been saved.",
+                                            type: "success",
+                                        })
+                                    }
                                 >
                                     Show Success Toast
                                 </Button>
                                 <Button
                                     variant="ghost"
                                     className="border border-red-500/20 text-red-500 hover:bg-red-500/10 hover:text-red-500"
-                                    onClick={() => toast({
-                                        title: "Error",
-                                        message: "Something went wrong.",
-                                        type: "error",
-                                    })}
+                                    onClick={() =>
+                                        toast({
+                                            title: "Error",
+                                            message: "Something went wrong.",
+                                            type: "error",
+                                        })
+                                    }
                                 >
                                     Show Error Toast
                                 </Button>
@@ -857,7 +1175,6 @@ export default function DesignSystem() {
                     </Stack>
                 </div>
             </section>
-
         </main>
     );
 }

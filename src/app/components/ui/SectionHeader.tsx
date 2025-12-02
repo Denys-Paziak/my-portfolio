@@ -12,11 +12,27 @@ interface SectionHeaderProps {
     className?: string;
 }
 
-export function SectionHeader({ badgeText, title, subtitle, description, align = "center", className }: SectionHeaderProps) {
+export function SectionHeader({
+    badgeText,
+    title,
+    subtitle,
+    description,
+    align = "center",
+    className,
+}: SectionHeaderProps) {
     return (
-        <div className={cn("flex flex-col", align === "center" ? "items-center text-center" : "items-start text-left", className)}>
+        <div
+            className={cn(
+                "flex flex-col",
+                align === "center" ? "items-center text-center" : "items-start text-left",
+                className
+            )}
+        >
             <Badge className="mb-4">{badgeText}</Badge>
-            <Heading level={2} className="text-4xl md:text-6xl lg:text-7xl font-bold leading-none tracking-normal mb-4">
+            <Heading
+                level={2}
+                className="text-4xl md:text-6xl lg:text-7xl font-bold leading-none tracking-normal mb-4"
+            >
                 {title}
                 {subtitle && <span className="text-accent ml-3">{subtitle}</span>}
             </Heading>

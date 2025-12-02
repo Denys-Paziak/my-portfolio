@@ -22,7 +22,8 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
             level === 6 && "text-base md:text-lg leading-snug",
 
             // Variant styles
-            variant === "gradient" && "text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent/60",
+            variant === "gradient" &&
+                "text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent/60",
             variant === "mono" && "font-mono tracking-tighter uppercase",
 
             className

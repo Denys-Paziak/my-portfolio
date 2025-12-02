@@ -17,7 +17,8 @@ export const projects: Project[] = [
         title: "E-Commerce Core",
         subtitle: "Headless Architecture",
         category: "E-Commerce",
-        description: "High-performance headless shopify backend with Redis caching and elastic search.",
+        description:
+            "High-performance headless shopify backend with Redis caching and elastic search.",
         tech: ["Python", "FastAPI", "Redis", "Docker"],
         slug: "e-commerce-core",
         color: "bg-purple-500",
@@ -28,7 +29,8 @@ export const projects: Project[] = [
         title: "FinTech Dashboard",
         subtitle: "Real-time Analytics",
         category: "FinTech",
-        description: "Real-time analytics and reporting engine processing millions of transactions.",
+        description:
+            "Real-time analytics and reporting engine processing millions of transactions.",
         tech: ["Next.js", "D3.js", "Postgres", "AWS"],
         slug: "fintech-dashboard",
         color: "bg-emerald-500",
@@ -57,4 +59,3 @@ export const projects: Project[] = [
         icon: "Code2",
     },
 ];
-

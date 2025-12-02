@@ -59,14 +59,12 @@ export function FAQ() {
 
     return (
         <section className="relative py-20 md:py-24 w-full bg-background overflow-hidden">
-
             {/* Background Elements */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-purple-500/10 blur-[120px] rounded-full opacity-50" />
             </div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-
                 {/* Header */}
                 <div className="mb-12 md:mb-16">
                     <SectionHeader
@@ -89,13 +87,21 @@ export function FAQ() {
                             onClick={() => setSelectedId(faq.id)}
                             className="group relative cursor-pointer rounded-[var(--radius-3xl)] bg-[var(--glass-bg)] border border-[var(--glass-border)] p-6 md:p-8 hover:bg-white/[0.02] transition-colors overflow-hidden"
                         >
-
                             <div className="flex justify-between items-start mb-6">
-                                <Text variant="mono" size="xs" className="text-white/40 tracking-wider">/{faq.id}</Text>
+                                <Text
+                                    variant="mono"
+                                    size="xs"
+                                    className="text-white/40 tracking-wider"
+                                >
+                                    /{faq.id}
+                                </Text>
                                 <div className={cn("w-2 h-2 rounded-full", faq.color)} />
                             </div>
 
-                            <Heading level={3} className="text-xl md:text-2xl font-medium leading-snug pr-8">
+                            <Heading
+                                level={3}
+                                className="text-xl md:text-2xl font-medium leading-snug pr-8"
+                            >
                                 {faq.question}
                             </Heading>
 
@@ -135,8 +141,18 @@ export function FAQ() {
                                             <div className="relative z-10">
                                                 <div className="flex justify-between items-start mb-10">
                                                     <div className="flex items-center gap-3">
-                                                        <Text variant="mono" size="sm" className="text-white/40">/{faq.id}</Text>
-                                                        <Text size="xs" as="span" className="px-3 py-1 rounded-full bg-white/5 border border-[var(--glass-border)] text-white/60">
+                                                        <Text
+                                                            variant="mono"
+                                                            size="sm"
+                                                            className="text-white/40"
+                                                        >
+                                                            /{faq.id}
+                                                        </Text>
+                                                        <Text
+                                                            size="xs"
+                                                            as="span"
+                                                            className="px-3 py-1 rounded-full bg-white/5 border border-[var(--glass-border)] text-white/60"
+                                                        >
                                                             {faq.category}
                                                         </Text>
                                                     </div>
@@ -149,24 +165,45 @@ export function FAQ() {
                                                         }}
                                                         className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 p-0 border border-[var(--glass-border)]"
                                                     >
-                                                        <X className="w-5 h-5 text-white/60" aria-hidden="true" />
+                                                        <X
+                                                            className="w-5 h-5 text-white/60"
+                                                            aria-hidden="true"
+                                                        />
                                                     </Button>
                                                 </div>
 
-                                                <Heading level={3} className="text-3xl md:text-4xl mb-6 leading-tight">
+                                                <Heading
+                                                    level={3}
+                                                    className="text-3xl md:text-4xl mb-6 leading-tight"
+                                                >
                                                     {faq.question}
                                                 </Heading>
 
-                                                <Text size="lg" variant="muted" className="leading-relaxed">
+                                                <Text
+                                                    size="lg"
+                                                    variant="muted"
+                                                    className="leading-relaxed"
+                                                >
                                                     {faq.answer}
                                                 </Text>
 
                                                 <div className="mt-10 pt-10 border-t border-[var(--glass-border)] flex items-center gap-4">
                                                     <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
-                                                        <div className={cn("w-2 h-2 rounded-full", faq.color)} />
+                                                        <div
+                                                            className={cn(
+                                                                "w-2 h-2 rounded-full",
+                                                                faq.color
+                                                            )}
+                                                        />
                                                     </div>
                                                     <Text size="sm" variant="muted">
-                                                        Have more questions? <a href="#contact" className="text-foreground hover:text-accent transition-colors underline">Contact me</a>
+                                                        Have more questions?{" "}
+                                                        <a
+                                                            href="#contact"
+                                                            className="text-foreground hover:text-accent transition-colors underline"
+                                                        >
+                                                            Contact me
+                                                        </a>
                                                     </Text>
                                                 </div>
                                             </div>
@@ -177,7 +214,6 @@ export function FAQ() {
                         </div>
                     )}
                 </AnimatePresence>
-
             </div>
         </section>
     );

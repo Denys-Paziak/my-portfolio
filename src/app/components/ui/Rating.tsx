@@ -31,7 +31,9 @@ export function Rating({ value, max = 5, onChange, readOnly = false, className }
                         onMouseLeave={() => !readOnly && setHoverValue(null)}
                         className={cn(
                             "transition-colors focus:outline-none",
-                            readOnly ? "cursor-default" : "cursor-pointer hover:scale-110 transition-transform"
+                            readOnly
+                                ? "cursor-default"
+                                : "cursor-pointer hover:scale-110 transition-transform"
                         )}
                     >
                         <Star

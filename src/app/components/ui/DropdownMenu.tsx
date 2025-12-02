@@ -27,9 +27,7 @@ export function DropdownMenu({ trigger, children, align = "start" }: DropdownMen
 
     return (
         <div className="relative inline-block text-left" ref={dropdownRef}>
-            <div onClick={() => setIsOpen(!isOpen)}>
-                {trigger}
-            </div>
+            <div onClick={() => setIsOpen(!isOpen)}>{trigger}</div>
 
             {isOpen && (
                 <div
@@ -47,7 +45,12 @@ export function DropdownMenu({ trigger, children, align = "start" }: DropdownMen
     );
 }
 
-export function DropdownMenuItem({ children, className, onClick, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+export function DropdownMenuItem({
+    children,
+    className,
+    onClick,
+    ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
     return (
         <div
             className={cn(
@@ -68,5 +71,9 @@ export function DropdownMenuSeparator() {
 }
 
 export function DropdownMenuLabel({ children }: { children: React.ReactNode }) {
-    return <div className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">{children}</div>;
+    return (
+        <div className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+            {children}
+        </div>
+    );
 }

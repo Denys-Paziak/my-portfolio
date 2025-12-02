@@ -14,7 +14,14 @@ interface AccordionItemProps {
     index?: number;
 }
 
-export function AccordionItem({ value, trigger, children, isOpen, onClick, index = 0 }: AccordionItemProps) {
+export function AccordionItem({
+    value,
+    trigger,
+    children,
+    isOpen,
+    onClick,
+    index = 0,
+}: AccordionItemProps) {
     return (
         <motion.div
             initial={false}
@@ -43,26 +50,34 @@ export function AccordionItem({ value, trigger, children, isOpen, onClick, index
                 className="relative flex items-center justify-between w-full p-6 text-left z-10"
             >
                 <div className="flex items-center gap-6">
-                    <span className={cn(
-                        "text-xs font-mono tracking-widest transition-colors duration-300",
-                        isOpen ? "text-accent" : "text-muted-foreground/50"
-                    )}>
-                        {(index + 1).toString().padStart(2, '0')}
+                    <span
+                        className={cn(
+                            "text-xs font-mono tracking-widest transition-colors duration-300",
+                            isOpen ? "text-accent" : "text-muted-foreground/50"
+                        )}
+                    >
+                        {(index + 1).toString().padStart(2, "0")}
                     </span>
-                    <span className={cn(
-                        "text-lg font-medium tracking-tight transition-colors duration-300",
-                        isOpen ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"
-                    )}>
+                    <span
+                        className={cn(
+                            "text-lg font-medium tracking-tight transition-colors duration-300",
+                            isOpen
+                                ? "text-foreground"
+                                : "text-muted-foreground group-hover:text-foreground"
+                        )}
+                    >
                         {trigger}
                     </span>
                 </div>
 
-                <div className={cn(
-                    "relative w-8 h-8 flex items-center justify-center rounded-full border transition-all duration-500",
-                    isOpen
-                        ? "border-accent text-accent bg-accent/10 rotate-90"
-                        : "border-white/10 text-muted-foreground group-hover:border-white/30 group-hover:text-foreground"
-                )}>
+                <div
+                    className={cn(
+                        "relative w-8 h-8 flex items-center justify-center rounded-full border transition-all duration-500",
+                        isOpen
+                            ? "border-accent text-accent bg-accent/10 rotate-90"
+                            : "border-white/10 text-muted-foreground group-hover:border-white/30 group-hover:text-foreground"
+                    )}
+                >
                     <AnimatePresence mode="wait">
                         {isOpen ? (
                             <motion.div
@@ -96,16 +111,16 @@ export function AccordionItem({ value, trigger, children, isOpen, onClick, index
                             opacity: 1,
                             transition: {
                                 height: { duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] },
-                                opacity: { duration: 0.25, delay: 0.1 }
-                            }
+                                opacity: { duration: 0.25, delay: 0.1 },
+                            },
                         }}
                         exit={{
                             height: 0,
                             opacity: 0,
                             transition: {
                                 height: { duration: 0.3, ease: "easeInOut" },
-                                opacity: { duration: 0.2 }
-                            }
+                                opacity: { duration: 0.2 },
+                            },
                         }}
                     >
                         <div className="px-6 pb-6 pl-[4.5rem] text-muted-foreground leading-relaxed relative z-10">
@@ -131,10 +146,8 @@ export function Accordion({ type = "single", children, className }: AccordionPro
         if (type === "single") {
             setOpenItems(openItems.includes(value) ? [] : [value]);
         } else {
-            setOpenItems(prev =>
-                prev.includes(value)
-                    ? prev.filter(item => item !== value)
-                    : [...prev, value]
+            setOpenItems((prev) =>
+                prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value]
             );
         }
     };

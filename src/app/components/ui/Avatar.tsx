@@ -44,7 +44,15 @@ export function Avatar({ src, alt, fallback, size = "md", className, ...props }:
     );
 }
 
-export function AvatarGroup({ children, className, limit = 3 }: { children: React.ReactNode, className?: string, limit?: number }) {
+export function AvatarGroup({
+    children,
+    className,
+    limit = 3,
+}: {
+    children: React.ReactNode;
+    className?: string;
+    limit?: number;
+}) {
     const childrenArray = React.Children.toArray(children);
     const visibleChildren = childrenArray.slice(0, limit);
     const remaining = childrenArray.length - limit;
@@ -52,7 +60,10 @@ export function AvatarGroup({ children, className, limit = 3 }: { children: Reac
     return (
         <div className={cn("flex items-center -space-x-3", className)}>
             {visibleChildren.map((child, index) => (
-                <div key={index} className="relative z-10 ring-2 ring-background rounded-full transition-transform hover:z-20 hover:scale-110">
+                <div
+                    key={index}
+                    className="relative z-10 ring-2 ring-background rounded-full transition-transform hover:z-20 hover:scale-110"
+                >
                     {child}
                 </div>
             ))}

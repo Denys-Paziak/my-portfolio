@@ -17,7 +17,8 @@ export const Text = forwardRef<HTMLElement, TextProps>(
             variant === "default" && "text-foreground",
             variant === "muted" && "text-muted-foreground",
             variant === "mono" && "font-mono text-muted-foreground",
-            variant === "gradient" && "text-transparent bg-clip-text bg-gradient-to-r from-foreground to-foreground/60",
+            variant === "gradient" &&
+                "text-transparent bg-clip-text bg-gradient-to-r from-foreground to-foreground/60",
 
             // Size styles (default to base if not specified and not overridden by variant defaults in legacy code)
             !size && variant !== "mono" && "text-base",

@@ -32,7 +32,15 @@ export function ScrollReveal({ text, progress, range = [0, 1], className }: Scro
     );
 }
 
-function Character({ char, progress, range }: { char: string; progress: MotionValue<number>; range: [number, number] }) {
+function Character({
+    char,
+    progress,
+    range,
+}: {
+    char: string;
+    progress: MotionValue<number>;
+    range: [number, number];
+}) {
     const opacity = useTransform(progress, range, [0.4, 1]); // Increased base opacity
     const color = useTransform(progress, range, ["#ffffff60", "#ffffff"]); // Brighter dim color
 

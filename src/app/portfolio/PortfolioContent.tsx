@@ -20,7 +20,7 @@ const allProjects = [
         image: "/project1.jpg", // Placeholder
         description: "A high-frequency trading platform with real-time visualization.",
         tags: ["Next.js", "WebSocket", "D3.js"],
-        link: "#"
+        link: "#",
     },
     {
         id: "02",
@@ -29,7 +29,7 @@ const allProjects = [
         image: "/project2.jpg",
         description: "Mission control interface for satellite telemetry monitoring.",
         tags: ["React", "WebGL", "Tailwind"],
-        link: "#"
+        link: "#",
     },
     {
         id: "03",
@@ -38,7 +38,7 @@ const allProjects = [
         image: "/project3.jpg",
         description: "Interface for configuring and training quantum neural networks.",
         tags: ["Python", "TensorFlow", "FastAPI"],
-        link: "#"
+        link: "#",
     },
     {
         id: "04",
@@ -47,7 +47,7 @@ const allProjects = [
         image: "/project4.jpg",
         description: "Zero-knowledge encryption storage solution for enterprise.",
         tags: ["Rust", "WASM", "Next.js"],
-        link: "#"
+        link: "#",
     },
     {
         id: "05",
@@ -56,7 +56,7 @@ const allProjects = [
         image: "/project5.jpg",
         description: "Real-time environmental monitoring system for smart cities.",
         tags: ["IoT", "MQTT", "React Native"],
-        link: "#"
+        link: "#",
     },
     {
         id: "06",
@@ -65,7 +65,7 @@ const allProjects = [
         image: "/project6.jpg",
         description: "3D virtual shopping experience with crypto payments.",
         tags: ["Three.js", "Solidity", "Web3"],
-        link: "#"
+        link: "#",
     },
     {
         id: "07",
@@ -74,7 +74,7 @@ const allProjects = [
         image: "/project7.jpg",
         description: "Blockchain-based medical record sharing platform.",
         tags: ["Blockchain", "Next.js", "Prisma"],
-        link: "#"
+        link: "#",
     },
     {
         id: "08",
@@ -83,7 +83,7 @@ const allProjects = [
         image: "/project8.jpg",
         description: "AI-powered traffic management and routing system.",
         tags: ["Go", "gRPC", "Flutter"],
-        link: "#"
+        link: "#",
     },
 ];
 
@@ -107,7 +107,6 @@ export default function PortfolioContent() {
 
     return (
         <main className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-accent-foreground">
-
             <section className="pt-32 pb-20 px-6">
                 <div className="max-w-7xl mx-auto">
                     <SectionHeader
@@ -144,29 +143,56 @@ export default function PortfolioContent() {
                                         <div className="p-6 flex flex-col justify-between flex-grow">
                                             <div>
                                                 <div className="flex justify-between items-start mb-4">
-                                                    <Text variant="mono" size="xs" className="text-white/40">/{project.id}</Text>
-                                                    <Text size="xs" className="px-2 py-1 rounded-full border border-white/10 bg-white/5 text-white/60">
+                                                    <Text
+                                                        variant="mono"
+                                                        size="xs"
+                                                        className="text-white/40"
+                                                    >
+                                                        /{project.id}
+                                                    </Text>
+                                                    <Text
+                                                        size="xs"
+                                                        className="px-2 py-1 rounded-full border border-white/10 bg-white/5 text-white/60"
+                                                    >
                                                         {project.category}
                                                     </Text>
                                                 </div>
-                                                <Heading level={4} className="text-xl font-medium mb-2 group-hover:text-white transition-colors">
+                                                <Heading
+                                                    level={4}
+                                                    className="text-xl font-medium mb-2 group-hover:text-white transition-colors"
+                                                >
                                                     {project.title}
                                                 </Heading>
-                                                <Text size="sm" variant="muted" className="line-clamp-2">
+                                                <Text
+                                                    size="sm"
+                                                    variant="muted"
+                                                    className="line-clamp-2"
+                                                >
                                                     {project.description}
                                                 </Text>
                                             </div>
 
                                             <div className="flex items-center justify-between mt-6 pt-6 border-t border-white/5">
                                                 <div className="flex gap-2">
-                                                    {project.tags.slice(0, 2).map(tag => (
-                                                        <Text key={tag} size="xs" as="span" className="uppercase tracking-wider text-foreground/40 font-medium">
+                                                    {project.tags.slice(0, 2).map((tag) => (
+                                                        <Text
+                                                            key={tag}
+                                                            size="xs"
+                                                            as="span"
+                                                            className="uppercase tracking-wider text-foreground/40 font-medium"
+                                                        >
                                                             {tag}
                                                         </Text>
                                                     ))}
                                                 </div>
-                                                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300" aria-label={`View project: ${project.title}`}>
-                                                    <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                                                <div
+                                                    className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300"
+                                                    aria-label={`View project: ${project.title}`}
+                                                >
+                                                    <ArrowUpRight
+                                                        className="w-4 h-4"
+                                                        aria-hidden="true"
+                                                    />
                                                 </div>
                                             </div>
                                         </div>
@@ -215,7 +241,6 @@ export default function PortfolioContent() {
                             </Button>
                         </div>
                     )}
-
                 </div>
             </section>
 

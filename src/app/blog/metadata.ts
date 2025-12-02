@@ -8,4 +8,3 @@ export const metadata: Metadata = {
         description: "Thoughts on engineering, design, and the future of digital products.",
     },
 };
-

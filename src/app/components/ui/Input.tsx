@@ -1,8 +1,7 @@
-import * as React from "react"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
-export interface InputProps
-    extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     error?: boolean;
     icon?: React.ReactNode;
 }
@@ -24,16 +23,17 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                         "disabled:cursor-not-allowed disabled:opacity-50 transition-all",
                         icon && "pl-10",
-                        error && "border-red-500 focus:border-red-500 text-red-500 placeholder:text-red-500/50",
+                        error &&
+                            "border-red-500 focus:border-red-500 text-red-500 placeholder:text-red-500/50",
                         className
                     )}
                     ref={ref}
                     {...props}
                 />
             </div>
-        )
+        );
     }
-)
-Input.displayName = "Input"
+);
+Input.displayName = "Input";
 
-export { Input }
+export { Input };

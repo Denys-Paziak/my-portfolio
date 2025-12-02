@@ -39,12 +39,22 @@ export function Carousel({ children, className, ...props }: CarouselProps) {
 
             {/* Controls */}
             <div className="absolute inset-y-0 left-4 flex items-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <Button variant="secondary" size="sm" onClick={prev} className="rounded-full w-10 h-10 p-0">
+                <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={prev}
+                    className="rounded-full w-10 h-10 p-0"
+                >
                     <ChevronLeft className="w-5 h-5" />
                 </Button>
             </div>
             <div className="absolute inset-y-0 right-4 flex items-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <Button variant="secondary" size="sm" onClick={next} className="rounded-full w-10 h-10 p-0">
+                <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={next}
+                    className="rounded-full w-10 h-10 p-0"
+                >
                     <ChevronRight className="w-5 h-5" />
                 </Button>
             </div>
@@ -57,7 +67,9 @@ export function Carousel({ children, className, ...props }: CarouselProps) {
                         onClick={() => setCurrentIndex(index)}
                         className={cn(
                             "w-2 h-2 rounded-full transition-all",
-                            index === currentIndex ? "bg-accent w-4" : "bg-white/20 hover:bg-white/40"
+                            index === currentIndex
+                                ? "bg-accent w-4"
+                                : "bg-white/20 hover:bg-white/40"
                         )}
                     />
                 ))}
@@ -66,7 +78,11 @@ export function Carousel({ children, className, ...props }: CarouselProps) {
     );
 }
 
-export function CarouselItem({ children, className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+export function CarouselItem({
+    children,
+    className,
+    ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
     return (
         <div className={cn("p-1", className)} {...props}>
             {children}

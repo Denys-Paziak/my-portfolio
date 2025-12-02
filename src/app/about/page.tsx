@@ -15,7 +15,6 @@ import { cn } from "@/lib/utils";
 export default function AboutPage() {
     return (
         <main className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-accent-foreground">
-
             <section className="pt-40 pb-20">
                 <Container>
                     <motion.div
@@ -26,11 +25,20 @@ export default function AboutPage() {
                         <Text size="sm" variant="mono" className="text-accent mb-6 block">
                             / ABOUT ME
                         </Text>
-                        <Heading level={1} className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 max-w-4xl">
+                        <Heading
+                            level={1}
+                            className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 max-w-4xl"
+                        >
                             Engineering Digital Excellence.
                         </Heading>
-                        <Text size="lg" variant="muted" className="max-w-2xl text-xl leading-relaxed">
-                            I'm a software engineer obsessed with building scalable, high-performance applications. I bridge the gap between complex backend logic and intuitive user experiences.
+                        <Text
+                            size="lg"
+                            variant="muted"
+                            className="max-w-2xl text-xl leading-relaxed"
+                        >
+                            I'm a software engineer obsessed with building scalable,
+                            high-performance applications. I bridge the gap between complex backend
+                            logic and intuitive user experiences.
                         </Text>
                     </motion.div>
                 </Container>
@@ -57,13 +65,20 @@ export default function AboutPage() {
                             />
                             <div className="space-y-6 leading-relaxed">
                                 <Text size="base" className="text-foreground/70">
-                                    My journey began with a curiosity for how things work under the hood. From tinkering with hardware to architecting distributed systems, I've always been driven by the challenge of solving complex problems.
+                                    My journey began with a curiosity for how things work under the
+                                    hood. From tinkering with hardware to architecting distributed
+                                    systems, I've always been driven by the challenge of solving
+                                    complex problems.
                                 </Text>
                                 <Text size="base" className="text-foreground/70">
-                                    Over the years, I've honed my skills in Python, React, and cloud infrastructure, working with startups and enterprises to deliver robust solutions. I believe in writing clean, maintainable code that stands the test of time.
+                                    Over the years, I've honed my skills in Python, React, and cloud
+                                    infrastructure, working with startups and enterprises to deliver
+                                    robust solutions. I believe in writing clean, maintainable code
+                                    that stands the test of time.
                                 </Text>
                                 <Text size="base" className="text-foreground/70">
-                                    When I'm not coding, you can find me exploring new technologies, contributing to open source, or optimizing my personal workflow.
+                                    When I'm not coding, you can find me exploring new technologies,
+                                    contributing to open source, or optimizing my personal workflow.
                                 </Text>
                             </div>
                         </motion.div>
@@ -102,20 +117,23 @@ export default function AboutPage() {
                                 year: "2023 - Present",
                                 role: "Senior Software Engineer",
                                 company: "TechNova Solutions",
-                                description: "Leading the backend team in migrating legacy monoliths to microservices architecture."
+                                description:
+                                    "Leading the backend team in migrating legacy monoliths to microservices architecture.",
                             },
                             {
                                 year: "2021 - 2023",
                                 role: "Full Stack Developer",
                                 company: "Creative Pulse",
-                                description: "Developed and maintained multiple client-facing web applications using React and Python."
+                                description:
+                                    "Developed and maintained multiple client-facing web applications using React and Python.",
                             },
                             {
                                 year: "2019 - 2021",
                                 role: "Junior Developer",
                                 company: "StartUp Inc.",
-                                description: "Collaborated with cross-functional teams to build MVP features and optimize database queries."
-                            }
+                                description:
+                                    "Collaborated with cross-functional teams to build MVP features and optimize database queries.",
+                            },
                         ].map((item, index) => (
                             <motion.div
                                 key={index}
@@ -130,11 +148,24 @@ export default function AboutPage() {
                             >
                                 <div className="md:w-1/2" />
                                 <div className="absolute left-0 md:left-1/2 -translate-x-[5px] w-2.5 h-2.5 rounded-full bg-accent shadow-[0_0_10px_var(--accent)]" />
-                                <div className={cn("md:w-1/2 pl-8 md:pl-0", index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12")}>
-                                    <Text variant="mono" size="xs" className="text-accent mb-2">{item.year}</Text>
-                                    <Heading level={3} className="text-xl font-bold mb-1">{item.role}</Heading>
-                                    <Text size="sm" className="text-white/60 mb-2">{item.company}</Text>
-                                    <Text size="sm" variant="muted">{item.description}</Text>
+                                <div
+                                    className={cn(
+                                        "md:w-1/2 pl-8 md:pl-0",
+                                        index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"
+                                    )}
+                                >
+                                    <Text variant="mono" size="xs" className="text-accent mb-2">
+                                        {item.year}
+                                    </Text>
+                                    <Heading level={3} className="text-xl font-bold mb-1">
+                                        {item.role}
+                                    </Heading>
+                                    <Text size="sm" className="text-white/60 mb-2">
+                                        {item.company}
+                                    </Text>
+                                    <Text size="sm" variant="muted">
+                                        {item.description}
+                                    </Text>
                                 </div>
                             </motion.div>
                         ))}
@@ -158,18 +189,24 @@ export default function AboutPage() {
                             {
                                 icon: <Globe className="w-6 h-6" />,
                                 title: "Frontend",
-                                skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
+                                skills: [
+                                    "React",
+                                    "Next.js",
+                                    "TypeScript",
+                                    "Tailwind CSS",
+                                    "Framer Motion",
+                                ],
                             },
                             {
                                 icon: <Database className="w-6 h-6" />,
                                 title: "Backend",
-                                skills: ["Python", "Django", "FastAPI", "PostgreSQL", "Redis"]
+                                skills: ["Python", "Django", "FastAPI", "PostgreSQL", "Redis"],
                             },
                             {
                                 icon: <Cpu className="w-6 h-6" />,
                                 title: "DevOps",
-                                skills: ["Docker", "Kubernetes", "AWS", "CI/CD", "Terraform"]
-                            }
+                                skills: ["Docker", "Kubernetes", "AWS", "CI/CD", "Terraform"],
+                            },
                         ].map((category, index) => (
                             <motion.div
                                 key={index}
@@ -182,12 +219,16 @@ export default function AboutPage() {
                                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-6 text-white">
                                     {category.icon}
                                 </div>
-                                <Heading level={3} className="text-xl font-bold mb-4">{category.title}</Heading>
+                                <Heading level={3} className="text-xl font-bold mb-4">
+                                    {category.title}
+                                </Heading>
                                 <ul className="space-y-2">
                                     {category.skills.map((skill) => (
                                         <li key={skill} className="flex items-center gap-2">
                                             <div className="w-1.5 h-1.5 rounded-full bg-foreground/20" />
-                                            <Text size="sm" variant="muted">{skill}</Text>
+                                            <Text size="sm" variant="muted">
+                                                {skill}
+                                            </Text>
                                         </li>
                                     ))}
                                 </ul>
@@ -201,10 +242,22 @@ export default function AboutPage() {
                 <Container>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
-                            { title: "User Centric", desc: "Building with the end user in mind, always." },
-                            { title: "Scalable", desc: "Architecting systems that grow with the business." },
-                            { title: "Clean Code", desc: "Writing maintainable, self-documenting code." },
-                            { title: "Innovative", desc: "Constantly exploring new ways to solve problems." }
+                            {
+                                title: "User Centric",
+                                desc: "Building with the end user in mind, always.",
+                            },
+                            {
+                                title: "Scalable",
+                                desc: "Architecting systems that grow with the business.",
+                            },
+                            {
+                                title: "Clean Code",
+                                desc: "Writing maintainable, self-documenting code.",
+                            },
+                            {
+                                title: "Innovative",
+                                desc: "Constantly exploring new ways to solve problems.",
+                            },
                         ].map((value, index) => (
                             <motion.div
                                 key={index}
@@ -214,8 +267,12 @@ export default function AboutPage() {
                                 transition={{ duration: 0.3, delay: index * 0.05 }}
                                 className="p-6 rounded-2xl border border-white/5 bg-white/[0.01] text-center hover:bg-white/[0.03] transition-colors"
                             >
-                                <Heading level={4} className="text-lg font-bold mb-2">{value.title}</Heading>
-                                <Text size="sm" variant="muted">{value.desc}</Text>
+                                <Heading level={4} className="text-lg font-bold mb-2">
+                                    {value.title}
+                                </Heading>
+                                <Text size="sm" variant="muted">
+                                    {value.desc}
+                                </Text>
                             </motion.div>
                         ))}
                     </div>
@@ -228,7 +285,7 @@ export default function AboutPage() {
                         { value: "5+", label: "Years Experience" },
                         { value: "50+", label: "Projects Delivered" },
                         { value: "100%", label: "Client Satisfaction" },
-                        { value: "24/7", label: "Support" }
+                        { value: "24/7", label: "Support" },
                     ].map((stat, index) => (
                         <motion.div
                             key={index}
@@ -238,8 +295,12 @@ export default function AboutPage() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="text-center"
                         >
-                            <Text size="4xl" className="font-bold mb-2">{stat.value}</Text>
-                            <Text size="sm" variant="muted" className="uppercase tracking-wider">{stat.label}</Text>
+                            <Text size="4xl" className="font-bold mb-2">
+                                {stat.value}
+                            </Text>
+                            <Text size="sm" variant="muted" className="uppercase tracking-wider">
+                                {stat.label}
+                            </Text>
                         </motion.div>
                     ))}
                 </Container>
@@ -258,10 +319,26 @@ export default function AboutPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                         {[
-                            { step: "01", title: "Discovery", desc: "Understanding your goals, target audience, and technical requirements." },
-                            { step: "02", title: "Design", desc: "Creating intuitive wireframes and high-fidelity prototypes." },
-                            { step: "03", title: "Development", desc: "Writing clean, scalable code using modern best practices." },
-                            { step: "04", title: "Launch", desc: "Deploying, testing, and optimizing for peak performance." }
+                            {
+                                step: "01",
+                                title: "Discovery",
+                                desc: "Understanding your goals, target audience, and technical requirements.",
+                            },
+                            {
+                                step: "02",
+                                title: "Design",
+                                desc: "Creating intuitive wireframes and high-fidelity prototypes.",
+                            },
+                            {
+                                step: "03",
+                                title: "Development",
+                                desc: "Writing clean, scalable code using modern best practices.",
+                            },
+                            {
+                                step: "04",
+                                title: "Launch",
+                                desc: "Deploying, testing, and optimizing for peak performance.",
+                            },
                         ].map((item, index) => (
                             <motion.div
                                 key={index}
@@ -271,9 +348,19 @@ export default function AboutPage() {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 className="relative p-8 rounded-[var(--radius-3xl)] border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors group"
                             >
-                                <Text variant="mono" size="xl" className="text-white/20 mb-6 block group-hover:text-white/40 transition-colors">/{item.step}</Text>
-                                <Heading level={3} className="text-xl font-bold mb-4">{item.title}</Heading>
-                                <Text size="sm" variant="muted">{item.desc}</Text>
+                                <Text
+                                    variant="mono"
+                                    size="xl"
+                                    className="text-white/20 mb-6 block group-hover:text-white/40 transition-colors"
+                                >
+                                    /{item.step}
+                                </Text>
+                                <Heading level={3} className="text-xl font-bold mb-4">
+                                    {item.title}
+                                </Heading>
+                                <Text size="sm" variant="muted">
+                                    {item.desc}
+                                </Text>
                             </motion.div>
                         ))}
                     </div>
@@ -296,18 +383,18 @@ export default function AboutPage() {
                             {
                                 quote: "Denis is a rare breed of engineer who understands both code and design deeply. He transformed our platform.",
                                 author: "Sarah Jenkins",
-                                role: "CTO, FinTech Co."
+                                role: "CTO, FinTech Co.",
                             },
                             {
                                 quote: "The attention to detail and performance optimization was outstanding. Our load times dropped by 60%.",
                                 author: "Michael Chen",
-                                role: "Product Manager, E-com Inc."
+                                role: "Product Manager, E-com Inc.",
                             },
                             {
                                 quote: "Professional, communicative, and incredibly skilled. Delivered the project ahead of schedule.",
                                 author: "Elena Rodriguez",
-                                role: "Founder, ArtSpace"
-                            }
+                                role: "Founder, ArtSpace",
+                            },
                         ].map((testimonial, index) => (
                             <motion.div
                                 key={index}
@@ -317,13 +404,25 @@ export default function AboutPage() {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 className="p-8 rounded-[var(--radius-3xl)] border border-white/10 bg-[var(--card)] relative"
                             >
-                                <Text as="span" className="text-4xl text-foreground/10 absolute top-6 left-6 font-serif">"</Text>
-                                <Text size="lg" className="italic text-foreground/80 mb-6 relative z-10">
+                                <Text
+                                    as="span"
+                                    className="text-4xl text-foreground/10 absolute top-6 left-6 font-serif"
+                                >
+                                    "
+                                </Text>
+                                <Text
+                                    size="lg"
+                                    className="italic text-foreground/80 mb-6 relative z-10"
+                                >
                                     {testimonial.quote}
                                 </Text>
                                 <div>
-                                    <Text size="sm" className="font-bold">{testimonial.author}</Text>
-                                    <Text size="xs" variant="muted">{testimonial.role}</Text>
+                                    <Text size="sm" className="font-bold">
+                                        {testimonial.author}
+                                    </Text>
+                                    <Text size="xs" variant="muted">
+                                        {testimonial.role}
+                                    </Text>
                                 </div>
                             </motion.div>
                         ))}

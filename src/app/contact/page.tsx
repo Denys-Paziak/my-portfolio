@@ -17,21 +17,21 @@ const contactInfo = [
         label: "Email",
         value: "hello@denispazak.com",
         href: "mailto:hello@denispazak.com",
-        color: "from-blue-500/20 to-cyan-500/20"
+        color: "from-blue-500/20 to-cyan-500/20",
     },
     {
         icon: <MapPin className="w-5 h-5" aria-hidden="true" />,
         label: "Location",
         value: "Kyiv, Ukraine",
         href: null,
-        color: "from-purple-500/20 to-pink-500/20"
+        color: "from-purple-500/20 to-pink-500/20",
     },
     {
         icon: <Clock className="w-5 h-5" aria-hidden="true" />,
         label: "Response Time",
         value: "Within 24 hours",
         href: null,
-        color: "from-emerald-500/20 to-green-500/20"
+        color: "from-emerald-500/20 to-green-500/20",
     },
 ];
 
@@ -40,26 +40,25 @@ const socialLinks = [
         icon: <Github className="w-5 h-5" aria-hidden="true" />,
         label: "GitHub",
         href: "https://github.com",
-        username: "@denispazak"
+        username: "@denispazak",
     },
     {
         icon: <Twitter className="w-5 h-5" aria-hidden="true" />,
         label: "Twitter",
         href: "https://twitter.com",
-        username: "@denispazak"
+        username: "@denispazak",
     },
     {
         icon: <Linkedin className="w-5 h-5" aria-hidden="true" />,
         label: "LinkedIn",
         href: "https://linkedin.com",
-        username: "Denis Pazak"
+        username: "Denis Pazak",
     },
 ];
 
 export default function ContactPage() {
     return (
         <main className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-accent-foreground">
-
             {/* Hero Section */}
             <section className="pt-40 pb-20">
                 <Container>
@@ -72,11 +71,19 @@ export default function ContactPage() {
                         <Badge className="mb-8 border-accent/20 text-accent bg-accent/5">
                             Let's Connect
                         </Badge>
-                        <Heading level={1} className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-8 leading-[0.9]">
+                        <Heading
+                            level={1}
+                            className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-8 leading-[0.9]"
+                        >
                             Get in Touch
                         </Heading>
-                        <Text size="lg" variant="muted" className="text-xl md:text-2xl leading-relaxed max-w-2xl">
-                            Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
+                        <Text
+                            size="lg"
+                            variant="muted"
+                            className="text-xl md:text-2xl leading-relaxed max-w-2xl"
+                        >
+                            Have a project in mind? Let's discuss how we can work together to bring
+                            your ideas to life.
                         </Text>
                     </motion.div>
                 </Container>
@@ -101,12 +108,18 @@ export default function ContactPage() {
                                         href={item.href}
                                         className="block p-8 rounded-[var(--radius-3xl)] border border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04] transition-all duration-300 group relative overflow-hidden"
                                     >
-                                        <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                                        <div
+                                            className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                                        />
                                         <div className="relative z-10">
                                             <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 text-white/60 group-hover:text-accent group-hover:bg-accent/10 transition-colors">
                                                 {item.icon}
                                             </div>
-                                            <Text variant="mono" size="xs" className="text-muted-foreground mb-2 uppercase tracking-widest">
+                                            <Text
+                                                variant="mono"
+                                                size="xs"
+                                                className="text-muted-foreground mb-2 uppercase tracking-widest"
+                                            >
                                                 {item.label}
                                             </Text>
                                             <Text className="text-lg font-medium group-hover:text-accent transition-colors">
@@ -116,12 +129,18 @@ export default function ContactPage() {
                                     </a>
                                 ) : (
                                     <div className="p-8 rounded-[var(--radius-3xl)] border border-white/10 bg-white/[0.02] relative overflow-hidden">
-                                        <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-50`} />
+                                        <div
+                                            className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-50`}
+                                        />
                                         <div className="relative z-10">
                                             <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 text-white/60">
                                                 {item.icon}
                                             </div>
-                                            <Text variant="mono" size="xs" className="text-muted-foreground mb-2 uppercase tracking-widest">
+                                            <Text
+                                                variant="mono"
+                                                size="xs"
+                                                className="text-muted-foreground mb-2 uppercase tracking-widest"
+                                            >
                                                 {item.label}
                                             </Text>
                                             <Text className="text-lg font-medium">
@@ -159,7 +178,10 @@ export default function ContactPage() {
 
                             <div className="space-y-8">
                                 <div>
-                                    <Heading level={3} className="text-xl font-bold mb-4 flex items-center gap-3">
+                                    <Heading
+                                        level={3}
+                                        className="text-xl font-bold mb-4 flex items-center gap-3"
+                                    >
                                         <Send className="w-5 h-5 text-accent" aria-hidden="true" />
                                         What to Expect
                                     </Heading>
@@ -168,7 +190,7 @@ export default function ContactPage() {
                                             "Quick response within 24 hours",
                                             "Free initial consultation",
                                             "Detailed project proposal",
-                                            "Transparent pricing"
+                                            "Transparent pricing",
                                         ].map((item, i) => (
                                             <li key={i} className="flex items-start gap-3">
                                                 <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shadow-[0_0_10px_rgba(109,214,32,0.5)]" />
@@ -197,7 +219,10 @@ export default function ContactPage() {
                                                     {social.icon}
                                                 </div>
                                                 <div>
-                                                    <Text size="sm" className="font-medium group-hover:text-accent transition-colors">
+                                                    <Text
+                                                        size="sm"
+                                                        className="font-medium group-hover:text-accent transition-colors"
+                                                    >
                                                         {social.label}
                                                     </Text>
                                                     <Text size="xs" variant="muted">
@@ -240,20 +265,20 @@ export default function ContactPage() {
                         {[
                             {
                                 q: "What's your typical response time?",
-                                a: "I respond to all inquiries within 24 hours during business days. Urgent requests are prioritized."
+                                a: "I respond to all inquiries within 24 hours during business days. Urgent requests are prioritized.",
                             },
                             {
                                 q: "Do you work with international clients?",
-                                a: "Yes! I work with clients globally and am comfortable with remote collaboration across different time zones."
+                                a: "Yes! I work with clients globally and am comfortable with remote collaboration across different time zones.",
                             },
                             {
                                 q: "What's your project minimum?",
-                                a: "I typically work on projects starting from $5,000, but I'm flexible for the right opportunity."
+                                a: "I typically work on projects starting from $5,000, but I'm flexible for the right opportunity.",
                             },
                             {
                                 q: "Do you offer ongoing support?",
-                                a: "Absolutely. I provide maintenance packages and retainer options for long-term partnerships."
-                            }
+                                a: "Absolutely. I provide maintenance packages and retainer options for long-term partnerships.",
+                            },
                         ].map((faq, index) => (
                             <motion.div
                                 key={index}

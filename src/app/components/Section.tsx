@@ -8,12 +8,12 @@ interface SectionProps extends HTMLAttributes<HTMLElement> {
     spacing?: "sm" | "md" | "lg";
 }
 
-export function Section({ 
-    children, 
-    containerSize = "xl", 
+export function Section({
+    children,
+    containerSize = "xl",
     spacing = "md",
     className,
-    ...props 
+    ...props
 }: SectionProps) {
     const spacingClasses = {
         sm: "py-16 md:py-20",
@@ -22,14 +22,8 @@ export function Section({
     };
 
     return (
-        <section 
-            className={cn(spacingClasses[spacing], className)} 
-            {...props}
-        >
-            <Container size={containerSize}>
-                {children}
-            </Container>
+        <section className={cn(spacingClasses[spacing], className)} {...props}>
+            <Container size={containerSize}>{children}</Container>
         </section>
     );
 }
-

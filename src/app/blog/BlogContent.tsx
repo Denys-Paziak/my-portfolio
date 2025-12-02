@@ -26,10 +26,10 @@ export default function BlogContent() {
     // Filter articles
     let filteredArticles = articles;
     if (selectedCategory) {
-        filteredArticles = filteredArticles.filter(a => a.category === selectedCategory);
+        filteredArticles = filteredArticles.filter((a) => a.category === selectedCategory);
     }
     if (selectedTag) {
-        filteredArticles = filteredArticles.filter(a => a.tags.includes(selectedTag));
+        filteredArticles = filteredArticles.filter((a) => a.tags.includes(selectedTag));
     }
 
     const totalPages = Math.ceil(filteredArticles.length / ITEMS_PER_PAGE);
@@ -58,7 +58,6 @@ export default function BlogContent() {
 
     return (
         <main className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-accent-foreground">
-
             <section className="pt-32 pb-20 px-6">
                 <div className="max-w-7xl mx-auto">
                     <SectionHeader
@@ -84,22 +83,40 @@ export default function BlogContent() {
                                     >
                                         <div className="flex justify-between items-start mb-6">
                                             <div className="flex items-center gap-3">
-                                                <Text variant="mono" size="xs" className="text-white/40">/{article.id}</Text>
-                                                <Text size="xs" className="px-2 py-1 rounded-full border border-white/10 bg-white/5 text-white/60">
+                                                <Text
+                                                    variant="mono"
+                                                    size="xs"
+                                                    className="text-white/40"
+                                                >
+                                                    /{article.id}
+                                                </Text>
+                                                <Text
+                                                    size="xs"
+                                                    className="px-2 py-1 rounded-full border border-white/10 bg-white/5 text-white/60"
+                                                >
                                                     {article.category}
                                                 </Text>
                                             </div>
                                             <div className="flex items-center gap-2 text-white/40">
                                                 <Clock className="w-3 h-3" />
-                                                <Text size="xs" variant="muted">{article.readTime}</Text>
+                                                <Text size="xs" variant="muted">
+                                                    {article.readTime}
+                                                </Text>
                                             </div>
                                         </div>
 
-                                        <Heading level={3} className="text-2xl md:text-3xl font-medium mb-4 group-hover:text-white transition-colors">
+                                        <Heading
+                                            level={3}
+                                            className="text-2xl md:text-3xl font-medium mb-4 group-hover:text-white transition-colors"
+                                        >
                                             {article.title}
                                         </Heading>
 
-                                        <Text size="lg" variant="muted" className="line-clamp-3 mb-8 flex-grow">
+                                        <Text
+                                            size="lg"
+                                            variant="muted"
+                                            className="line-clamp-3 mb-8 flex-grow"
+                                        >
                                             {article.description}
                                         </Text>
 
@@ -108,7 +125,9 @@ export default function BlogContent() {
                                                 {article.date}
                                             </Text>
                                             <div className="flex items-center gap-2 text-white/60 group-hover:text-white transition-colors">
-                                                <Text size="sm" className="font-medium">Read Article</Text>
+                                                <Text size="sm" className="font-medium">
+                                                    Read Article
+                                                </Text>
                                                 <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                                             </div>
                                         </div>
@@ -157,7 +176,6 @@ export default function BlogContent() {
                             </Button>
                         </div>
                     )}
-
                 </div>
             </section>
 

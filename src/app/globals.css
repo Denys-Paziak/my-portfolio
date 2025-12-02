@@ -1,135 +1,135 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
 
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
 
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
 
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
 
-  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+    --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+    --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
 }
 
 @layer base {
-  :root {
-    /* Base Colors - Jet Black */
-    --background: #111111;
-    --foreground: #EDEDED;
+    :root {
+        /* Base Colors - Jet Black */
+        --background: #111111;
+        --foreground: #ededed;
 
-    /* Accent - Neon Chartreuse */
-    --accent: #6DD620;
-    --accent-foreground: #050608;
+        /* Accent - Neon Chartreuse */
+        --accent: #6dd620;
+        --accent-foreground: #050608;
 
-    /* Muted - Dark Gray */
-    --muted: #1F1F1F;
-    --muted-foreground: #888888;
+        /* Muted - Dark Gray */
+        --muted: #1f1f1f;
+        --muted-foreground: #888888;
 
-    /* Card - Slightly lighter than background */
-    --card: #161616;
-    --card-foreground: #EDEDED;
+        /* Card - Slightly lighter than background */
+        --card: #161616;
+        --card-foreground: #ededed;
 
-    /* Spacing & Radius */
-    --radius-sm: 0.25rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
-    --radius-2xl: 1.5rem;
-    --radius-3xl: 2.5rem;
+        /* Spacing & Radius */
+        --radius-sm: 0.25rem;
+        --radius-md: 0.5rem;
+        --radius-lg: 0.75rem;
+        --radius-xl: 1rem;
+        --radius-2xl: 1.5rem;
+        --radius-3xl: 2.5rem;
 
-    /* Glass System */
-    --glass-bg: rgba(10, 11, 13, 0.5);
-    --glass-border: rgba(255, 255, 255, 0.08);
-  }
+        /* Glass System */
+        --glass-bg: rgba(10, 11, 13, 0.5);
+        --glass-border: rgba(255, 255, 255, 0.08);
+    }
 
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
-    font-family: var(--font-sans);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+    body {
+        background-color: var(--background);
+        color: var(--foreground);
+        font-family: var(--font-sans);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 }
 
 @layer utilities {
-  .glass {
-    background: rgba(10, 11, 13, 0.5);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-  }
+    .glass {
+        background: rgba(10, 11, 13, 0.5);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
 
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
 
-  /* Animation Utilities */
-  .animate-fade-in {
-    animation: fade-in 0.8s ease-out forwards;
-    opacity: 0;
-  }
+    /* Animation Utilities */
+    .animate-fade-in {
+        animation: fade-in 0.8s ease-out forwards;
+        opacity: 0;
+    }
 
-  .animate-fade-in-up {
-    animation: fade-in-up 0.8s ease-out forwards;
-    opacity: 0;
-    transform: translateY(20px);
-  }
+    .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+        opacity: 0;
+        transform: translateY(20px);
+    }
 
-  .delay-100 {
-    animation-delay: 100ms;
-  }
+    .delay-100 {
+        animation-delay: 100ms;
+    }
 
-  .delay-200 {
-    animation-delay: 200ms;
-  }
+    .delay-200 {
+        animation-delay: 200ms;
+    }
 
-  .delay-300 {
-    animation-delay: 300ms;
-  }
+    .delay-300 {
+        animation-delay: 300ms;
+    }
 
-  .delay-500 {
-    animation-delay: 500ms;
-  }
+    .delay-500 {
+        animation-delay: 500ms;
+    }
 
-  .delay-700 {
-    animation-delay: 700ms;
-  }
+    .delay-700 {
+        animation-delay: 700ms;
+    }
 
-  /* Safari Optimization Utilities */
-  .backface-hidden {
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-  }
+    /* Safari Optimization Utilities */
+    .backface-hidden {
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
 
-  .will-change-transform {
-    will-change: transform;
-  }
+    .will-change-transform {
+        will-change: transform;
+    }
 }
 
 @keyframes fade-in {
-  from {
-    opacity: 0;
-  }
+    from {
+        opacity: 0;
+    }
 
-  to {
-    opacity: 1;
-  }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

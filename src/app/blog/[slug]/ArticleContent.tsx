@@ -18,7 +18,9 @@ export default function ArticleContent({ params }: { params: { slug: string } })
         return (
             <main className="min-h-screen bg-background text-foreground flex items-center justify-center">
                 <div className="text-center">
-                    <Heading level={1} className="text-4xl mb-4">Article Not Found</Heading>
+                    <Heading level={1} className="text-4xl mb-4">
+                        Article Not Found
+                    </Heading>
                     <Link href="/blog">
                         <Button variant="primary">Back to Blog</Button>
                     </Link>
@@ -33,29 +35,29 @@ export default function ArticleContent({ params }: { params: { slug: string } })
     const structuredData = {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": article.title,
-        "description": article.description,
-        "image": article.seo?.ogImage || "https://denispazak.com/og-image.jpg",
-        "datePublished": article.publishedDate,
-        "dateModified": article.updatedDate || article.publishedDate,
-        "author": {
+        headline: article.title,
+        description: article.description,
+        image: article.seo?.ogImage || "https://denispazak.com/og-image.jpg",
+        datePublished: article.publishedDate,
+        dateModified: article.updatedDate || article.publishedDate,
+        author: {
             "@type": "Person",
-            "name": author.name,
-            "url": author.social.website,
-            "jobTitle": author.role,
-            "email": author.email,
+            name: author.name,
+            url: author.social.website,
+            jobTitle: author.role,
+            email: author.email,
         },
-        "publisher": {
+        publisher: {
             "@type": "Person",
-            "name": author.name,
-            "url": author.social.website,
+            name: author.name,
+            url: author.social.website,
         },
-        "mainEntityOfPage": {
+        mainEntityOfPage: {
             "@type": "WebPage",
-            "@id": `https://denispazak.com/blog/${article.slug}`
+            "@id": `https://denispazak.com/blog/${article.slug}`,
         },
-        "keywords": article.seo?.keywords?.join(", "),
-        "articleSection": article.category,
+        keywords: article.seo?.keywords?.join(", "),
+        articleSection: article.category,
     };
 
     // Mock content - in real app, fetch from CMS or markdown
@@ -88,7 +90,10 @@ export default function ArticleContent({ params }: { params: { slug: string } })
                 <article className="pt-40 pb-20 px-6">
                     <div className="max-w-3xl mx-auto">
                         {/* Back Button */}
-                        <Link href="/blog" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8">
+                        <Link
+                            href="/blog"
+                            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
+                        >
                             <ArrowLeft className="w-4 h-4" aria-hidden="true" />
                             <Text size="sm">Back to Blog</Text>
                         </Link>
@@ -102,21 +107,29 @@ export default function ArticleContent({ params }: { params: { slug: string } })
                                 </Badge>
                                 <div className="flex items-center gap-2 text-white/40">
                                     <Calendar className="w-3 h-3" aria-hidden="true" />
-                                    <Text size="xs" variant="muted">{article.date}</Text>
+                                    <Text size="xs" variant="muted">
+                                        {article.date}
+                                    </Text>
                                 </div>
                                 <div className="flex items-center gap-2 text-white/40">
                                     <Clock className="w-3 h-3" aria-hidden="true" />
-                                    <Text size="xs" variant="muted">{article.readTime}</Text>
+                                    <Text size="xs" variant="muted">
+                                        {article.readTime}
+                                    </Text>
                                 </div>
                                 {article.updatedDate && (
                                     <Text size="xs" variant="muted" className="italic">
-                                        Updated: {new Date(article.updatedDate).toLocaleDateString()}
+                                        Updated:{" "}
+                                        {new Date(article.updatedDate).toLocaleDateString()}
                                     </Text>
                                 )}
                             </div>
 
                             {/* Title */}
-                            <Heading level={1} className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8">
+                            <Heading
+                                level={1}
+                                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8"
+                            >
                                 {article.title}
                             </Heading>
 
@@ -135,12 +148,22 @@ export default function ArticleContent({ params }: { params: { slug: string } })
                                 </div>
                                 <div className="hidden md:flex gap-2">
                                     {author.social.twitter && (
-                                        <a href={author.social.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                                        <a
+                                            href={author.social.twitter}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-muted-foreground hover:text-foreground transition-colors"
+                                        >
                                             <Text size="xs">Twitter</Text>
                                         </a>
                                     )}
                                     {author.social.linkedin && (
-                                        <a href={author.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                                        <a
+                                            href={author.social.linkedin}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-muted-foreground hover:text-foreground transition-colors"
+                                        >
                                             <Text size="xs">LinkedIn</Text>
                                         </a>
                                     )}
@@ -150,9 +173,15 @@ export default function ArticleContent({ params }: { params: { slug: string } })
                             {/* Tags */}
                             {article.tags.length > 0 && (
                                 <div className="mt-6 flex flex-wrap items-center gap-2">
-                                    <Tag className="w-4 h-4 text-muted-foreground" aria-hidden="true" />
+                                    <Tag
+                                        className="w-4 h-4 text-muted-foreground"
+                                        aria-hidden="true"
+                                    />
                                     {article.tags.map((tag) => (
-                                        <Link key={tag} href={`/blog?tag=${encodeURIComponent(tag)}`}>
+                                        <Link
+                                            key={tag}
+                                            href={`/blog?tag=${encodeURIComponent(tag)}`}
+                                        >
                                             <Badge className="hover:bg-white/5 transition-colors cursor-pointer border-white/20">
                                                 {tag}
                                             </Badge>
@@ -199,17 +228,32 @@ export default function ArticleContent({ params }: { params: { slug: string } })
                                     </div>
                                     <div className="flex gap-4">
                                         {author.social.twitter && (
-                                            <a href={author.social.twitter} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                                            <a
+                                                href={author.social.twitter}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-sm text-muted-foreground hover:text-accent transition-colors"
+                                            >
                                                 Twitter
                                             </a>
                                         )}
                                         {author.social.linkedin && (
-                                            <a href={author.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                                            <a
+                                                href={author.social.linkedin}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-sm text-muted-foreground hover:text-accent transition-colors"
+                                            >
                                                 LinkedIn
                                             </a>
                                         )}
                                         {author.social.github && (
-                                            <a href={author.social.github} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                                            <a
+                                                href={author.social.github}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-sm text-muted-foreground hover:text-accent transition-colors"
+                                            >
                                                 GitHub
                                             </a>
                                         )}
