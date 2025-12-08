@@ -1,8 +1,9 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
+import { Minus, Plus } from "lucide-react";
 import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 
 interface AccordionItemProps {
@@ -15,7 +16,7 @@ interface AccordionItemProps {
 }
 
 export function AccordionItem({
-    value,
+    value: _value,
     trigger,
     children,
     isOpen,
@@ -35,7 +36,7 @@ export function AccordionItem({
             )}
         >
             {/* Active Glow Effect */}
-            {isOpen && (
+            {isOpen ? (
                 <motion.div
                     layoutId="active-glow"
                     className="absolute inset-0 bg-accent/5 blur-xl"
@@ -43,7 +44,7 @@ export function AccordionItem({
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                 />
-            )}
+            ) : null}
 
             <button
                 onClick={onClick}
@@ -103,7 +104,7 @@ export function AccordionItem({
             </button>
 
             <AnimatePresence initial={false}>
-                {isOpen && (
+                {isOpen ? (
                     <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{
@@ -127,7 +128,7 @@ export function AccordionItem({
                             {children}
                         </div>
                     </motion.div>
-                )}
+                ) : null}
             </AnimatePresence>
         </motion.div>
     );

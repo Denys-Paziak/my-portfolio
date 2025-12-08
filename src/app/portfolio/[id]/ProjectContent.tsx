@@ -1,26 +1,28 @@
 "use client";
 
+import { motion } from "framer-motion";
 import {
     ArrowLeft,
     ArrowRight,
+    CheckCircle2,
+    Code2,
+    Cpu,
     ExternalLink,
     Github,
-    Zap,
-    Cpu,
     Shield,
     Smartphone,
-    Code2,
-    CheckCircle2,
+    Zap,
 } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Button } from "../../components/ui/Button";
-import { Text } from "../../components/ui/Text";
-import { Heading } from "../../components/ui/Heading";
-import { Footer } from "../../components/Footer";
+
 import { cn } from "@/lib/utils";
 
-export default function ProjectContent({ params }: { params: { id: string } }) {
+import { Footer } from "../../components/Footer";
+import { Button } from "../../components/ui/Button";
+import { Heading } from "../../components/ui/Heading";
+import { Text } from "../../components/ui/Text";
+
+export default function ProjectContent({ params: _params }: { params: { id: string } }) {
     // Mock Data
     const project = {
         title: "Neon Finance Dashboard",
@@ -392,7 +394,7 @@ class DataStream {
                         viewport={{ once: true }}
                         className="mb-20 text-center max-w-3xl mx-auto"
                     >
-                        <div className="text-6xl text-white/10 font-serif mb-6">"</div>
+                        <div className="text-6xl text-white/10 font-serif mb-6">&quot;</div>
                         <Heading
                             level={3}
                             className="text-2xl md:text-3xl font-medium italic leading-relaxed mb-8"

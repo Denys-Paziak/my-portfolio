@@ -1,9 +1,9 @@
+import Image from "next/image";
+
 import { cn } from "@/lib/utils";
 
-interface CardProps {
-    children: React.ReactNode;
-    className?: string;
-}
+import { Heading } from "./Heading";
+import { Text } from "./Text";
 
 export function Card({ children, className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
     return (
@@ -28,7 +28,8 @@ export function CardHeader({ className, ...props }: React.HTMLAttributes<HTMLDiv
 
 export function CardTitle({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
     return (
-        <h3
+        <Heading
+            level={3}
             className={cn("text-2xl font-semibold leading-none tracking-tight", className)}
             {...props}
         />
@@ -39,7 +40,7 @@ export function CardDescription({
     className,
     ...props
 }: React.HTMLAttributes<HTMLParagraphElement>) {
-    return <p className={cn("text-sm text-muted-foreground", className)} {...props} />;
+    return <Text className={cn("text-sm text-muted-foreground", className)} {...props} />;
 }
 
 export function CardContent({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
@@ -56,16 +57,18 @@ export function CardImage({
     className,
     ...props
 }: React.ImgHTMLAttributes<HTMLImageElement>) {
+    const { width: _width, height: _height, ...rest } = props;
     return (
         <div className="relative w-full aspect-video overflow-hidden bg-muted">
-            <img
-                src={src}
-                alt={alt}
+            <Image
+                src={(src as string) || ""}
+                alt={alt || ""}
+                fill
                 className={cn(
                     "object-cover w-full h-full transition-transform duration-500 group-hover:scale-105",
                     className
                 )}
-                {...props}
+                {...rest}
             />
         </div>
     );

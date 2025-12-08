@@ -1,11 +1,11 @@
+import { Blog } from "./components/Blog";
+import { CTA } from "./components/CTA";
+import { FAQ } from "./components/FAQ";
+import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
-import { Services } from "./components/Services";
 import { Portfolio } from "./components/Portfolio";
 import { Reviews } from "./components/Reviews";
-import { Blog } from "./components/Blog";
-import { FAQ } from "./components/FAQ";
-import { CTA } from "./components/CTA";
-import { Footer } from "./components/Footer";
+import { Services } from "./components/Services";
 
 export default function Home() {
     return (

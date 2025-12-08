@@ -1,15 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Clock, Github, Twitter, Linkedin, Send } from "lucide-react";
-import { Container } from "../components/ui/Container";
-import { SectionHeader } from "../components/ui/SectionHeader";
-import { Text } from "../components/ui/Text";
-import { Heading } from "../components/ui/Heading";
-import { Badge } from "../components/ui/Badge";
-import { Footer } from "../components/Footer";
+import { Clock, Github, Linkedin, Mail, MapPin, Send, Twitter } from "lucide-react";
+
 import { ContactForm } from "../components/ContactForm";
+import { Footer } from "../components/Footer";
+import { Badge } from "../components/ui/Badge";
+import { Container } from "../components/ui/Container";
+import { Heading } from "../components/ui/Heading";
+import { SectionHeader } from "../components/ui/SectionHeader";
 import { Separator } from "../components/ui/Separator";
+import { Text } from "../components/ui/Text";
 
 const contactInfo = [
     {
@@ -69,7 +70,7 @@ export default function ContactPage() {
                         className="max-w-4xl"
                     >
                         <Badge className="mb-8 border-accent/20 text-accent bg-accent/5">
-                            Let's Connect
+                            Let&apos;s Connect
                         </Badge>
                         <Heading
                             level={1}
@@ -82,8 +83,8 @@ export default function ContactPage() {
                             variant="muted"
                             className="text-xl md:text-2xl leading-relaxed max-w-2xl"
                         >
-                            Have a project in mind? Let's discuss how we can work together to bring
-                            your ideas to life.
+                            Have a project in mind? Let&apos;s discuss how we can work together to
+                            bring your ideas to life.
                         </Text>
                     </motion.div>
                 </Container>

@@ -1,7 +1,8 @@
 import { cn } from "@/lib/utils";
+
 import { Badge } from "./Badge";
-import { Text } from "./Text";
 import { Heading } from "./Heading";
+import { Text } from "./Text";
 
 interface SectionHeaderProps {
     badgeText: string;
@@ -34,13 +35,13 @@ export function SectionHeader({
                 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-none tracking-normal mb-4"
             >
                 {title}
-                {subtitle && <span className="text-accent ml-3">{subtitle}</span>}
+                {subtitle ? <span className="text-accent ml-3">{subtitle}</span> : null}
             </Heading>
-            {description && (
+            {description ? (
                 <Text size="lg" variant="muted" className="max-w-2xl mx-auto leading-relaxed">
                     {description}
                 </Text>
-            )}
+            ) : null}
         </div>
     );
 }

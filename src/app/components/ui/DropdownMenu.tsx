@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
+
 import { cn } from "@/lib/utils";
-import { ChevronDown } from "lucide-react";
 
 interface DropdownMenuProps {
     trigger: React.ReactNode;
@@ -29,7 +29,7 @@ export function DropdownMenu({ trigger, children, align = "start" }: DropdownMen
         <div className="relative inline-block text-left" ref={dropdownRef}>
             <div onClick={() => setIsOpen(!isOpen)}>{trigger}</div>
 
-            {isOpen && (
+            {isOpen ? (
                 <div
                     className={cn(
                         "absolute z-50 mt-2 w-56 rounded-xl border border-[var(--glass-border)] bg-card/95 backdrop-blur-xl shadow-2xl animate-fade-in origin-top-right focus:outline-none",
@@ -40,7 +40,7 @@ export function DropdownMenu({ trigger, children, align = "start" }: DropdownMen
                         {children}
                     </div>
                 </div>
-            )}
+            ) : null}
         </div>
     );
 }

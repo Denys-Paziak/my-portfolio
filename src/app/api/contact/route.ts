@@ -16,10 +16,6 @@ export async function POST(request: NextRequest) {
 
         // Тут можна додати інтеграцію з email сервісом (Resend, SendGrid, тощо)
         // Або зберегти в базу даних
-
-        // Приклад з console.log для тестування
-        console.log("Contact form submission:", { name, email, message });
-
         // В реальному проєкті тут буде:
         // await sendEmail({ to: "your@email.com", subject: "New Contact Form", body: message });
 
@@ -28,7 +24,7 @@ export async function POST(request: NextRequest) {
             { status: 200 }
         );
     } catch (error) {
-        console.error("Contact form error:", error);
+        console.error("Error sending email:", error);
         return NextResponse.json({ error: "Internal server error" }, { status: 500 });
     }
 }

@@ -1,11 +1,12 @@
 "use client";
+/* eslint-disable react/jsx-curly-brace-presence */
 
-import { useState, FormEvent } from "react";
 import { ArrowRight } from "lucide-react";
+import { FormEvent, useState } from "react";
+
 import { Button } from "./ui/Button";
 import { Input } from "./ui/Input";
 import { Textarea } from "./ui/Textarea";
-import { Text } from "./ui/Text";
 import { useToast } from "./ui/Toast";
 
 export function ContactForm() {
@@ -43,7 +44,7 @@ export function ContactForm() {
             });
 
             (e.target as HTMLFormElement).reset();
-        } catch (error) {
+        } catch {
             toast({
                 title: "Error",
                 message: "Failed to send message. Please try again later.",
@@ -63,7 +64,7 @@ export function ContactForm() {
                             htmlFor="name"
                             className="text-xs font-mono text-muted-foreground uppercase tracking-widest group-focus-within:text-accent transition-colors"
                         >
-                            // Name
+                            {"//"} Name
                         </label>
                         <Input
                             id="name"
@@ -78,7 +79,7 @@ export function ContactForm() {
                             htmlFor="email"
                             className="text-xs font-mono text-muted-foreground uppercase tracking-widest group-focus-within:text-accent transition-colors"
                         >
-                            // Email
+                            {"//"} Email
                         </label>
                         <Input
                             id="email"
@@ -96,7 +97,7 @@ export function ContactForm() {
                         htmlFor="message"
                         className="text-xs font-mono text-muted-foreground uppercase tracking-widest group-focus-within:text-accent transition-colors"
                     >
-                        // Message
+                        {"//"} Message
                     </label>
                     <Textarea
                         id="message"

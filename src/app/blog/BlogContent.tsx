@@ -1,36 +1,26 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, ArrowLeft, ArrowRight, Clock, Tag } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Clock } from "lucide-react";
 import Link from "next/link";
-import { SectionHeader } from "../components/ui/SectionHeader";
-import { Button } from "../components/ui/Button";
-import { Badge } from "../components/ui/Badge";
-import { Text } from "../components/ui/Text";
-import { Heading } from "../components/ui/Heading";
+import { useState } from "react";
+
+import { articles } from "@/data/articles";
 import { cn } from "@/lib/utils";
+
 import { Footer } from "../components/Footer";
-import { articles, getAllCategories, getAllTags } from "@/data/articles";
+import { Button } from "../components/ui/Button";
+import { Heading } from "../components/ui/Heading";
+import { SectionHeader } from "../components/ui/SectionHeader";
+import { Text } from "../components/ui/Text";
 
 const ITEMS_PER_PAGE = 6;
 
 export default function BlogContent() {
     const [currentPage, setCurrentPage] = useState(1);
-    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-    const [selectedTag, setSelectedTag] = useState<string | null>(null);
-
-    const categories = getAllCategories();
-    const tags = getAllTags();
 
     // Filter articles
-    let filteredArticles = articles;
-    if (selectedCategory) {
-        filteredArticles = filteredArticles.filter((a) => a.category === selectedCategory);
-    }
-    if (selectedTag) {
-        filteredArticles = filteredArticles.filter((a) => a.tags.includes(selectedTag));
-    }
+    const filteredArticles = articles;
 
     const totalPages = Math.ceil(filteredArticles.length / ITEMS_PER_PAGE);
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -43,17 +33,6 @@ export default function BlogContent() {
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
         scrollToTop();
-    };
-
-    const handleCategoryChange = (category: string | null) => {
-        setSelectedCategory(category);
-        setSelectedTag(null);
-        setCurrentPage(1);
-    };
-
-    const handleTagChange = (tag: string | null) => {
-        setSelectedTag(tag);
-        setCurrentPage(1);
     };
 
     return (

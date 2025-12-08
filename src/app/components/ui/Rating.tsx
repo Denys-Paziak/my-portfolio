@@ -1,7 +1,8 @@
 "use client";
 
-import * as React from "react";
 import { Star } from "lucide-react";
+import * as React from "react";
+
 import { cn } from "@/lib/utils";
 
 interface RatingProps {

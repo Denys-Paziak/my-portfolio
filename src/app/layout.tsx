@@ -1,6 +1,10 @@
+import "./globals.css";
+
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
-import "./globals.css";
+
+import { Header } from "./components/Header";
+import { ToastProvider } from "./components/ui/Toast";
 
 const outfit = Outfit({
     variable: "--font-outfit",
@@ -43,9 +47,6 @@ export const metadata: Metadata = {
         follow: true,
     },
 };
-
-import { Header } from "./components/Header";
-import { ToastProvider } from "./components/ui/Toast";
 
 export default function RootLayout({
     children,

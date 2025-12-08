@@ -1,6 +1,10 @@
-import * as React from "react";
-import { cn } from "@/lib/utils";
 import { FolderOpen } from "lucide-react";
+import * as React from "react";
+
+import { cn } from "@/lib/utils";
+
+import { Heading } from "./Heading";
+import { Text } from "./Text";
 
 interface EmptyStateProps extends React.HTMLAttributes<HTMLDivElement> {
     icon?: React.ElementType;
@@ -28,10 +32,12 @@ export function EmptyState({
             <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white/5 mb-6">
                 <Icon className="w-8 h-8 text-muted-foreground" />
             </div>
-            <h3 className="text-lg font-medium text-foreground mb-2">{title}</h3>
-            {description && (
-                <p className="text-sm text-muted-foreground max-w-sm mb-6">{description}</p>
-            )}
+            <Heading level={3} className="text-lg font-medium text-foreground mb-2">
+                {title}
+            </Heading>
+            {description ? (
+                <Text className="text-sm text-muted-foreground max-w-sm mb-6">{description}</Text>
+            ) : null}
             {action}
         </div>
     );

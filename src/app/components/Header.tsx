@@ -1,9 +1,10 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+
 import { Button } from "./ui/Button";
 
 export function Header() {
@@ -63,7 +64,7 @@ export function Header() {
 
                 {/* Mobile Navigation Overlay */}
                 <AnimatePresence>
-                    {isMobileMenuOpen && (
+                    {isMobileMenuOpen ? (
                         <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -93,7 +94,7 @@ export function Header() {
                                 </Link>
                             </nav>
                         </motion.div>
-                    )}
+                    ) : null}
                 </AnimatePresence>
             </div>
         </header>

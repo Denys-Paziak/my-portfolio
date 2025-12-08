@@ -1,28 +1,43 @@
 "use client";
 
-import * as React from "react";
-import { Button } from "../components/ui/Button";
-import { Input } from "../components/ui/Input";
-import { Textarea } from "../components/ui/Textarea";
-import { Badge } from "../components/ui/Badge";
-import { Heading } from "../components/ui/Heading";
-import { Text } from "../components/ui/Text";
-import { Container } from "../components/ui/Container";
-import { Separator } from "../components/ui/Separator";
-import { Stack } from "../components/ui/Stack";
-import { Accordion, AccordionItem } from "../components/ui/Accordion";
-import { Skeleton } from "../components/ui/Skeleton";
-import { useToast } from "../components/ui/Toast";
-import { Select } from "../components/ui/Select";
-import { Checkbox } from "../components/ui/Checkbox";
 import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "../components/ui/Table";
+    ArrowRight,
+    ArrowUpRight,
+    Bell,
+    Check,
+    ChevronDown,
+    Code2,
+    Cpu,
+    FileText,
+    Filter,
+    Github,
+    Globe,
+    Home,
+    Image as ImageIcon,
+    LayoutGrid,
+    Linkedin,
+    LogOut,
+    Mail,
+    Menu,
+    Minus,
+    Music,
+    Plus,
+    Search,
+    Send,
+    Settings,
+    Terminal,
+    Twitter,
+    User,
+    Users,
+    X,
+    Zap,
+} from "lucide-react";
+import * as React from "react";
+
+import { Accordion, AccordionItem } from "../components/ui/Accordion";
+import { Avatar, AvatarGroup } from "../components/ui/Avatar";
+import { Badge } from "../components/ui/Badge";
+import { Button } from "../components/ui/Button";
 import {
     Card,
     CardContent,
@@ -32,53 +47,37 @@ import {
     CardImage,
     CardTitle,
 } from "../components/ui/Card";
-import { List, ListItem } from "../components/ui/List";
-import { Avatar, AvatarGroup } from "../components/ui/Avatar";
-import { Rating } from "../components/ui/Rating";
-import { Spinner, ProgressBar } from "../components/ui/Loader";
-import { EmptyState } from "../components/ui/EmptyState";
 import { Carousel, CarouselItem } from "../components/ui/Carousel";
-import { StatusPage } from "../components/ui/StatusPage";
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from "../components/ui/Sidebar";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/Tabs";
+import { Checkbox } from "../components/ui/Checkbox";
+import { Container } from "../components/ui/Container";
 import {
     DropdownMenu,
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
 } from "../components/ui/DropdownMenu";
+import { Heading } from "../components/ui/Heading";
+import { Input } from "../components/ui/Input";
+import { List, ListItem } from "../components/ui/List";
+import { Rating } from "../components/ui/Rating";
+import { Select } from "../components/ui/Select";
+import { Separator } from "../components/ui/Separator";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from "../components/ui/Sidebar";
+import { Skeleton } from "../components/ui/Skeleton";
+import { Stack } from "../components/ui/Stack";
+import { StatusPage } from "../components/ui/StatusPage";
 import {
-    ArrowRight,
-    Mail,
-    Send,
-    Terminal,
-    Check,
-    ChevronDown,
-    Menu,
-    X,
-    Github,
-    Twitter,
-    Linkedin,
-    Code2,
-    Cpu,
-    Globe,
-    Zap,
-    ArrowUpRight,
-    Plus,
-    Minus,
-    Search,
-    User,
-    Bell,
-    Settings,
-    FileText,
-    Image as ImageIcon,
-    Music,
-    Home,
-    LayoutGrid,
-    Users,
-    LogOut,
-    Filter,
-} from "lucide-react";
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "../components/ui/Table";
+import { Tabs, TabsList, TabsTrigger } from "../components/ui/Tabs";
+import { Text } from "../components/ui/Text";
+import { Textarea } from "../components/ui/Textarea";
+import { useToast } from "../components/ui/Toast";
 
 export default function DesignSystem() {
     const { toast } = useToast();
@@ -88,18 +87,24 @@ export default function DesignSystem() {
         <main className="min-h-screen bg-background text-foreground p-12 md:p-24 space-y-24">
             {/* Header */}
             <div className="space-y-4">
-                <h1 className="text-5xl font-bold tracking-tight">Design System</h1>
-                <p className="text-muted-foreground text-lg max-w-2xl">
+                <Heading level={1} className="text-5xl font-bold tracking-tight">
+                    Design System
+                </Heading>
+                <Text size="lg" variant="muted" className="max-w-2xl">
                     A collection of reusable components and styles used throughout the application.
                     This ensures consistency in design and behavior.
-                </p>
+                </Text>
             </div>
 
             {/* Foundations */}
             <section className="space-y-12">
-                <h2 className="text-2xl font-mono text-muted-foreground uppercase tracking-widest border-b border-[var(--glass-border)] pb-4">
+                <Heading
+                    level={2}
+                    variant="mono"
+                    className="text-muted-foreground border-b border-[var(--glass-border)] pb-4"
+                >
                     01. Foundations
-                </h2>
+                </Heading>
 
                 {/* Colors */}
                 <div className="space-y-4">
@@ -110,33 +115,37 @@ export default function DesignSystem() {
                         <div className="space-y-3">
                             <div className="h-24 rounded-lg bg-background border border-[var(--glass-border)]" />
                             <div className="space-y-1">
-                                <p className="font-medium">Background</p>
-                                <p className="text-xs text-muted-foreground font-mono">
+                                <Text className="font-medium">Background</Text>
+                                <Text variant="mono" size="xs">
                                     --background
-                                </p>
+                                </Text>
                             </div>
                         </div>
                         <div className="space-y-3">
                             <div className="h-24 rounded-lg bg-foreground" />
                             <div className="space-y-1">
-                                <p className="font-medium">Foreground</p>
-                                <p className="text-xs text-muted-foreground font-mono">
+                                <Text className="font-medium">Foreground</Text>
+                                <Text variant="mono" size="xs">
                                     --foreground
-                                </p>
+                                </Text>
                             </div>
                         </div>
                         <div className="space-y-3">
                             <div className="h-24 rounded-lg bg-accent" />
                             <div className="space-y-1">
-                                <p className="font-medium">Accent</p>
-                                <p className="text-xs text-muted-foreground font-mono">--accent</p>
+                                <Text className="font-medium">Accent</Text>
+                                <Text variant="mono" size="xs">
+                                    --accent
+                                </Text>
                             </div>
                         </div>
                         <div className="space-y-3">
                             <div className="h-24 rounded-lg bg-card border border-[var(--glass-border)]" />
                             <div className="space-y-1">
-                                <p className="font-medium">Card</p>
-                                <p className="text-xs text-muted-foreground font-mono">--card</p>
+                                <Text className="font-medium">Card</Text>
+                                <Text variant="mono" size="xs">
+                                    --card
+                                </Text>
                             </div>
                         </div>
                     </div>
@@ -310,14 +319,14 @@ export default function DesignSystem() {
                             </span>
                         </div>
                         <div className="p-6 border border-[var(--glass-border)] rounded-xl bg-white/5">
-                            <p className="text-4xl font-sans mb-4">Aa</p>
-                            <p className="text-lg text-muted-foreground">
+                            <Text className="text-4xl font-sans mb-4">Aa</Text>
+                            <Text size="lg" variant="muted">
                                 ABCDEFGHIJKLMNOPQRSTUVWXYZ
                                 <br />
                                 abcdefghijklmnopqrstuvwxyz
                                 <br />
                                 1234567890
-                            </p>
+                            </Text>
                         </div>
                     </div>
                     <div className="space-y-4">
@@ -330,14 +339,14 @@ export default function DesignSystem() {
                             </span>
                         </div>
                         <div className="p-6 border border-[var(--glass-border)] rounded-xl bg-white/5">
-                            <p className="text-4xl font-mono mb-4">Aa</p>
-                            <p className="text-lg font-mono text-muted-foreground">
+                            <Text className="text-4xl font-mono mb-4">Aa</Text>
+                            <Text size="lg" variant="mono">
                                 ABCDEFGHIJKLMNOPQRSTUVWXYZ
                                 <br />
                                 abcdefghijklmnopqrstuvwxyz
                                 <br />
                                 1234567890
-                            </p>
+                            </Text>
                         </div>
                     </div>
                 </div>
@@ -411,9 +420,9 @@ export default function DesignSystem() {
                                 Tiny
                             </div>
                             <div className="col-span-10">
-                                <p className="text-[10px] text-muted-foreground uppercase tracking-wider">
+                                <Text className="text-[10px] text-muted-foreground uppercase tracking-wider">
                                     The quick brown fox
-                                </p>
+                                </Text>
                             </div>
                         </div>
                     </div>
@@ -472,34 +481,36 @@ export default function DesignSystem() {
                         </Text>
                         <div className="space-y-4">
                             <div className="space-y-1">
-                                <p className="text-xl tracking-tighter">Tracking Tighter</p>
-                                <p className="text-xs text-muted-foreground font-mono">
+                                <Text className="text-xl tracking-tighter">Tracking Tighter</Text>
+                                <Text variant="mono" size="xs">
                                     tracking-tighter (-0.05em)
-                                </p>
+                                </Text>
                             </div>
                             <div className="space-y-1">
-                                <p className="text-xl tracking-tight">Tracking Tight</p>
-                                <p className="text-xs text-muted-foreground font-mono">
+                                <Text className="text-xl tracking-tight">Tracking Tight</Text>
+                                <Text variant="mono" size="xs">
                                     tracking-tight (-0.025em)
-                                </p>
+                                </Text>
                             </div>
                             <div className="space-y-1">
-                                <p className="text-xl tracking-normal">Tracking Normal</p>
-                                <p className="text-xs text-muted-foreground font-mono">
+                                <Text className="text-xl tracking-normal">Tracking Normal</Text>
+                                <Text variant="mono" size="xs">
                                     tracking-normal (0)
-                                </p>
+                                </Text>
                             </div>
                             <div className="space-y-1">
-                                <p className="text-xl tracking-wide">Tracking Wide</p>
-                                <p className="text-xs text-muted-foreground font-mono">
+                                <Text className="text-xl tracking-wide">Tracking Wide</Text>
+                                <Text variant="mono" size="xs">
                                     tracking-wide (0.025em)
-                                </p>
+                                </Text>
                             </div>
                             <div className="space-y-1">
-                                <p className="text-xl tracking-widest uppercase">Tracking Widest</p>
-                                <p className="text-xs text-muted-foreground font-mono">
+                                <Text className="text-xl tracking-widest uppercase">
+                                    Tracking Widest
+                                </Text>
+                                <Text variant="mono" size="xs">
                                     tracking-widest (0.1em)
-                                </p>
+                                </Text>
                             </div>
                         </div>
                     </div>
@@ -543,13 +554,15 @@ export default function DesignSystem() {
                             Highlights & Accents
                         </Text>
                         <div className="space-y-4">
-                            <p className="text-2xl font-bold text-accent">Accent Color Text</p>
-                            <p className="text-2xl font-bold bg-gradient-to-r from-white to-white/50 bg-clip-text text-transparent">
+                            <Text className="text-2xl font-bold text-accent">
+                                Accent Color Text
+                            </Text>
+                            <Text className="text-2xl font-bold bg-gradient-to-r from-white to-white/50 bg-clip-text text-transparent">
                                 Gradient Text (White)
-                            </p>
-                            <p className="text-2xl font-bold bg-gradient-to-r from-accent to-accent/50 bg-clip-text text-transparent">
+                            </Text>
+                            <Text className="text-2xl font-bold bg-gradient-to-r from-accent to-accent/50 bg-clip-text text-transparent">
                                 Gradient Text (Accent)
-                            </p>
+                            </Text>
                         </div>
                     </div>
                 </div>
@@ -557,12 +570,18 @@ export default function DesignSystem() {
 
             {/* Buttons */}
             <section className="space-y-8">
-                <h2 className="text-2xl font-mono text-muted-foreground uppercase tracking-widest border-b border-[var(--glass-border)] pb-4">
+                <Heading
+                    level={2}
+                    variant="mono"
+                    className="text-muted-foreground border-b border-[var(--glass-border)] pb-4"
+                >
                     03. Buttons
-                </h2>
+                </Heading>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     <div className="space-y-4">
-                        <p className="text-sm text-muted-foreground font-mono">Primary</p>
+                        <Text variant="mono" size="sm">
+                            Primary
+                        </Text>
                         <div className="flex flex-col gap-4 items-start">
                             <Button variant="primary" size="sm">
                                 Small Button
@@ -580,7 +599,9 @@ export default function DesignSystem() {
                         </div>
                     </div>
                     <div className="space-y-4">
-                        <p className="text-sm text-muted-foreground font-mono">Secondary</p>
+                        <Text variant="mono" size="sm">
+                            Secondary
+                        </Text>
                         <div className="flex flex-col gap-4 items-start">
                             <Button variant="secondary" size="sm">
                                 Small Button
@@ -598,7 +619,9 @@ export default function DesignSystem() {
                         </div>
                     </div>
                     <div className="space-y-4">
-                        <p className="text-sm text-muted-foreground font-mono">Ghost</p>
+                        <Text variant="mono" size="sm">
+                            Ghost
+                        </Text>
                         <div className="flex flex-col gap-4 items-start">
                             <Button variant="ghost" size="sm">
                                 Small Button
@@ -699,10 +722,10 @@ export default function DesignSystem() {
                                     </CardDescription>
                                 </CardHeader>
                                 <CardContent>
-                                    <p className="text-sm text-muted-foreground">
+                                    <Text className="text-sm text-muted-foreground">
                                         Card content goes here. It can be text, images, or anything
                                         else.
-                                    </p>
+                                    </Text>
                                 </CardContent>
                                 <CardFooter>
                                     <Button size="sm" variant="secondary">
@@ -824,9 +847,13 @@ export default function DesignSystem() {
 
             {/* Badges */}
             <section className="space-y-8">
-                <h2 className="text-2xl font-mono text-muted-foreground uppercase tracking-widest border-b border-[var(--glass-border)] pb-4">
+                <Heading
+                    level={2}
+                    variant="mono"
+                    className="text-muted-foreground border-b border-[var(--glass-border)] pb-4"
+                >
                     05. Badges
-                </h2>
+                </Heading>
                 <div className="flex flex-wrap gap-4">
                     <Badge>Default Badge</Badge>
                     <Badge className="bg-accent/10 text-accent border-accent/20">
@@ -919,8 +946,10 @@ export default function DesignSystem() {
                                         <div className="flex items-center gap-3">
                                             <Avatar size="sm" fallback="ME" />
                                             <div className="text-xs">
-                                                <p className="font-medium">My Account</p>
-                                                <p className="text-muted-foreground">Pro Plan</p>
+                                                <Text className="font-medium">My Account</Text>
+                                                <Text className="text-muted-foreground">
+                                                    Pro Plan
+                                                </Text>
                                             </div>
                                         </div>
                                     </SidebarFooter>
@@ -1026,10 +1055,12 @@ export default function DesignSystem() {
                                                 fallback="CN"
                                             />
                                             <div className="text-left">
-                                                <p className="text-sm font-medium">Denis Pazak</p>
-                                                <p className="text-xs text-muted-foreground">
+                                                <Text className="text-sm font-medium">
+                                                    Denis Pazak
+                                                </Text>
+                                                <Text className="text-xs text-muted-foreground">
                                                     admin@mysite.com
-                                                </p>
+                                                </Text>
                                             </div>
                                             <ChevronDown className="w-4 h-4 text-muted-foreground ml-2" />
                                         </div>

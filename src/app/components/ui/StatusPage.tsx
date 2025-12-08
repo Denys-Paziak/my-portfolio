@@ -1,10 +1,12 @@
+import { AlertCircle, CheckCircle, WifiOff } from "lucide-react";
+import Link from "next/link";
 import * as React from "react";
+
 import { cn } from "@/lib/utils";
+
 import { Button } from "./Button";
 import { Heading } from "./Heading";
 import { Text } from "./Text";
-import Link from "next/link";
-import { AlertCircle, CheckCircle, WifiOff } from "lucide-react";
 
 interface StatusPageProps {
     type: "404" | "500" | "success" | "offline";

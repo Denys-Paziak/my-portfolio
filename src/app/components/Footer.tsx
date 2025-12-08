@@ -1,13 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowUp, Github, Twitter, Linkedin, Mail, ArrowRight, Terminal } from "lucide-react";
+import { ArrowRight, ArrowUp, Github, Linkedin, Mail, Twitter } from "lucide-react";
+
 import { Button } from "./ui/Button";
-import { Input } from "./ui/Input";
 import { Container } from "./ui/Container";
+import { Heading } from "./ui/Heading";
+import { Input } from "./ui/Input";
 import { Separator } from "./ui/Separator";
 import { Stack } from "./ui/Stack";
-import { Heading } from "./ui/Heading";
 import { Text } from "./ui/Text";
 
 export function Footer() {
@@ -57,7 +57,7 @@ export function Footer() {
 
                         <Stack gap={6} className="w-full max-w-md">
                             <Text size="lg" variant="muted">
-                                Let's build something extraordinary together.
+                                Let&apos;s build something extraordinary together.
                             </Text>
                             <form className="flex gap-0" onSubmit={(e) => e.preventDefault()}>
                                 <Input

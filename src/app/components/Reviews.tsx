@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useMotionTemplate, useMotionValue } from "framer-motion";
+import { motion } from "framer-motion";
+
 import { cn } from "@/lib/utils";
+
 import { SectionHeader } from "./ui/SectionHeader";
 import { Text } from "./ui/Text";
 
@@ -58,15 +59,6 @@ const reviews = [
 ];
 
 function ReviewCard({ review, index }: { review: (typeof reviews)[0]; index: number }) {
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-
-    function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-        const { left, top } = currentTarget.getBoundingClientRect();
-        mouseX.set(clientX - left);
-        mouseY.set(clientY - top);
-    }
-
     return (
         <motion.div
             initial={{ opacity: 0, y: 20, rotate: 0 }}
@@ -82,30 +74,15 @@ function ReviewCard({ review, index }: { review: (typeof reviews)[0]; index: num
                 rotate: "0deg",
                 transition: { duration: 0.3 },
             }}
-            onMouseMove={handleMouseMove}
             className={cn(
-                "group relative shrink-0 w-[85vw] md:w-[400px] p-8 rounded-r-2xl rounded-l-sm flex flex-col justify-between min-h-[350px] bg-[var(--glass-bg)] backdrop-blur-md border-y border-r border-[var(--glass-border)] border-l-4 shadow-2xl overflow-hidden",
+                "group relative w-full p-8 rounded-2xl flex flex-col justify-between h-full min-h-[300px] bg-[var(--glass-bg)] backdrop-blur-md border border-[var(--glass-border)] shadow-xl overflow-hidden",
                 review.accent
             )}
         >
-            {/* Spotlight Effect */}
-            <motion.div
-                className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
-                style={{
-                    background: useMotionTemplate`
-            radial-gradient(
-              650px circle at ${mouseX}px ${mouseY}px,
-              rgba(255,255,255,0.1),
-              transparent 80%
-            )
-          `,
-                }}
-            />
-
             {/* Quote Icon */}
             <div className="mb-6 relative z-10">
                 <Text as="span" className="text-4xl leading-none text-white/10 font-serif">
-                    "
+                    &quot;
                 </Text>
             </div>
 
@@ -136,92 +113,10 @@ function ReviewCard({ review, index }: { review: (typeof reviews)[0]; index: num
 }
 
 export function Reviews() {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const trackRef = useRef<HTMLDivElement>(null);
-    const [isDesktop, setIsDesktop] = useState(false);
-    const [scrollRange, setScrollRange] = useState(0);
-
-    useEffect(() => {
-        const handleResize = () => {
-            const desktop = window.innerWidth >= 768;
-            setIsDesktop(desktop);
-            if (trackRef.current && desktop) {
-                const width = trackRef.current.scrollWidth - window.innerWidth;
-                setScrollRange(width > 0 ? width + 200 : 0);
-            } else {
-                setScrollRange(0);
-            }
-        };
-
-        // Initial check
-        handleResize();
-
-        // Re-measure when trackRef becomes available
-        if (trackRef.current) {
-            const width = trackRef.current.scrollWidth - window.innerWidth;
-            setScrollRange(width > 0 ? width + 200 : 0);
-        }
-
-        const observer = new ResizeObserver(handleResize);
-        if (trackRef.current) {
-            observer.observe(trackRef.current);
-        }
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            observer.disconnect();
-            window.removeEventListener("resize", handleResize);
-        };
-    }, [isDesktop]);
-
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end end"],
-    });
-
-    // Start scrolling immediately upon entering the section
-    const effectiveProgress = useTransform(scrollYProgress, [0, 1], [0, 1]);
-    const x = useTransform(effectiveProgress, [0, 1], [0, -scrollRange]);
-
     return (
-        <section
-            ref={containerRef}
-            className={cn(
-                "relative bg-background w-full",
-                isDesktop ? "h-[400vh]" : "h-auto py-20"
-            )}
-        >
-            {/* Animated Background Blobs */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                <motion.div
-                    animate={{
-                        x: [0, 100, 0],
-                        y: [0, -50, 0],
-                        opacity: [0.3, 0.5, 0.3],
-                    }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[120px]"
-                />
-                <motion.div
-                    animate={{
-                        x: [0, -100, 0],
-                        y: [0, 50, 0],
-                        opacity: [0.2, 0.4, 0.2],
-                    }}
-                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                    className="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px]"
-                />
-            </div>
-
-            <div
-                className={cn(
-                    "w-full",
-                    isDesktop
-                        ? "sticky top-0 h-screen flex flex-col justify-center overflow-hidden"
-                        : "relative px-6"
-                )}
-            >
-                <div className="max-w-7xl mx-auto mb-12 md:mb-16 w-full">
+        <section className="relative bg-background w-full py-20 md:py-32 overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
+                <div className="mb-12 md:mb-16 w-full">
                     <SectionHeader
                         badgeText="Testimonials"
                         title="Kind Words"
@@ -230,27 +125,11 @@ export function Reviews() {
                     />
                 </div>
 
-                {/* Desktop Horizontal Scroll Track */}
-                {isDesktop ? (
-                    <motion.div
-                        ref={trackRef}
-                        style={{ x }}
-                        className="flex gap-8 px-20 w-max items-center pt-10 will-change-transform"
-                    >
-                        {reviews.map((review, index) => (
-                            <ReviewCard key={review.id} review={review} index={index} />
-                        ))}
-                    </motion.div>
-                ) : (
-                    /* Mobile Vertical Stack */
-                    <div className="flex flex-col gap-6 items-center">
-                        {reviews.map((review, index) => (
-                            <div key={review.id} className="w-full max-w-md">
-                                <ReviewCard review={review} index={index} />
-                            </div>
-                        ))}
-                    </div>
-                )}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    {reviews.map((review, index) => (
+                        <ReviewCard key={review.id} review={review} index={index} />
+                    ))}
+                </div>
             </div>
         </section>
     );

@@ -1,14 +1,16 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Code2, Cpu, Globe, Zap } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { SectionHeader } from "./ui/SectionHeader";
-import { Heading } from "./ui/Heading";
-import { Text } from "./ui/Text";
-import { Button } from "./ui/Button";
+import { useRef } from "react";
+
 import { projects } from "@/data/projects";
+import { cn } from "@/lib/utils";
+
+import { Button } from "./ui/Button";
+import { Heading } from "./ui/Heading";
+import { SectionHeader } from "./ui/SectionHeader";
+import { Text } from "./ui/Text";
 
 // Icon mapping
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -163,7 +165,7 @@ function ProjectCard({
 
 export function Portfolio() {
     const containerRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
+    const { scrollYProgress: _scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"],
     });

@@ -1,11 +1,12 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Container } from "./ui/Container";
-import { Button } from "./ui/Button";
-import { Text } from "./ui/Text";
 import { ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+
+import { Button } from "./ui/Button";
+import { Container } from "./ui/Container";
+import { Text } from "./ui/Text";
 
 // Grid Cell Component for performance
 const GridCell = ({
@@ -17,7 +18,7 @@ const GridCell = ({
 }) => {
     return (
         <div className="relative w-full h-full border-[0.5px] border-white/[0.1] flex items-center justify-center">
-            {active && (
+            {active ? (
                 <div className="w-full h-full">
                     {type === "filled" && <div className="w-full h-full bg-white/[0.07]" />}
                     {type === "square" && (
@@ -32,14 +33,20 @@ const GridCell = ({
                         <div className="absolute top-1 right-1 w-2 h-2 border-t border-r border-white/[0.4]" />
                     )}
                 </div>
-            )}
+            ) : null}
         </div>
     );
 };
 
+interface Cell {
+    id: number;
+    active: boolean;
+    type: "square" | "plus" | "corner" | "filled";
+}
+
 export function Hero() {
     const containerRef = useRef<HTMLElement>(null);
-    const [cells, setCells] = useState<any[]>([]);
+    const [cells, setCells] = useState<Cell[]>([]);
 
     // Generate Grid - оптимізовано для мобілок
     useEffect(() => {

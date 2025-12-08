@@ -1,259 +1,191 @@
 "use client";
 
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { SectionHeader } from "./ui/SectionHeader";
-import { Heading } from "./ui/Heading";
-import { Text } from "./ui/Text";
-import { cn } from "@/lib/utils";
-import { services } from "@/data/services";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { MouseEvent, useState } from "react";
 
-// Icon mapping для сервісів
-const serviceIcons: Record<string, React.ReactNode> = {
-    "01": (
-        <motion.svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="0.5"
-            className="w-full h-full"
-        >
-            <motion.circle
-                cx="12"
-                cy="12"
-                r="10"
-                variants={{
-                    hover: { pathLength: 1, opacity: 1 },
-                    initial: { pathLength: 0, opacity: 0.3 },
-                }}
-            />
-            <motion.path
-                d="M2 12h20"
-                variants={{
-                    hover: { pathLength: 1, opacity: 1 },
-                    initial: { pathLength: 0, opacity: 0.3 },
-                }}
-            />
-            <motion.path
-                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                variants={{
-                    hover: { pathLength: 1, opacity: 1 },
-                    initial: { pathLength: 0, opacity: 0.3 },
-                }}
-            />
-        </motion.svg>
-    ),
-    "02": (
-        <motion.svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="0.5"
-            className="w-full h-full"
-        >
-            <motion.rect
-                x="2"
-                y="2"
-                width="20"
-                height="8"
-                rx="2"
-                ry="2"
-                variants={{
-                    hover: { pathLength: 1, opacity: 1 },
-                    initial: { pathLength: 0, opacity: 0.3 },
-                }}
-            />
-            <motion.rect
-                x="2"
-                y="14"
-                width="20"
-                height="8"
-                rx="2"
-                ry="2"
-                variants={{
-                    hover: { pathLength: 1, opacity: 1 },
-                    initial: { pathLength: 0, opacity: 0.3 },
-                }}
-            />
-            <motion.line
-                x1="6"
-                y1="6"
-                x2="6.01"
-                y2="6"
-                variants={{
-                    hover: { pathLength: 1, opacity: 1 },
-                    initial: { pathLength: 0, opacity: 0.3 },
-                }}
-            />
-            <motion.line
-                x1="6"
-                y1="18"
-                x2="6.01"
-                y2="18"
-                variants={{
-                    hover: { pathLength: 1, opacity: 1 },
-                    initial: { pathLength: 0, opacity: 0.3 },
-                }}
-            />
-        </motion.svg>
-    ),
-    "03": (
-        <motion.svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="0.5"
-            className="w-full h-full"
-        >
-            <motion.path
-                d="M12 2a10 10 0 1 0 10 10H12V2z"
-                variants={{
-                    hover: { pathLength: 1, opacity: 1 },
-                    initial: { pathLength: 0, opacity: 0.3 },
-                }}
-            />
-            <motion.path
-                d="M12 12 2.1 12a10.1 10.1 0 0 0 9.9 10V12z"
-                variants={{
-                    hover: { pathLength: 1, opacity: 1 },
-                    initial: { pathLength: 0, opacity: 0.3 },
-                }}
-            />
-            <motion.path
-                d="M21.9 12A10 10 0 0 0 12 2v10h9.9z"
-                variants={{
-                    hover: { pathLength: 1, opacity: 1 },
-                    initial: { pathLength: 0, opacity: 0.3 },
-                }}
-            />
-        </motion.svg>
-    ),
-    "04": (
-        <motion.svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="0.5"
-            className="w-full h-full"
-        >
-            <motion.polygon
-                points="12 2 2 7 12 12 22 7 12 2"
-                variants={{
-                    hover: { pathLength: 1, opacity: 1 },
-                    initial: { pathLength: 0, opacity: 0.3 },
-                }}
-            />
-            <motion.polyline
-                points="2 17 12 22 22 17"
-                variants={{
-                    hover: { pathLength: 1, opacity: 1 },
-                    initial: { pathLength: 0, opacity: 0.3 },
-                }}
-            />
-            <motion.polyline
-                points="2 12 12 17 22 12"
-                variants={{
-                    hover: { pathLength: 1, opacity: 1 },
-                    initial: { pathLength: 0, opacity: 0.3 },
-                }}
-            />
-        </motion.svg>
-    ),
+import { services } from "@/data/services";
+import { cn } from "@/lib/utils";
+
+import { AIGraphic } from "./AIGraphic";
+import { MobileGraphic } from "./MobileGraphic";
+import { TechStackGraphic } from "./TechStack";
+import { Heading } from "./ui/Heading";
+import { SectionHeader } from "./ui/SectionHeader";
+import { Text } from "./ui/Text";
+
+// Image mapping for services
+const serviceImages: Record<string, string> = {
+    "01": "/images/services/web-platforms.png",
+    "02": "/images/services/system-architecture.png",
+    "03": "/images/services/ai-intelligence.png",
 };
+
+function ServiceGraphic({
+    id,
+    color,
+    isHovered,
+}: {
+    id: string;
+    color: string;
+    isHovered: boolean;
+}) {
+    return (
+        <div className="absolute inset-x-0 top-0 h-3/5 z-0">
+            {/* Background Gradient Base */}
+            <div
+                className={`absolute inset-0 opacity-20 bg-gradient-to-b from-[${color}] to-transparent mix-blend-color-dodge`}
+            />
+
+            {/* Content Container */}
+            <div className="absolute inset-0">
+                {id === "01" ? (
+                    // 3D Tech Stack for Web Platforms
+                    <div className="absolute inset-0 flex items-center justify-center top-0 pt-12">
+                        <div
+                            className={cn(
+                                "scale-[0.6] transition-all duration-700", // Scaled down to fit
+                                "opacity-80 grayscale mix-blend-luminosity brightness-125 contrast-125", // Match other cards default state
+                                "group-hover:opacity-100 group-hover:grayscale-0 group-hover:mix-blend-normal group-hover:scale-[0.65]" // Reveal color on hover
+                            )}
+                        >
+                            <TechStackGraphic isHovered={isHovered} />
+                        </div>
+                    </div>
+                ) : id === "02" ? (
+                    // AI Sphere Graphic
+                    <div className="absolute inset-0 flex items-center justify-center top-0 pt-12">
+                        <div
+                            className={cn(
+                                "scale-[0.7] transition-all duration-700",
+                                "opacity-80 grayscale mix-blend-luminosity brightness-125 contrast-125",
+                                "group-hover:opacity-100 group-hover:grayscale-0 group-hover:mix-blend-normal group-hover:scale-[0.75]"
+                            )}
+                        >
+                            <AIGraphic isHovered={isHovered} />
+                        </div>
+                    </div>
+                ) : id === "03" ? (
+                    // Mobile Graphic
+                    <div className="absolute inset-0 flex items-center justify-center top-0 pt-12">
+                        <div
+                            className={cn(
+                                "scale-[0.7] transition-all duration-700",
+                                "opacity-80 grayscale mix-blend-luminosity brightness-125 contrast-125",
+                                "group-hover:opacity-100 group-hover:grayscale-0 group-hover:mix-blend-normal group-hover:scale-[0.75]"
+                            )}
+                        >
+                            <MobileGraphic isHovered={isHovered} />
+                        </div>
+                    </div>
+                ) : (
+                    // Standard Image Pipeline
+                    <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_40%,transparent_100%)]">
+                        <Image
+                            src={serviceImages[id]}
+                            alt=""
+                            fill
+                            className={cn(
+                                "object-cover object-center opacity-80 grayscale transition-all duration-700",
+                                "mix-blend-luminosity brightness-125 contrast-125",
+                                "group-hover:scale-105 group-hover:opacity-100"
+                            )}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                        />
+                    </div>
+                )}
+            </div>
+
+            {/* Tech Overlay: Scanlines */}
+            <div className="absolute inset-0 z-10 opacity-20 bg-[linear-gradient(rgba(18,18,18,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] pointer-events-none" />
+
+            {/* Digital Noise */}
+            <div className="absolute inset-0 z-10 opacity-[0.05] bg-[url('/noise.png')] mix-blend-overlay pointer-events-none" />
+
+            {/* Bottom Fade to Card BG (Transition to Content) */}
+            <div className="absolute bottom-0 inset-x-0 h-1/2 bg-gradient-to-b from-transparent to-background" />
+        </div>
+    );
+}
 
 function ServiceCard({ service }: { service: (typeof services)[0] }) {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
+    const [isHovered, setIsHovered] = useState(false);
 
-    function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+    function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
         const { left, top } = currentTarget.getBoundingClientRect();
         mouseX.set(clientX - left);
         mouseY.set(clientY - top);
     }
 
     return (
-        <motion.div
-            onMouseMove={handleMouseMove}
-            initial="initial"
-            whileHover="hover"
-            whileInView="initial"
-            viewport={{ once: true }}
-            className={cn(
-                "group relative rounded-[var(--radius-3xl)] border border-white/10 bg-white/[0.02] overflow-hidden",
-                "flex flex-col justify-between p-6 md:p-8 h-[280px] md:h-[320px]",
-                "transition-colors duration-300 hover:border-white/20",
-                service.colSpan
-            )}
-        >
-            {/* Minimal Hover State - Just a subtle border change */}
-            <div className="absolute inset-0 bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <Link href={`/${service.slug}`} className="group relative block h-full w-full">
+            <div
+                onMouseMove={handleMouseMove}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                className="relative h-full min-h-[500px] overflow-hidden rounded-[20px] border border-white/[0.08] bg-background/50 backdrop-blur-sm transition-all duration-500 hover:border-white/[0.15]"
+            >
+                {/* Spotlight Gradient */}
+                <motion.div
+                    className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 group-hover:opacity-100"
+                    style={{
+                        background: useMotionTemplate`radial-gradient(500px circle at ${mouseX}px ${mouseY}px, rgba(255,255,255,0.06), transparent 80%)`,
+                    }}
+                />
 
-            {/* Icon - Minimal & Technical */}
-            <div className="absolute -right-4 -bottom-4 w-40 h-40 text-foreground/[0.03] group-hover:text-foreground/[0.08] transition-colors duration-500 pointer-events-none">
-                {serviceIcons[service.id]}
-            </div>
+                {/* Graphic anchored to top */}
+                <ServiceGraphic id={service.id} color={service.color} isHovered={isHovered} />
 
-            {/* Top: ID */}
-            <div className="relative z-10">
-                <Text
-                    variant="mono"
-                    size="xs"
-                    className="text-foreground/40 group-hover:text-foreground/80 transition-colors"
-                >
-                    /{service.id}
-                </Text>
-            </div>
+                <div className="flex h-full flex-col p-8 md:p-10 relative z-20">
+                    {/* Arrow icon only - appears on hover */}
+                    <div className="absolute top-8 right-8 flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 opacity-0 transition-all duration-300 group-hover:opacity-100">
+                        <ArrowUpRight className="h-4 w-4 text-white" />
+                    </div>
 
-            {/* Bottom: Content */}
-            <div className="relative z-10">
-                <Heading
-                    level={3}
-                    className="text-2xl md:text-3xl font-medium mb-4 tracking-normal group-hover:translate-x-1 transition-transform duration-300"
-                >
-                    {service.title}
-                </Heading>
-                <Text
-                    size="lg"
-                    variant="muted"
-                    className="leading-relaxed mb-6 max-w-sm group-hover:text-foreground/80 transition-colors"
-                >
-                    {service.description}
-                </Text>
+                    {/* Spacer to push Content to bottom */}
+                    <div className="flex-1" />
 
-                <div className="flex flex-wrap gap-2">
-                    {service.tags.map((tag) => (
-                        <Text
-                            key={tag}
-                            variant="mono"
-                            size="xs"
-                            as="span"
-                            className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-foreground/50 group-hover:border-white/20 group-hover:text-foreground/90 transition-colors"
+                    {/* Content Grouped at Bottom */}
+                    <div className="space-y-5">
+                        <Heading
+                            level={3}
+                            className="text-2xl md:text-3xl font-medium tracking-tight text-white group-hover:text-accent transition-colors duration-300"
                         >
-                            {tag}
+                            {service.title}
+                        </Heading>
+
+                        <Text
+                            variant="muted"
+                            className="line-clamp-3 text-base leading-relaxed text-white/60"
+                        >
+                            {service.description}
                         </Text>
-                    ))}
+                    </div>
                 </div>
             </div>
-        </motion.div>
+        </Link>
     );
 }
 
 export function Services() {
     return (
-        <section className="relative w-full bg-background z-10 py-20 md:py-24">
-            <div className="max-w-7xl mx-auto px-6">
-                {/* Header */}
-                <div className="mb-12 md:mb-16">
+        <section className="relative w-full bg-background py-24 md:py-32 z-10">
+            <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+                <div className="mb-20">
                     <SectionHeader
                         badgeText="Expertise"
                         title="Technical"
                         subtitle="Services"
-                        description="I build high-performance digital infrastructure for ambitious companies. From scalable backend systems to intelligent AI agents, I engineer solutions that drive real business growth."
-                        align="center"
+                        align="left"
                     />
                 </div>
 
-                {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* 4-Column Grid -> 3-Column Grid */}
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {services.map((service) => (
                         <ServiceCard key={service.id} service={service} />
                     ))}

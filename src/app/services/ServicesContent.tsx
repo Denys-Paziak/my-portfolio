@@ -1,20 +1,21 @@
 "use client";
 
-import { useRef } from "react";
 import { useScroll } from "framer-motion";
-import { Database, Globe, Cpu, Layers, Smartphone, Bot, Palette, ArrowRight } from "lucide-react";
+import { ArrowRight, Bot, Cpu, Database, Globe, Palette, Smartphone } from "lucide-react";
 import Link from "next/link";
-import { Container } from "../components/ui/Container";
-import { SectionHeader } from "../components/ui/SectionHeader";
-import { Heading } from "../components/ui/Heading";
-import { Text } from "../components/ui/Text";
-import { BentoCard } from "../components/ui/BentoCard";
-import { TextReveal } from "../components/ui/TextReveal";
-import { ScrollReveal } from "../components/ui/ScrollReveal";
-import { Badge } from "../components/ui/Badge";
-import { Separator } from "../components/ui/Separator";
+import { useRef } from "react";
+
 import { CTA } from "../components/CTA";
 import { Footer } from "../components/Footer";
+import { Badge } from "../components/ui/Badge";
+import { BentoCard } from "../components/ui/BentoCard";
+import { Container } from "../components/ui/Container";
+import { Heading } from "../components/ui/Heading";
+import { ScrollReveal } from "../components/ui/ScrollReveal";
+import { SectionHeader } from "../components/ui/SectionHeader";
+import { Separator } from "../components/ui/Separator";
+import { Text } from "../components/ui/Text";
+import { TextReveal } from "../components/ui/TextReveal";
 
 export default function ServicesContent() {
     const containerRef = useRef<HTMLDivElement>(null);

@@ -1,15 +1,17 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { SectionHeader } from "../components/ui/SectionHeader";
-import { Button } from "../components/ui/Button";
-import { Text } from "../components/ui/Text";
-import { Heading } from "../components/ui/Heading";
+import { useState } from "react";
+
 import { cn } from "@/lib/utils";
+
 import { Footer } from "../components/Footer";
+import { Button } from "../components/ui/Button";
+import { Heading } from "../components/ui/Heading";
+import { SectionHeader } from "../components/ui/SectionHeader";
+import { Text } from "../components/ui/Text";
 
 // Mock Data
 const allProjects = [

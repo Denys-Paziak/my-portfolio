@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { cn } from "@/lib/utils";
 
 const Sidebar = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
@@ -44,4 +45,4 @@ const SidebarFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTML
 );
 SidebarFooter.displayName = "SidebarFooter";
 
-export { Sidebar, SidebarHeader, SidebarContent, SidebarFooter };
+export { Sidebar, SidebarContent, SidebarFooter, SidebarHeader };

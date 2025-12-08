@@ -1,4 +1,5 @@
-import { HTMLAttributes, forwardRef } from "react";
+import { forwardRef, HTMLAttributes } from "react";
+
 import { cn } from "@/lib/utils";
 
 interface TextProps extends HTMLAttributes<HTMLElement> {
@@ -46,7 +47,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(
         );
 
         return (
-            // @ts-ignore
+            // @ts-expect-error - Dynamic tag ref type mismatch
             <Tag ref={ref} className={styles} {...props}>
                 {children}
             </Tag>

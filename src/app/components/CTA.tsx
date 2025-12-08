@@ -1,7 +1,8 @@
 import { Terminal } from "lucide-react";
+
+import { ContactForm } from "./ContactForm";
 import { Heading } from "./ui/Heading";
 import { Text } from "./ui/Text";
-import { ContactForm } from "./ContactForm";
 
 export function CTA() {
     return (

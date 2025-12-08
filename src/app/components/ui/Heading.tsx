@@ -1,4 +1,5 @@
-import { HTMLAttributes, forwardRef } from "react";
+import { forwardRef, HTMLAttributes } from "react";
+
 import { cn } from "@/lib/utils";
 
 interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
@@ -30,7 +31,6 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
         );
 
         return (
-            // @ts-ignore
             <Tag ref={ref} className={styles} {...props}>
                 {children}
             </Tag>

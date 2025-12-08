@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 const CYCLES_PER_LETTER = 2;
 const SHUFFLE_TIME = 50;
@@ -23,14 +22,12 @@ export const ScrambleReveal = ({
     onComplete,
 }: ScrambleRevealProps) => {
     const [displayText, setDisplayText] = useState(text);
-    const [isScrambling, setIsScrambling] = useState(false);
+    const [_isScrambling, _setIsScrambling] = useState(false);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
-        let timeout: NodeJS.Timeout;
-
         const startScramble = () => {
-            setIsScrambling(true);
+            _setIsScrambling(true);
             let pos = 0;
 
             intervalRef.current = setInterval(() => {
@@ -52,15 +49,17 @@ export const ScrambleReveal = ({
                 pos++;
 
                 if (pos >= text.length * CYCLES_PER_LETTER) {
-                    clearInterval(intervalRef.current!);
+                    if (intervalRef.current) clearInterval(intervalRef.current);
                     setDisplayText(text);
-                    setIsScrambling(false);
+                    _setIsScrambling(false);
                     if (onComplete) onComplete();
                 }
             }, scrambleSpeed);
         };
 
-        timeout = setTimeout(startScramble, delay * 1000);
+        const timeout = setTimeout(() => {
+            startScramble();
+        }, delay * 1000);
 
         return () => {
             clearTimeout(timeout);

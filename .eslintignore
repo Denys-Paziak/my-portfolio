@@ -1,9 +1,28 @@
+# Build outputs
 .next/
-node_modules/
+out/
 build/
 dist/
+
+# Dependencies
+node_modules/
+
+# Testing
 coverage/
-out/
+
+# Misc
 .turbo/
-*.config.js
 next-env.d.ts
+
+# Config files (optional - remove if you want to format them)
+*.config.js
+*.config.mjs
+*.config.ts
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Logs
+*.log

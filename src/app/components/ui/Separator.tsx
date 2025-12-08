@@ -1,4 +1,5 @@
-import { HTMLAttributes, forwardRef } from "react";
+import { forwardRef, HTMLAttributes } from "react";
+
 import { cn } from "@/lib/utils";
 
 interface SeparatorProps extends HTMLAttributes<HTMLDivElement> {

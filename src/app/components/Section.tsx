@@ -1,5 +1,7 @@
 import { HTMLAttributes, ReactNode } from "react";
+
 import { cn } from "@/lib/utils";
+
 import { Container } from "./ui/Container";
 
 interface SectionProps extends HTMLAttributes<HTMLElement> {

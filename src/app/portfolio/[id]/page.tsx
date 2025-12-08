@@ -1,6 +1,8 @@
-import { projects } from "@/data/projects";
-import ProjectContent from "./ProjectContent";
 import type { Metadata } from "next";
+
+import { projects } from "@/data/projects";
+
+import ProjectContent from "./ProjectContent";
 
 export async function generateStaticParams() {
     return projects.map((project) => ({
@@ -8,8 +10,13 @@ export async function generateStaticParams() {
     }));
 }
 
-export function generateMetadata({ params }: { params: { id: string } }): Metadata {
-    const project = projects.find((p) => p.id === params.id);
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+    const { id } = await params;
+    const project = projects.find((p) => p.id === id);
 
     if (!project) {
         return {
@@ -27,6 +34,7 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
     };
 }
 
-export default function ProjectPage({ params }: { params: { id: string } }) {
-    return <ProjectContent params={params} />;
+export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
+    const resolvedParams = await params;
+    return <ProjectContent params={resolvedParams} />;
 }

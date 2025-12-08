@@ -1,14 +1,16 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
 import { ArrowUpRight, Clock } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { SectionHeader } from "./ui/SectionHeader";
-import { Heading } from "./ui/Heading";
-import { Text } from "./ui/Text";
-import { articles } from "@/data/articles";
 import Link from "next/link";
+import { useRef, useState } from "react";
+
+import { articles } from "@/data/articles";
+import { cn } from "@/lib/utils";
+
+import { Heading } from "./ui/Heading";
+import { SectionHeader } from "./ui/SectionHeader";
+import { Text } from "./ui/Text";
 
 export function Blog() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);

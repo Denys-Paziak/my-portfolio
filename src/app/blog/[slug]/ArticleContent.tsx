@@ -1,15 +1,17 @@
 "use client";
 
-import { ArrowLeft, Clock, Calendar, Tag, User } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, Tag, User } from "lucide-react";
 import Link from "next/link";
-import { Button } from "../../components/ui/Button";
-import { Text } from "../../components/ui/Text";
-import { Heading } from "../../components/ui/Heading";
-import { Badge } from "../../components/ui/Badge";
-import { Footer } from "../../components/Footer";
-import { Separator } from "../../components/ui/Separator";
+
 import { articles } from "@/data/articles";
 import { authors } from "@/data/authors";
+
+import { Footer } from "../../components/Footer";
+import { Badge } from "../../components/ui/Badge";
+import { Button } from "../../components/ui/Button";
+import { Heading } from "../../components/ui/Heading";
+import { Separator } from "../../components/ui/Separator";
+import { Text } from "../../components/ui/Text";
 
 export default function ArticleContent({ params }: { params: { slug: string } }) {
     const article = articles.find((a) => a.slug === params.slug);
@@ -117,12 +119,12 @@ export default function ArticleContent({ params }: { params: { slug: string } })
                                         {article.readTime}
                                     </Text>
                                 </div>
-                                {article.updatedDate && (
+                                {article.updatedDate ? (
                                     <Text size="xs" variant="muted" className="italic">
                                         Updated:{" "}
                                         {new Date(article.updatedDate).toLocaleDateString()}
                                     </Text>
-                                )}
+                                ) : null}
                             </div>
 
                             {/* Title */}
@@ -147,7 +149,7 @@ export default function ArticleContent({ params }: { params: { slug: string } })
                                     </Text>
                                 </div>
                                 <div className="hidden md:flex gap-2">
-                                    {author.social.twitter && (
+                                    {author.social.twitter ? (
                                         <a
                                             href={author.social.twitter}
                                             target="_blank"
@@ -156,8 +158,8 @@ export default function ArticleContent({ params }: { params: { slug: string } })
                                         >
                                             <Text size="xs">Twitter</Text>
                                         </a>
-                                    )}
-                                    {author.social.linkedin && (
+                                    ) : null}
+                                    {author.social.linkedin ? (
                                         <a
                                             href={author.social.linkedin}
                                             target="_blank"
@@ -166,7 +168,7 @@ export default function ArticleContent({ params }: { params: { slug: string } })
                                         >
                                             <Text size="xs">LinkedIn</Text>
                                         </a>
-                                    )}
+                                    ) : null}
                                 </div>
                             </div>
 
@@ -227,7 +229,7 @@ export default function ArticleContent({ params }: { params: { slug: string } })
                                         ))}
                                     </div>
                                     <div className="flex gap-4">
-                                        {author.social.twitter && (
+                                        {author.social.twitter ? (
                                             <a
                                                 href={author.social.twitter}
                                                 target="_blank"
@@ -236,8 +238,8 @@ export default function ArticleContent({ params }: { params: { slug: string } })
                                             >
                                                 Twitter
                                             </a>
-                                        )}
-                                        {author.social.linkedin && (
+                                        ) : null}
+                                        {author.social.linkedin ? (
                                             <a
                                                 href={author.social.linkedin}
                                                 target="_blank"
@@ -246,8 +248,8 @@ export default function ArticleContent({ params }: { params: { slug: string } })
                                             >
                                                 LinkedIn
                                             </a>
-                                        )}
-                                        {author.social.github && (
+                                        ) : null}
+                                        {author.social.github ? (
                                             <a
                                                 href={author.social.github}
                                                 target="_blank"
@@ -256,7 +258,7 @@ export default function ArticleContent({ params }: { params: { slug: string } })
                                             >
                                                 GitHub
                                             </a>
-                                        )}
+                                        ) : null}
                                     </div>
                                 </div>
                             </div>

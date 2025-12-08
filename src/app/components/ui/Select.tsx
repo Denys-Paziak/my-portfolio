@@ -1,8 +1,9 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
+import { Check, ChevronDown } from "lucide-react";
 import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Check } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 
 interface SelectOption {
@@ -67,7 +68,7 @@ export function Select({
             </button>
 
             <AnimatePresence>
-                {isOpen && (
+                {isOpen ? (
                     <motion.div
                         initial={{ opacity: 0, y: 5, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -95,7 +96,7 @@ export function Select({
                             </button>
                         ))}
                     </motion.div>
-                )}
+                ) : null}
             </AnimatePresence>
         </div>
     );

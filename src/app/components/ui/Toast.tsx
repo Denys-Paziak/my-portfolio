@@ -1,9 +1,8 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
+import { AlertCircle, CheckCircle, Info, X } from "lucide-react";
 import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, CheckCircle, AlertCircle, Info } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 // Types
 type ToastType = "success" | "error" | "info";
@@ -40,8 +39,10 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
         setToasts((prev) => prev.filter((t) => t.id !== id));
     };
 
+    const contextValue = React.useMemo(() => ({ toast }), [toast]);
+
     return (
-        <ToastContext.Provider value={{ toast }}>
+        <ToastContext.Provider value={contextValue}>
             {children}
             <div className="fixed bottom-0 right-0 z-[100] p-6 flex flex-col gap-2 w-full max-w-md pointer-events-none">
                 <AnimatePresence mode="popLayout">
@@ -81,9 +82,9 @@ function ToastItem({ toast, onRemove }: { toast: Toast; onRemove: (id: string) =
         >
             <div className="mt-0.5">{icons[toast.type]}</div>
             <div className="flex-1">
-                {toast.title && (
+                {toast.title ? (
                     <h4 className="text-sm font-medium text-foreground mb-1">{toast.title}</h4>
-                )}
+                ) : null}
                 <p className="text-sm text-muted-foreground leading-relaxed">{toast.message}</p>
             </div>
             <button

@@ -1,16 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Database, Globe, Cpu, Layers, Zap } from "lucide-react";
+import { ArrowRight, Cpu, Database, Globe } from "lucide-react";
 import Link from "next/link";
-import { SectionHeader } from "../components/ui/SectionHeader";
-import { Container } from "../components/ui/Container";
-import { Button } from "../components/ui/Button";
-import { Text } from "../components/ui/Text";
-import { Heading } from "../components/ui/Heading";
-import { Footer } from "../components/Footer";
-import { Separator } from "../components/ui/Separator";
+
 import { cn } from "@/lib/utils";
+
+import { Footer } from "../components/Footer";
+import { Button } from "../components/ui/Button";
+import { Container } from "../components/ui/Container";
+import { Heading } from "../components/ui/Heading";
+import { SectionHeader } from "../components/ui/SectionHeader";
+import { Separator } from "../components/ui/Separator";
+import { Text } from "../components/ui/Text";
 
 export default function AboutPage() {
     return (
@@ -36,7 +38,7 @@ export default function AboutPage() {
                             variant="muted"
                             className="max-w-2xl text-xl leading-relaxed"
                         >
-                            I'm a software engineer obsessed with building scalable,
+                            I&apos;m a software engineer obsessed with building scalable,
                             high-performance applications. I bridge the gap between complex backend
                             logic and intuitive user experiences.
                         </Text>
@@ -67,18 +69,19 @@ export default function AboutPage() {
                                 <Text size="base" className="text-foreground/70">
                                     My journey began with a curiosity for how things work under the
                                     hood. From tinkering with hardware to architecting distributed
-                                    systems, I've always been driven by the challenge of solving
-                                    complex problems.
+                                    systems, I&apos;ve always been driven by the challenge of
+                                    solving complex problems.
                                 </Text>
                                 <Text size="base" className="text-foreground/70">
-                                    Over the years, I've honed my skills in Python, React, and cloud
-                                    infrastructure, working with startups and enterprises to deliver
-                                    robust solutions. I believe in writing clean, maintainable code
-                                    that stands the test of time.
+                                    Over the years, I&apos;ve honed my skills in Python, React, and
+                                    cloud infrastructure, working with startups and enterprises to
+                                    deliver robust solutions. I believe in writing clean,
+                                    maintainable code that stands the test of time.
                                 </Text>
                                 <Text size="base" className="text-foreground/70">
-                                    When I'm not coding, you can find me exploring new technologies,
-                                    contributing to open source, or optimizing my personal workflow.
+                                    When I&apos;m not coding, you can find me exploring new
+                                    technologies, contributing to open source, or optimizing my
+                                    personal workflow.
                                 </Text>
                             </div>
                         </motion.div>
@@ -408,7 +411,7 @@ export default function AboutPage() {
                                     as="span"
                                     className="text-4xl text-foreground/10 absolute top-6 left-6 font-serif"
                                 >
-                                    "
+                                    &quot;
                                 </Text>
                                 <Text
                                     size="lg"
@@ -436,7 +439,7 @@ export default function AboutPage() {
                         Ready to start a project?
                     </Heading>
                     <Text size="lg" variant="muted" className="mb-8">
-                        Let's collaborate and build something amazing together.
+                        Let&apos;s collaborate and build something amazing together.
                     </Text>
                     <Link href="/">
                         <Button variant="primary" size="lg">

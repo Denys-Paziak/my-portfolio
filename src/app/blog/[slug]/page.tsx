@@ -1,7 +1,9 @@
+import type { Metadata } from "next";
+
 import { articles } from "@/data/articles";
 import { authors } from "@/data/authors";
+
 import ArticleContent from "./ArticleContent";
-import type { Metadata } from "next";
 
 export async function generateStaticParams() {
     return articles.map((article) => ({
@@ -9,8 +11,13 @@ export async function generateStaticParams() {
     }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-    const article = articles.find((a) => a.slug === params.slug);
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+    const { slug } = await params;
+    const article = articles.find((a) => a.slug === slug);
 
     if (!article) {
         return {
@@ -42,6 +49,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     };
 }
 
-export default function ArticlePage({ params }: { params: { slug: string } }) {
-    return <ArticleContent params={params} />;
+export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+    const resolvedParams = await params;
+    return <ArticleContent params={resolvedParams} />;
 }

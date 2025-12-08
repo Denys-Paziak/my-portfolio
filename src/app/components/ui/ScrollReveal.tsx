@@ -1,6 +1,6 @@
 "use client";
 
-import { MotionValue, motion, useTransform } from "framer-motion";
+import { motion, MotionValue, useTransform } from "framer-motion";
 
 interface ScrollRevealProps {
     text: string;

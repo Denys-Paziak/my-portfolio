@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+
 import { cn } from "@/lib/utils";
 
 interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -29,6 +30,7 @@ export function Avatar({ src, alt, fallback, size = "md", className, ...props }:
             {...props}
         >
             {src && !hasError ? (
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
                     src={src}
                     alt={alt}

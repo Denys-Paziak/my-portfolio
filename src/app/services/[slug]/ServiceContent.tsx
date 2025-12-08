@@ -1,41 +1,33 @@
 "use client";
 
-import { useRef } from "react";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll } from "framer-motion";
 import {
     ArrowLeft,
-    ArrowRight,
     CheckCircle2,
+    Database,
+    Globe,
+    Layers,
+    Server,
+    Shield,
+    Terminal,
     XCircle,
     Zap,
-    Shield,
-    Globe,
-    Smartphone,
-    Database,
-    Bot,
-    Cpu,
-    Palette,
-    Layers,
-    Code2,
-    Terminal,
-    Lock,
-    Server,
-    Rocket,
 } from "lucide-react";
 import Link from "next/link";
+import { useRef } from "react";
+
+import { CTA } from "../../components/CTA";
+import { Footer } from "../../components/Footer";
+import { Accordion, AccordionItem } from "../../components/ui/Accordion";
+import { Badge } from "../../components/ui/Badge";
+import { BentoCard } from "../../components/ui/BentoCard";
+import { Button } from "../../components/ui/Button";
 import { Container } from "../../components/ui/Container";
 import { Heading } from "../../components/ui/Heading";
-import { Text } from "../../components/ui/Text";
-import { Badge } from "../../components/ui/Badge";
-import { Button } from "../../components/ui/Button";
-import { BentoCard } from "../../components/ui/BentoCard";
-import { TextReveal } from "../../components/ui/TextReveal";
 import { ScrollReveal } from "../../components/ui/ScrollReveal";
-import { Accordion, AccordionItem } from "../../components/ui/Accordion";
 import { SectionHeader } from "../../components/ui/SectionHeader";
-import { Footer } from "../../components/Footer";
-import { CTA } from "../../components/CTA";
-import { Separator } from "../../components/ui/Separator";
+import { Text } from "../../components/ui/Text";
+import { TextReveal } from "../../components/ui/TextReveal";
 
 export default function ServiceContent({ params }: { params: { slug: string } }) {
     const containerRef = useRef<HTMLDivElement>(null);
