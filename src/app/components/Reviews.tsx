@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
-import { Card } from "./ui/Card";
+import { GlassCard } from "./ui/Card";
 import { SectionHeader } from "./ui/SectionHeader";
 import { Text } from "./ui/Text";
 
@@ -59,7 +59,7 @@ const reviews = [
     },
 ];
 
-const MotionCard = motion(Card);
+const MotionCard = motion(GlassCard);
 
 function ReviewCard({ review, index }: { review: (typeof reviews)[0]; index: number }) {
     return (
