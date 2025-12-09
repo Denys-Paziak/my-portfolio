@@ -57,6 +57,28 @@ export function PhysicsSocialBlocks() {
     const mouseConstraintRef = useRef<Matter.MouseConstraint | null>(null);
 
     const [isMounted, setIsMounted] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
+
+    // Intersection Observer to detect when component is in viewport
+    useEffect(() => {
+        if (!sceneRef.current) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            {
+                threshold: 0.1, // Trigger when 10% visible
+                rootMargin: "50px", // Start slightly before entering viewport
+            }
+        );
+
+        observer.observe(sceneRef.current);
+
+        return () => observer.disconnect();
+    }, []);
 
     useEffect(() => {
         // eslint-disable-next-line
@@ -64,7 +86,8 @@ export function PhysicsSocialBlocks() {
     }, []);
 
     useEffect(() => {
-        if (!isMounted || !sceneRef.current) return;
+        // Only initialize physics when both mounted AND visible
+        if (!isMounted || !isVisible || !sceneRef.current) return;
 
         const scene = sceneRef.current;
         const width = scene.clientWidth;
@@ -169,7 +192,6 @@ export function PhysicsSocialBlocks() {
                 const body = bodies[0] as SocialBlockBody;
                 const url = body.url;
                 if (url && !body.isStatic) {
-                    // Ideally check for drag distance etc, but for now open link
                     window.open(url, "_blank");
                 }
             }
@@ -238,13 +260,13 @@ export function PhysicsSocialBlocks() {
             Matter.World.clear(engine.world, false);
             Matter.Engine.clear(engine);
         };
-    }, [isMounted]);
+    }, [isMounted, isVisible]);
 
     return (
         <div
             ref={sceneRef}
             className="w-full h-full min-h-[400px] cursor-grab active:cursor-grabbing"
-            aria-label="Interactive falling blocks"
+            aria-label="Interactive falling social blocks - drag or click to visit"
         />
     );
 }

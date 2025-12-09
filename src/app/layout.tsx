@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 
 import { Header } from "./components/Header";
+import { SmoothScroll } from "./components/SmoothScroll";
+import { StructuredData } from "./components/StructuredData";
 import { ToastProvider } from "./components/ui/Toast";
 
 const outfit = Outfit({
@@ -12,6 +14,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://denispazak.com"),
     title: {
         default: "Denis Pazak - Backend Engineer & Full Stack Developer",
         template: "%s | Denis Pazak",
@@ -28,6 +31,9 @@ export const metadata: Metadata = {
     ],
     authors: [{ name: "Denis Pazak" }],
     creator: "Denis Pazak",
+    alternates: {
+        canonical: "/",
+    },
     openGraph: {
         type: "website",
         locale: "en_US",
@@ -55,7 +61,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className={`${outfit.variable} antialiased`} suppressHydrationWarning>
+            <head>
+                <StructuredData />
+            </head>
             <body className="min-h-screen bg-background font-sans text-foreground selection:bg-accent/20">
+                <SmoothScroll />
                 <ToastProvider>
                     <Header />
                     {children}

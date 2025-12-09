@@ -74,7 +74,7 @@ export function FAQ() {
     }, [selectedId]);
 
     return (
-        <section id="faq" className="relative py-20 md:py-24 w-full bg-background overflow-hidden">
+        <section id="faq" className="relative py-16 md:py-20 w-full bg-background overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Header */}
                 <div className="mb-12 md:mb-16">

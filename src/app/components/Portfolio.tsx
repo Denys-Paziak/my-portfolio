@@ -44,14 +44,14 @@ function ProjectCard({
     return (
         <div
             ref={containerRef}
-            className="h-auto md:h-screen flex items-start justify-center relative md:sticky md:top-0 px-4 md:px-8 mb-20 md:mb-0"
+            className="h-auto md:h-screen flex items-start justify-center relative md:sticky md:top-0 px-4 md:px-8 mb-20 md:mb-0 pointer-events-none"
         >
             <motion.div
                 style={{
                     scale: isMobile ? 1 : scale,
                     top: isMobile ? 0 : `calc(12vh + ${index * 25}px)`,
                 }}
-                className="relative w-full max-w-7xl h-auto md:h-[70vh] min-h-[500px] rounded-[var(--radius-3xl)] bg-[var(--card)] border border-[var(--glass-border)] overflow-hidden shadow-2xl origin-top flex flex-col-reverse md:flex-row will-change-transform backface-hidden"
+                className="pointer-events-auto relative w-full max-w-7xl h-auto md:h-[70vh] min-h-[500px] rounded-[var(--radius-3xl)] bg-[var(--card)] border border-[var(--glass-border)] overflow-hidden shadow-2xl origin-top flex flex-col-reverse md:flex-row will-change-transform backface-hidden"
             >
                 {/* Left: Content Section (Bottom on mobile) */}
                 <div className="w-full md:w-1/2 h-auto md:h-full flex-1 p-6 md:p-12 flex flex-col justify-start md:border-r border-white/5 relative z-10 bg-[var(--card)]">

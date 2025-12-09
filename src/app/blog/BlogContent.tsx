@@ -134,7 +134,7 @@ export default function BlogContent() {
                                         key={i}
                                         onClick={() => handlePageChange(i + 1)}
                                         className={cn(
-                                            "w-10 h-10 rounded-full flex items-center justify-center text-sm font-mono transition-all duration-300 border border-transparent",
+                                            "w-12 h-12 rounded-full flex items-center justify-center text-sm font-mono transition-all duration-300 border border-transparent",
                                             currentPage === i + 1
                                                 ? "bg-white text-black font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)]"
                                                 : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white hover:border-white/10"

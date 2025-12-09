@@ -101,9 +101,7 @@ export function Hero() {
                         className="mt-8 max-w-2xl mx-auto"
                     >
                         <Text size="lg" className="text-zinc-400 leading-relaxed font-normal">
-                            I build{" "}
-                            <span className="text-zinc-200 font-medium">digital fortresses</span>{" "}
-                            that are scalable, efficient, and secure.
+                            I help <span className="text-zinc-200 font-medium">startups and tech companies</span> build robust backend systems that handle millions of users. From API architecture to cloud infrastructure—delivering solutions that scale with your business growth.
                         </Text>
                     </motion.div>
 

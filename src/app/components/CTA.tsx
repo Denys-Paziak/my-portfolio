@@ -22,7 +22,7 @@ export function CTA() {
     return (
         <section
             id="contact"
-            className="relative w-full py-24 md:py-32 overflow-hidden bg-background border-t border-[var(--glass-border)]"
+            className="relative w-full py-16 md:py-20 overflow-hidden bg-background border-t border-[var(--glass-border)]"
         >
             {/* Background Elements */}
             <div
@@ -40,7 +40,7 @@ export function CTA() {
                     {/* Left: Form & Heading */}
                     <div className="space-y-6">
                         <div>
-                            <Heading level={1} className="mb-4">
+                            <Heading level={2} className="mb-4">
                                 Let&apos;s Work <br />
                                 <span className="text-accent">Together.</span>
                             </Heading>

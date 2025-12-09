@@ -28,7 +28,7 @@ export function Blog() {
         <section
             ref={containerRef}
             onMouseMove={handleMouseMove}
-            className="relative py-20 md:py-32 w-full bg-background overflow-hidden"
+            className="relative py-16 md:py-20 w-full bg-background overflow-hidden"
         >
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Header */}

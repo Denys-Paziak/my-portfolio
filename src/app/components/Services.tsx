@@ -29,6 +29,7 @@ function ServiceGraphic({
     isHovered,
 }: {
     id: string;
+    title: string;
     color: string;
     isHovered: boolean;
 }) {
@@ -81,11 +82,10 @@ function ServiceGraphic({
                         </div>
                     </div>
                 ) : (
-                    // Standard Image Pipeline
                     <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_40%,transparent_100%)]">
                         <Image
                             src={serviceImages[id]}
-                            alt=""
+                            alt={`${title} - Backend development service illustration`}
                             fill
                             className={cn(
                                 "object-cover object-center opacity-80 grayscale transition-all duration-700",
@@ -138,7 +138,7 @@ function ServiceCard({ service }: { service: (typeof services)[0] }) {
                 />
 
                 {/* Graphic anchored to top */}
-                <ServiceGraphic id={service.id} color={service.color} isHovered={isHovered} />
+                <ServiceGraphic id={service.id} title={service.title} color={service.color} isHovered={isHovered} />
 
                 <div className="flex h-full flex-col p-8 md:p-10 relative z-20">
                     {/* Arrow icon only - appears on hover */}
@@ -173,7 +173,7 @@ function ServiceCard({ service }: { service: (typeof services)[0] }) {
 
 export function Services() {
     return (
-        <section className="relative w-full bg-background py-24 md:py-32 z-10">
+        <section className="relative w-full bg-background py-16 md:py-20 z-10">
             <div className="max-w-[1400px] mx-auto px-6 relative z-10">
                 <div className="mb-20">
                     <SectionHeader
