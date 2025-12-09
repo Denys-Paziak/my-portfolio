@@ -25,6 +25,7 @@ const serviceImages: Record<string, string> = {
 
 function ServiceGraphic({
     id,
+    title,
     color,
     isHovered,
 }: {
