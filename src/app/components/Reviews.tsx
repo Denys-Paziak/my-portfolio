@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
+import { Card } from "./ui/Card";
 import { SectionHeader } from "./ui/SectionHeader";
 import { Text } from "./ui/Text";
 
@@ -13,7 +14,7 @@ const reviews = [
         text: "We came with a raw prototype. In 2 months we received a stable production build without downtime. The API architecture is solid and scales perfectly.",
         author: "Andriy K.",
         role: "CEO, NovaPay",
-        accent: "border-l-purple-500 shadow-purple-500/10",
+        accent: "border-l-purple-500",
         rotate: "-1deg",
     },
     {
@@ -21,7 +22,7 @@ const reviews = [
         text: "The 3D optimization is incredible. We thought WebGL would lag on mobile, but the implementation is buttery smooth. A true engineering approach to visuals.",
         author: "Olena M.",
         role: "Product Owner, Carpathians 360",
-        accent: "border-l-emerald-500 shadow-emerald-500/10",
+        accent: "border-l-emerald-500",
         rotate: "1.5deg",
     },
     {
@@ -29,7 +30,7 @@ const reviews = [
         text: "Complex data visualization made simple. The real-time WebSocket updates are instant, and the dashboard load time is under 400ms. Highly recommended.",
         author: "Maksym R.",
         role: "CTO, EcoPulse",
-        accent: "border-l-orange-500 shadow-orange-500/10",
+        accent: "border-l-orange-500",
         rotate: "-2deg",
     },
     {
@@ -37,7 +38,7 @@ const reviews = [
         text: "Finally, a developer who understands business logic. The backend code is clean, documented, and easy for our team to maintain. A pleasure to work with.",
         author: "Sarah L.",
         role: "Founder, DevTools",
-        accent: "border-l-blue-500 shadow-blue-500/10",
+        accent: "border-l-blue-500",
         rotate: "1deg",
     },
     {
@@ -45,7 +46,7 @@ const reviews = [
         text: "The migration from legacy monolith to microservices was seamless. No data loss, zero downtime, and performance improved by 300%.",
         author: "Viktor P.",
         role: "VP Engineering, TechCorp",
-        accent: "border-l-pink-500 shadow-pink-500/10",
+        accent: "border-l-pink-500",
         rotate: "-1.5deg",
     },
     {
@@ -53,14 +54,16 @@ const reviews = [
         text: "Exceptional attention to detail. The UI animations are subtle yet impactful, creating a truly premium feel for our SaaS platform.",
         author: "Iryna S.",
         role: "Design Lead, CreativeStudio",
-        accent: "border-l-yellow-500 shadow-yellow-500/10",
+        accent: "border-l-yellow-500",
         rotate: "2deg",
     },
 ];
 
+const MotionCard = motion(Card);
+
 function ReviewCard({ review, index }: { review: (typeof reviews)[0]; index: number }) {
     return (
-        <motion.div
+        <MotionCard
             initial={{ opacity: 0, y: 20, rotate: 0 }}
             whileInView={{
                 opacity: 1,
@@ -75,7 +78,7 @@ function ReviewCard({ review, index }: { review: (typeof reviews)[0]; index: num
                 transition: { duration: 0.3 },
             }}
             className={cn(
-                "group relative w-full p-8 rounded-2xl flex flex-col justify-between h-full min-h-[300px] bg-[var(--glass-bg)] backdrop-blur-md border border-[var(--glass-border)] shadow-xl overflow-hidden",
+                "group w-full p-8 flex flex-col justify-between h-full min-h-[300px]",
                 review.accent
             )}
         >
@@ -108,13 +111,14 @@ function ReviewCard({ review, index }: { review: (typeof reviews)[0]; index: num
                     </Text>
                 </div>
             </div>
-        </motion.div>
+
+        </MotionCard>
     );
 }
 
 export function Reviews() {
     return (
-        <section className="relative bg-background w-full py-20 md:py-32 overflow-hidden">
+        <section className="relative bg-background w-full py-24 md:py-32 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="mb-12 md:mb-16 w-full">
                     <SectionHeader

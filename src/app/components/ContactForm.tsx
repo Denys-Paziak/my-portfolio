@@ -1,5 +1,4 @@
 "use client";
-/* eslint-disable react/jsx-curly-brace-presence */
 
 import { ArrowRight } from "lucide-react";
 import { FormEvent, useState } from "react";
@@ -56,15 +55,15 @@ export function ContactForm() {
     }
 
     return (
-        <div className="relative bg-[var(--card)] border border-[var(--glass-border)] p-8 md:p-10 shadow-2xl rounded-[var(--radius-3xl)]">
+        <div className="relative bg-[var(--card)] border border-[var(--glass-border)] p-6 md:p-8 shadow-2xl rounded-[var(--radius-3xl)]">
             <form className="space-y-6" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2 group">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
                         <label
                             htmlFor="name"
-                            className="text-xs font-mono text-muted-foreground uppercase tracking-widest group-focus-within:text-accent transition-colors"
+                            className="text-sm font-medium text-white/60 ml-1 mb-1 block"
                         >
-                            {"//"} Name
+                            Name
                         </label>
                         <Input
                             id="name"
@@ -72,14 +71,15 @@ export function ContactForm() {
                             placeholder="John Doe"
                             required
                             disabled={isSubmitting}
+                            className="h-11"
                         />
                     </div>
-                    <div className="space-y-2 group">
+                    <div className="space-y-1.5">
                         <label
                             htmlFor="email"
-                            className="text-xs font-mono text-muted-foreground uppercase tracking-widest group-focus-within:text-accent transition-colors"
+                            className="text-sm font-medium text-white/60 ml-1 mb-1 block"
                         >
-                            {"//"} Email
+                            Email
                         </label>
                         <Input
                             id="email"
@@ -88,22 +88,23 @@ export function ContactForm() {
                             placeholder="john@example.com"
                             required
                             disabled={isSubmitting}
+                            className="h-11"
                         />
                     </div>
                 </div>
 
-                <div className="space-y-2 group">
+                <div className="space-y-1.5">
                     <label
                         htmlFor="message"
-                        className="text-xs font-mono text-muted-foreground uppercase tracking-widest group-focus-within:text-accent transition-colors"
+                        className="text-sm font-medium text-white/60 ml-1 mb-1 block"
                     >
-                        {"//"} Message
+                        Message
                     </label>
                     <Textarea
                         id="message"
                         name="message"
                         placeholder="Tell me about your project..."
-                        className="min-h-[120px]"
+                        className="min-h-[100px]"
                         required
                         disabled={isSubmitting}
                     />

@@ -1,127 +1,75 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
 
 import { Button } from "./ui/Button";
 import { Container } from "./ui/Container";
 import { Text } from "./ui/Text";
 
-// Grid Cell Component for performance
-const GridCell = ({
-    active,
-    type,
-}: {
-    active: boolean;
-    type?: "square" | "plus" | "corner" | "filled";
-}) => {
-    return (
-        <div className="relative w-full h-full border-[0.5px] border-white/[0.1] flex items-center justify-center">
-            {active ? (
-                <div className="w-full h-full">
-                    {type === "filled" && <div className="w-full h-full bg-white/[0.07]" />}
-                    {type === "square" && (
-                        <div className="w-full h-full bg-white/[0.1] border border-white/[0.2]" />
-                    )}
-                    {type === "plus" && (
-                        <div className="flex items-center justify-center w-full h-full">
-                            <div className="text-white/[0.4] text-xs font-mono">+</div>
-                        </div>
-                    )}
-                    {type === "corner" && (
-                        <div className="absolute top-1 right-1 w-2 h-2 border-t border-r border-white/[0.4]" />
-                    )}
-                </div>
-            ) : null}
-        </div>
-    );
-};
-
-interface Cell {
-    id: number;
-    active: boolean;
-    type: "square" | "plus" | "corner" | "filled";
-}
-
 export function Hero() {
-    const containerRef = useRef<HTMLElement>(null);
-    const [cells, setCells] = useState<Cell[]>([]);
-
-    // Generate Grid - оптимізовано для мобілок
-    useEffect(() => {
-        const generateGrid = () => {
-            const isMobile = window.innerWidth < 768;
-            const cellSize = isMobile ? 80 : 60; // Більші клітинки на мобілках
-            const maxCells = isMobile ? 200 : 1000; // Обмеження кількості клітинок
-
-            const cols = Math.ceil(window.innerWidth / cellSize);
-            const rows = Math.ceil(window.innerHeight / cellSize);
-            const totalCells = Math.min(cols * rows, maxCells);
-            const newCells = [];
-
-            for (let i = 0; i < totalCells; i++) {
-                const isActive = Math.random() < (isMobile ? 0.04 : 0.06); // Менше активних на мобілках
-                const typeRandom = Math.random();
-                let type: "square" | "plus" | "corner" | "filled" = "filled";
-
-                if (typeRandom < 0.5) type = "filled";
-                else if (typeRandom < 0.75) type = "plus";
-                else if (typeRandom < 0.9) type = "square";
-                else type = "corner";
-
-                newCells.push({
-                    id: i,
-                    active: isActive,
-                    type: type,
-                });
-            }
-            setCells(newCells);
-        };
-
-        generateGrid();
-
-        // Debounce resize для оптимізації
-        let resizeTimeout: NodeJS.Timeout;
-        const handleResize = () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(generateGrid, 250);
-        };
-
-        window.addEventListener("resize", handleResize);
-        return () => {
-            window.removeEventListener("resize", handleResize);
-            clearTimeout(resizeTimeout);
-        };
-    }, []);
+    const shouldReduceMotion = useReducedMotion();
 
     return (
         <section
-            ref={containerRef}
+            id="hero"
             className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden bg-background"
         >
-            {/* --- Interactive Grid Background --- */}
-            <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden opacity-100 pointer-events-none">
+            {/* --- Optimized Grid Background (Static & Subtle) --- */}
+            <div
+                className="absolute inset-0 z-0 pointer-events-none"
+                style={{
+                    backgroundImage: `
+                        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px)
+                    `,
+                    backgroundSize: "60px 60px",
+                    maskImage: "radial-gradient(circle at center, black 40%, transparent 85%)",
+                    WebkitMaskImage:
+                        "radial-gradient(circle at center, black 40%, transparent 85%)",
+                }}
+            />
+
+            {/* --- Static Grid Accents --- */}
+            <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
+                {/* 1. Top Left Area - Always visible */}
                 <div
-                    className="grid w-full h-full"
-                    style={{
-                        gridTemplateColumns: "repeat(auto-fill, minmax(60px, 1fr))",
-                        gridAutoRows: "60px",
-                        justifyContent: "center",
-                        maskImage: "radial-gradient(circle at center, black, transparent 90%)",
-                        WebkitMaskImage:
-                            "radial-gradient(circle at center, black, transparent 90%)",
-                    }}
-                >
-                    {cells.map((cell) => (
-                        <GridCell key={cell.id} active={cell.active} type={cell.type} />
-                    ))}
-                </div>
+                    className="absolute w-[60px] h-[60px] bg-[#1c1c1c] border border-white/[0.08]"
+                    style={{ left: '60px', top: '180px' }}
+                />
+
+                {/* 2. Center-Left - Visible on larger mobile */}
+                <div
+                    className="absolute w-[60px] h-[60px] bg-[#222] border border-white/[0.1]"
+                    style={{ left: '240px', top: '360px' }}
+                />
+
+                {/* 3. Lower Left */}
+                <div
+                    className="absolute w-[60px] h-[60px] bg-[#1a1a1a] border border-white/[0.05]"
+                    style={{ left: '120px', top: '540px' }}
+                />
+
+                {/* 4. Desktop Right (Hidden on mobile) */}
+                <div
+                    className="absolute w-[60px] h-[60px] bg-[#1c1c1c] border border-white/[0.1] hidden md:block"
+                    style={{ left: '780px', top: '120px' }}
+                />
+
+                {/* 5. Desktop Far Right */}
+                <div
+                    className="absolute w-[60px] h-[60px] bg-[#181818] border border-white/[0.05] hidden lg:block"
+                    style={{ left: '1020px', top: '420px' }}
+                />
+
+                {/* Plus Signs (Aligned to intersection points) */}
+                <div className="absolute text-white/20 text-xs font-mono" style={{ left: '300px', top: '240px' }}>+</div>
+                <div className="absolute text-white/20 text-xs font-mono hidden md:block" style={{ left: '840px', top: '540px' }}>+</div>
             </div>
 
             {/* --- Film Grain Overlay --- */}
             <div
-                className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none mix-blend-overlay"
+                className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none mix-blend-overlay"
                 style={{ backgroundImage: "url('/noise.png')" }}
             />
 
@@ -133,10 +81,10 @@ export function Hero() {
                     {/* --- Headline --- */}
                     <div className="relative z-20">
                         <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-white"
+                            className="text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-white px-4 md:px-0 leading-[1.1] tracking-tight"
                         >
                             I&apos;m a Backend Engineer
                             <br />
@@ -147,9 +95,9 @@ export function Hero() {
 
                     {/* --- Subtext --- */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
                         className="mt-8 max-w-2xl mx-auto"
                     >
                         <Text size="lg" className="text-zinc-400 leading-relaxed font-normal">
@@ -161,7 +109,7 @@ export function Hero() {
 
                     {/* --- CTA Buttons --- */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                         className="mt-10 flex flex-wrap items-center justify-center gap-4"

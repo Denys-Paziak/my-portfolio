@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, ArrowUp, Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { Button } from "./ui/Button";
 import { Container } from "./ui/Container";
@@ -33,75 +33,75 @@ export function Footer() {
             <div className="absolute top-0 right-0 w-16 h-16 border-t border-r border-white/20" />
 
             <Container className="relative z-10">
-                <Stack gap={20}>
-                    {/* Top Section: Main CTA */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end">
-                        <Stack gap={6}>
-                            <div className="flex items-center gap-3">
-                                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_#22c55e]" />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-24 mb-24">
+                    {/* Newsletter / CTA */}
+                    <div className="col-span-1 lg:col-span-5 flex flex-col justify-between text-center md:text-left">
+                        <div>
+                            <div className="flex items-center justify-center md:justify-start gap-2 mb-6">
+                                <span className="relative flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                                </span>
                                 <Text
-                                    variant="mono"
                                     size="xs"
-                                    className="text-green-500 uppercase tracking-widest"
+                                    variant="mono"
+                                    className="text-emerald-500 font-medium"
                                 >
-                                    System Ready
+                                    SYSTEM ONLINE
                                 </Text>
                             </div>
-                            <Heading
-                                level={1}
-                                className="text-[12vw] leading-[0.8] tracking-tighter text-foreground select-none"
-                            >
-                                CONNECT
-                            </Heading>
-                        </Stack>
 
-                        <Stack gap={6} className="w-full max-w-md">
-                            <Text size="lg" variant="muted">
-                                Let&apos;s build something extraordinary together.
-                            </Text>
-                            <form className="flex gap-0" onSubmit={(e) => e.preventDefault()}>
-                                <Input
-                                    placeholder="Enter email address"
-                                    className="bg-white/5 border-[var(--glass-border)] focus:border-white/30 text-foreground placeholder:text-muted-foreground rounded-r-none border-r-0"
-                                />
-                                <Button variant="primary" className="shrink-0 rounded-l-none">
-                                    Send Signal
-                                    <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
-                                </Button>
-                            </form>
-                        </Stack>
+                            <Heading
+                                level={2}
+                                className="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-6"
+                            >
+                                Let&apos;s Connect
+                            </Heading>
+
+                            <div className="max-w-md mx-auto md:mx-0">
+                                <Text size="lg" className="text-white/60 mb-8 leading-relaxed">
+                                    Join the newsletter for insights on engineering and design.
+                                </Text>
+
+                                <form
+                                    className="relative flex items-center"
+                                    onSubmit={(e) => e.preventDefault()}
+                                >
+                                    <Input
+                                        type="email"
+                                        placeholder="Enter your email"
+                                        className="pr-12 bg-white/5 border-white/10 hover:border-white/20 focus:border-white/30 rounded-xl h-12 w-full transition-all duration-300"
+                                    />
+                                    <Button
+                                        size="icon"
+                                        variant="ghost"
+                                        className="absolute right-1 w-10 h-10 rounded-lg hover:bg-white/10 text-white"
+                                        aria-label="Subscribe"
+                                    >
+                                        <ArrowRight className="w-4 h-4" />
+                                    </Button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
 
-                    <Separator />
-
-                    {/* Middle Section: Links */}
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-                        <Stack gap={6}>
-                            <div className="w-10 h-10 bg-foreground rounded-full flex items-center justify-center">
-                                <Text as="span" className="font-bold text-background text-xl">
-                                    D
-                                </Text>
-                            </div>
-                            <Text size="sm" variant="muted" className="max-w-[200px]">
-                                Engineering digital experiences with precision and passion.
-                            </Text>
-                        </Stack>
-
+                    {/* Navigation Links */}
+                    <div className="col-span-1 lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-12 pl-0 lg:pl-12 text-center md:text-left">
                         {/* Navigation */}
-                        <Stack gap={6}>
+                        <Stack gap={4}>
                             <Text
                                 variant="mono"
                                 size="xs"
-                                className="uppercase tracking-widest font-medium"
+                                className="uppercase tracking-widest text-white/30 mb-2"
                             >
-                                /Navigation
+                                Navigation
                             </Text>
-                            <ul className="space-y-2">
+                            <ul className="space-y-1 flex flex-col items-center md:items-start">
                                 {[
+                                    { label: "Work", href: "/portfolio" },
                                     { label: "Services", href: "/services" },
-                                    { label: "Portfolio", href: "/portfolio" },
-                                    { label: "Blog", href: "/blog" },
                                     { label: "About", href: "/about" },
+                                    { label: "Blog", href: "/blog" },
                                     { label: "Contact", href: "/contact" },
                                 ].map((item) => (
                                     <li key={item.label}>
@@ -109,7 +109,7 @@ export function Footer() {
                                             variant="ghost"
                                             size="md"
                                             href={item.href}
-                                            className="justify-start px-0 hover:bg-transparent hover:text-foreground text-muted-foreground"
+                                            className="justify-center md:justify-start px-0 h-auto hover:bg-transparent hover:text-white text-white/60 font-normal text-sm"
                                         >
                                             {item.label}
                                         </Button>
@@ -119,15 +119,15 @@ export function Footer() {
                         </Stack>
 
                         {/* Socials */}
-                        <Stack gap={6}>
+                        <Stack gap={4}>
                             <Text
                                 variant="mono"
                                 size="xs"
-                                className="uppercase tracking-widest font-medium"
+                                className="uppercase tracking-widest text-white/30 mb-2"
                             >
-                                /Connect
+                                Connect
                             </Text>
-                            <ul className="space-y-2">
+                            <ul className="space-y-1 flex flex-col items-center md:items-start">
                                 <li>
                                     <Button
                                         variant="ghost"
@@ -135,9 +135,8 @@ export function Footer() {
                                         href="https://github.com"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="justify-start px-0 hover:bg-transparent hover:text-foreground text-muted-foreground"
+                                        className="justify-center md:justify-start px-0 h-auto hover:bg-transparent hover:text-white text-white/60 font-normal text-sm"
                                     >
-                                        <Github className="w-4 h-4 mr-2" aria-hidden="true" />
                                         GitHub
                                     </Button>
                                 </li>
@@ -148,9 +147,8 @@ export function Footer() {
                                         href="https://twitter.com"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="justify-start px-0 hover:bg-transparent hover:text-foreground text-muted-foreground"
+                                        className="justify-center md:justify-start px-0 h-auto hover:bg-transparent hover:text-white text-white/60 font-normal text-sm"
                                     >
-                                        <Twitter className="w-4 h-4 mr-2" aria-hidden="true" />
                                         Twitter
                                     </Button>
                                 </li>
@@ -161,9 +159,8 @@ export function Footer() {
                                         href="https://linkedin.com"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="justify-start px-0 hover:bg-transparent hover:text-foreground text-muted-foreground"
+                                        className="justify-center md:justify-start px-0 h-auto hover:bg-transparent hover:text-white text-white/60 font-normal text-sm"
                                     >
-                                        <Linkedin className="w-4 h-4 mr-2" aria-hidden="true" />
                                         LinkedIn
                                     </Button>
                                 </li>
@@ -172,9 +169,8 @@ export function Footer() {
                                         variant="ghost"
                                         size="md"
                                         href="mailto:hello@example.com"
-                                        className="justify-start px-0 hover:bg-transparent hover:text-foreground text-muted-foreground"
+                                        className="justify-center md:justify-start px-0 h-auto hover:bg-transparent hover:text-white text-white/60 font-normal text-sm"
                                     >
-                                        <Mail className="w-4 h-4 mr-2" aria-hidden="true" />
                                         Email
                                     </Button>
                                 </li>
@@ -182,21 +178,21 @@ export function Footer() {
                         </Stack>
 
                         {/* Legal */}
-                        <Stack gap={6}>
+                        <Stack gap={4}>
                             <Text
                                 variant="mono"
                                 size="xs"
-                                className="uppercase tracking-widest font-medium"
+                                className="uppercase tracking-widest text-white/30 mb-2"
                             >
-                                /Legal
+                                Legal
                             </Text>
-                            <ul className="space-y-2">
+                            <ul className="space-y-1 flex flex-col items-center md:items-start">
                                 <li>
                                     <Button
                                         variant="ghost"
                                         size="md"
                                         href="/privacy"
-                                        className="justify-start px-0 hover:bg-transparent hover:text-foreground text-muted-foreground"
+                                        className="justify-center md:justify-start px-0 h-auto hover:bg-transparent hover:text-white text-white/60 font-normal text-sm"
                                     >
                                         Privacy Policy
                                     </Button>
@@ -206,7 +202,7 @@ export function Footer() {
                                         variant="ghost"
                                         size="md"
                                         href="/terms"
-                                        className="justify-start px-0 hover:bg-transparent hover:text-foreground text-muted-foreground"
+                                        className="justify-center md:justify-start px-0 h-auto hover:bg-transparent hover:text-white text-white/60 font-normal text-sm"
                                     >
                                         Terms of Service
                                     </Button>
@@ -214,35 +210,45 @@ export function Footer() {
                             </ul>
                         </Stack>
                     </div>
+                </div>
 
-                    <Separator />
+                <Separator className="bg-white/10 mb-8 md:mb-12" />
 
-                    {/* Bottom Section */}
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                        <Text size="sm" variant="muted">
-                            © {new Date().getFullYear()} Denis Pazak. All rights reserved.
-                        </Text>
-
-                        <div className="flex items-center gap-6">
-                            <div className="flex items-center gap-2">
-                                <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-                                <Text variant="mono" size="xs" className="text-accent">
-                                    v2.4.0
-                                </Text>
+                {/* Bottom Bar */}
+                <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-6 md:gap-0">
+                    <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+                        <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-black font-bold text-xs">
+                                DP
                             </div>
-                            <Button
-                                variant="secondary"
-                                size="sm"
-                                onClick={scrollToTop}
-                                className="rounded-full"
-                                aria-label="Return to top"
-                            >
-                                <ArrowUp className="w-4 h-4 mr-2" aria-hidden="true" />
-                                Return to Top
-                            </Button>
+                            <Text size="sm" className="text-white/40">
+                                Engineering digital experiences
+                            </Text>
                         </div>
+                        <div className="hidden md:block w-1 h-1 rounded-full bg-white/20" />
+                        <Text size="sm" className="text-white/40">
+                            © {new Date().getFullYear()} Denis Paziak
+                        </Text>
                     </div>
-                </Stack>
+
+                    <div className="flex items-center gap-6">
+                        <div className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            <Text size="xs" variant="mono" className="text-white/30">
+                                v2.0.1
+                            </Text>
+                        </div>
+                        <Button
+                            variant="secondary"
+                            size="sm"
+                            onClick={scrollToTop}
+                            className="rounded-full h-8 border-white/10 hover:bg-white/10 hover:border-white/20 text-xs"
+                            aria-label="Back to top"
+                        >
+                            Back to Top
+                        </Button>
+                    </div>
+                </div>
             </Container>
         </footer>
     );

@@ -127,7 +127,7 @@ function ServiceCard({ service }: { service: (typeof services)[0] }) {
                 onMouseMove={handleMouseMove}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                className="relative h-full min-h-[500px] overflow-hidden rounded-[20px] border border-white/[0.08] bg-background/50 backdrop-blur-sm transition-all duration-500 hover:border-white/[0.15]"
+                className="relative h-full min-h-[450px] md:min-h-[500px] overflow-hidden rounded-[20px] border border-white/[0.08] bg-background/50 backdrop-blur-sm transition-all duration-500 hover:border-white/[0.15]"
             >
                 {/* Spotlight Gradient */}
                 <motion.div

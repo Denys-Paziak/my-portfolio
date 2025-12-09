@@ -33,7 +33,6 @@ export function TechStackGraphic({
                     index={0}
                     isHovered={isHovered}
                     icon={<Layout className="h-10 w-10 text-pink-500" />}
-                    label="UI / UX"
                 />
 
                 {/* Layer 3: Purple (Server) */}
@@ -42,7 +41,6 @@ export function TechStackGraphic({
                     index={1}
                     isHovered={isHovered}
                     icon={<Cloud className="h-10 w-10 text-purple-500" />}
-                    label="Server"
                 />
 
                 {/* Layer 2: Green (Network) */}
@@ -51,7 +49,6 @@ export function TechStackGraphic({
                     index={2}
                     isHovered={isHovered}
                     icon={<Share2 className="h-10 w-10 text-emerald-500" />}
-                    label="Network"
                 />
 
                 {/* Layer 1: Blue (Top - Code) */}
@@ -60,7 +57,6 @@ export function TechStackGraphic({
                     index={3}
                     isHovered={isHovered}
                     icon={<Code2 className="h-10 w-10 text-blue-500" />}
-                    label="Logic"
                     isTop
                 >
                     <div className="absolute right-4 top-4 rounded-full border border-blue-500/30 bg-blue-500/10 p-1.5">
@@ -87,7 +83,6 @@ function GlassLayer({
     index,
     isHovered,
     icon,
-    label,
     isTop,
     children,
 }: {
@@ -95,7 +90,6 @@ function GlassLayer({
     index: number;
     isHovered: boolean;
     icon: React.ReactNode;
-    label: string;
     isTop?: boolean;
     children?: React.ReactNode;
 }) {

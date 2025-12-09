@@ -11,7 +11,6 @@ function OrbitPath({
     delay,
     rotateX,
     rotateY,
-    color,
     isHovered,
 }: {
     radius: number;
@@ -19,7 +18,6 @@ function OrbitPath({
     delay: number;
     rotateX: number;
     rotateY: number;
-    color: string;
     isHovered: boolean;
 }) {
     return (
@@ -134,7 +132,6 @@ export function AIGraphic({ isHovered }: { isHovered: boolean }) {
                     delay={0}
                     rotateX={70}
                     rotateY={0}
-                    color="bg-blue-400"
                     isHovered={isHovered}
                 />
                 <OrbitPath
@@ -143,7 +140,6 @@ export function AIGraphic({ isHovered }: { isHovered: boolean }) {
                     delay={1}
                     rotateX={70}
                     rotateY={45}
-                    color="bg-purple-400"
                     isHovered={isHovered}
                 />
                 <OrbitPath
@@ -152,7 +148,6 @@ export function AIGraphic({ isHovered }: { isHovered: boolean }) {
                     delay={2}
                     rotateX={70}
                     rotateY={-45}
-                    color="bg-cyan-400"
                     isHovered={isHovered}
                 />
             </div>

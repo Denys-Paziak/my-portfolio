@@ -1,75 +1,29 @@
-import Image from "next/image";
+import { forwardRef, HTMLAttributes } from "react";
 
 import { cn } from "@/lib/utils";
 
-import { Heading } from "./Heading";
-import { Text } from "./Text";
-
-export function Card({ children, className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-    return (
-        <div
-            className={cn(
-                "group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-card transition-all duration-300",
-                "hover:-translate-y-1 hover:border-accent/20 hover:shadow-2xl hover:shadow-accent/5",
-                className
-            )}
-            {...props}
-        >
-            {/* Top highlight border on hover */}
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            {children}
-        </div>
-    );
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
+    variant?: "default" | "glass" | "outline";
 }
 
-export function CardHeader({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-    return <div className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />;
-}
-
-export function CardTitle({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
-    return (
-        <Heading
-            level={3}
-            className={cn("text-2xl font-semibold leading-none tracking-tight", className)}
-            {...props}
-        />
-    );
-}
-
-export function CardDescription({
-    className,
-    ...props
-}: React.HTMLAttributes<HTMLParagraphElement>) {
-    return <Text className={cn("text-sm text-muted-foreground", className)} {...props} />;
-}
-
-export function CardContent({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-    return <div className={cn("p-6 pt-0", className)} {...props} />;
-}
-
-export function CardFooter({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-    return <div className={cn("flex items-center p-6 pt-0", className)} {...props} />;
-}
-
-export function CardImage({
-    src,
-    alt,
-    className,
-    ...props
-}: React.ImgHTMLAttributes<HTMLImageElement>) {
-    const { width: _width, height: _height, ...rest } = props;
-    return (
-        <div className="relative w-full aspect-video overflow-hidden bg-muted">
-            <Image
-                src={(src as string) || ""}
-                alt={alt || ""}
-                fill
+export const Card = forwardRef<HTMLDivElement, CardProps>(
+    ({ className, variant = "glass", children, ...props }, ref) => {
+        return (
+            <div
+                ref={ref}
                 className={cn(
-                    "object-cover w-full h-full transition-transform duration-500 group-hover:scale-105",
+                    "relative overflow-hidden rounded-[var(--radius-3xl)] transition-all",
+                    variant === "glass" &&
+                        "bg-[var(--glass-bg)] backdrop-blur-md border border-[var(--glass-border)]",
+                    variant === "outline" && "border border-white/10 bg-transparent",
+                    variant === "default" && "bg-card text-card-foreground border",
                     className
                 )}
-                {...rest}
-            />
-        </div>
-    );
-}
+                {...props}
+            >
+                {children}
+            </div>
+        );
+    }
+);
+Card.displayName = "Card";

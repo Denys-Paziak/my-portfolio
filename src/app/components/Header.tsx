@@ -66,28 +66,29 @@ export function Header() {
                 <AnimatePresence>
                     {isMobileMenuOpen ? (
                         <motion.div
-                            initial={{ opacity: 0, y: -20 }}
+                            initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-24 px-6 md:hidden flex flex-col"
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute top-full left-0 w-full h-[calc(100vh-4rem)] z-40 bg-black/95 backdrop-blur-2xl px-6 flex flex-col items-center justify-center md:hidden border-t border-white/10"
                         >
-                            <nav className="flex flex-col gap-6">
+                            <nav className="flex flex-col gap-8 text-center">
                                 {navItems.map((item) => (
                                     <Link
                                         key={item.label}
                                         href={item.href}
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className="text-2xl font-medium text-foreground hover:text-accent transition-colors"
+                                        className="text-3xl font-medium text-foreground hover:text-accent transition-colors tracking-tight"
                                     >
                                         {item.label}
                                     </Link>
                                 ))}
-                                <div className="h-px w-full bg-white/10 my-4" />
+                                <div className="w-12 h-px bg-white/10 mx-auto my-4" />
                                 <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                                     <Button
                                         variant="primary"
                                         size="lg"
-                                        className="w-full justify-center"
+                                        className="w-full min-w-[200px] justify-center text-lg"
                                     >
                                         Contact Me
                                     </Button>

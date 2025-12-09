@@ -1,8 +1,22 @@
-import { Terminal } from "lucide-react";
+"use client";
+
+import dynamic from "next/dynamic";
 
 import { ContactForm } from "./ContactForm";
 import { Heading } from "./ui/Heading";
 import { Text } from "./ui/Text";
+
+const PhysicsSocialBlocks = dynamic(
+    () => import("./PhysicsSocialBlocks").then((mod) => mod.PhysicsSocialBlocks),
+    {
+        ssr: false,
+        loading: () => (
+            <div className="w-full h-full min-h-[400px] flex items-center justify-center bg-white/[0.02]">
+                <div className="w-8 h-8 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+            </div>
+        ),
+    }
+);
 
 export function CTA() {
     return (
@@ -22,11 +36,11 @@ export function CTA() {
             />
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                     {/* Left: Form & Heading */}
-                    <div className="space-y-8">
+                    <div className="space-y-6">
                         <div>
-                            <Heading level={1} className="mb-6">
+                            <Heading level={1} className="mb-4">
                                 Let&apos;s Work <br />
                                 <span className="text-accent">Together.</span>
                             </Heading>
@@ -39,23 +53,19 @@ export function CTA() {
                         <ContactForm />
                     </div>
 
-                    {/* Right: Visual Section */}
-                    <div className="relative h-[500px] md:h-[600px] w-full bg-white/[0.02] rounded-3xl border border-white/10 overflow-hidden shadow-2xl flex items-center justify-center">
-                        <div className="text-center p-8">
-                            <Terminal
-                                className="w-16 h-16 text-accent mx-auto mb-6 opacity-50"
-                                aria-hidden="true"
-                            />
-                            <Heading level={3} className="text-2xl md:text-3xl font-bold mb-4">
-                                Ready to Deploy?
-                            </Heading>
-                            <Text size="lg" variant="muted" className="max-w-xs mx-auto">
-                                Let&apos;s build something scalable and secure together.
+                    {/* Right: Interactive Social Blocks */}
+                    <div className="relative h-full min-h-[400px] w-full bg-white/[0.02] rounded-[var(--radius-3xl)] border border-white/10 overflow-hidden shadow-2xl mt-6 lg:mt-0">
+                        <PhysicsSocialBlocks />
+
+                        {/* Subtle Gradient Overlay */}
+                        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-background/20" />
+
+                        {/* Instruction Text */}
+                        <div className="absolute bottom-6 w-full text-center pointer-events-none">
+                            <Text size="xs" variant="muted" className="opacity-60">
+                                Drag the blocks!
                             </Text>
                         </div>
-
-                        {/* Subtle Gradient Overlay for depth */}
-                        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-background/40" />
                     </div>
                 </div>
             </div>

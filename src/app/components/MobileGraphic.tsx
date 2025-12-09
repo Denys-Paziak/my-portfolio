@@ -11,14 +11,12 @@ function MobileLayer({
     index,
     isHovered,
     icon,
-    label,
     isBase,
 }: {
     color: "emerald" | "teal" | "cyan";
     index: number;
     isHovered: boolean;
     icon: React.ReactNode;
-    label: string;
     isBase?: boolean;
 }) {
     // Animation Logic
@@ -98,7 +96,6 @@ export function MobileGraphic({ isHovered }: { isHovered: boolean }) {
                     index={0}
                     isHovered={isHovered}
                     icon={<Smartphone className="h-8 w-8 text-white/50" />}
-                    label="Device"
                     isBase
                 />
 
@@ -108,7 +105,6 @@ export function MobileGraphic({ isHovered }: { isHovered: boolean }) {
                     index={1}
                     isHovered={isHovered}
                     icon={<Cpu className="h-8 w-8" />}
-                    label="Core"
                 />
 
                 {/* Layer 2: UI/UX */}
@@ -117,7 +113,6 @@ export function MobileGraphic({ isHovered }: { isHovered: boolean }) {
                     index={2}
                     isHovered={isHovered}
                     icon={<Layers className="h-8 w-8" />}
-                    label="Interface"
                 />
 
                 {/* Top Layer: Interaction */}
@@ -126,7 +121,6 @@ export function MobileGraphic({ isHovered }: { isHovered: boolean }) {
                     index={3}
                     isHovered={isHovered}
                     icon={<Zap className="h-8 w-8" />}
-                    label="Active"
                 />
             </div>
         </div>
